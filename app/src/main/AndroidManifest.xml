@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateAccPage" />
-        <activity android:name=".LoginPage"></activity>
+        <activity android:name=".LoginPage"/>
+        <activity android:name=".ItemsPage" />
+        <activity android:name=".HomePage_loggedin"></activity>
     </application>
 
 </manifest>
