@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ItemsPage" />
+        <activity android:name=".HomePage_loggedin"></activity>
     </application>
 
 </manifest>
