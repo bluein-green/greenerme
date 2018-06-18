@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateAccPage" />
+        <activity android:name=".LoginPage" />
         <activity android:name=".ItemsPage" />
-        <activity android:name=".HomePage_loggedin"></activity>
+        <activity android:name=".HomePage_loggedin" />
+        <activity android:name=".ForgotAccPage"></activity>
     </application>
 
 </manifest>
