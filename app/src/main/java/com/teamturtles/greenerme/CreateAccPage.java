@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,15 +35,24 @@ public class CreateAccPage extends AppCompatActivity {
         email_signup = (EditText) findViewById(R.id.email_signup);
         signup_btn = (Button) findViewById(R.id.signup_btn);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
-
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registerUser();
+            }
+        });
+
+        TextView loginText_btn = (TextView) findViewById(R.id.loginText_btn);
+
+        loginText_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
+            @Override
+            public void onClick(View view) { // To click to the create account page
+                Intent login_intent = new Intent(CreateAccPage.this, LoginPage.class);
+                CreateAccPage.this.startActivity(login_intent);
             }
         });
     }
@@ -95,10 +105,5 @@ public class CreateAccPage extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void toSignInPage (View view) { // created & send to the sign in page
-        Intent startIntent = new Intent(getApplicationContext(), LoginPage.class);
-        startActivity(startIntent);
     }
 }
