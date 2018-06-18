@@ -13,7 +13,8 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-    }
 
-    username_login = (EditText)
+        username_login = findViewById(R.id.username_login);
+        password_login = findViewById(R.id.username_login);
+    }
 }
