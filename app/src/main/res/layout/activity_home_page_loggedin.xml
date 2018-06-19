@@ -6,4 +6,223 @@
     android:layout_height="match_parent"
     tools:context=".HomePage_loggedin">
 
+    <ImageView
+        android:id="@+id/homepage_loggedout_logo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="logo"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="120dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/euphoria_script"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/homepage_loggedout_logo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Hi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/hi_greeting"
+        android:textColor="#7CCB6F"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_loggedout_logo" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="NAME,"
+        android:textColor="#7CCB6F"
+        android:textSize="28sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Hi_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Hi_name" />
+
+    <TextView
+        android:id="@+id/welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/greeting"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+    <ImageButton
+        android:id="@+id/search_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/quiz_button"
+        app:layout_constraintEnd_toEndOf="@+id/quiz_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/quiz_button"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message"
+        app:srcCompat="@drawable/search" />
+
+    <TextView
+        android:id="@+id/find_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/find_item"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_button"
+        app:layout_constraintStart_toEndOf="@+id/barrier4"
+        app:layout_constraintTop_toTopOf="@+id/search_button"
+        app:layout_constraintVertical_bias="0.681" />
+
+    <ImageButton
+        android:id="@+id/quiz_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/points_button"
+        app:layout_constraintEnd_toEndOf="@+id/points_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/points_button"
+        app:layout_constraintTop_toBottomOf="@+id/search_button"
+        app:srcCompat="@drawable/quiz" />
+
+    <TextView
+        android:id="@+id/take_quiz_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/take_quiz"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/quiz_button"
+        app:layout_constraintStart_toStartOf="@+id/find_item_text"
+        app:layout_constraintTop_toTopOf="@+id/quiz_button"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <ImageButton
+        android:id="@+id/points_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/settings_button"
+        app:layout_constraintEnd_toEndOf="@+id/settings_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/settings_button"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_button"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/points" />
+
+    <TextView
+        android:id="@+id/check_points_text"
+        android:layout_width="158dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/check_points"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/points_button"
+        app:layout_constraintStart_toStartOf="@+id/take_quiz_text"
+        app:layout_constraintTop_toTopOf="@+id/points_button" />
+
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/points_button"
+        app:srcCompat="@drawable/settings" />
+
+    <TextView
+        android:id="@+id/view_account_text"
+        android:layout_width="168dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/view_account"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_button"
+        app:layout_constraintStart_toEndOf="@+id/barrier4"
+        app:layout_constraintStart_toStartOf="@+id/check_points_text"
+        app:layout_constraintTop_toTopOf="@+id/settings_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/about_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/about_app"
+        android:textColor="#7CCB6F"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/about_button" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="points_button,settings_button,search_button,quiz_button"
+        tools:layout_editor_absoluteX="384dp" />
+
+    <ImageButton
+        android:id="@+id/about_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/aboutappbutton" />
+
+
 </android.support.constraint.ConstraintLayout>

@@ -7,8 +7,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ItemsPage extends AppCompatActivity {
-
-    // declare database ref
     private DatabaseReference mDatabase;
 
     @Override
