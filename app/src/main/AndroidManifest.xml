@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomePage_loggedout">
+        <activity android:name=".HomePage_loggedin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,7 @@
         <activity android:name=".CreateAccPage" />
         <activity android:name=".LoginPage" />
         <activity android:name=".ItemsPage" />
-        <activity android:name=".HomePage_loggedin" />
+        <activity android:name=".HomePage_loggedout" />
         <activity android:name=".ForgotAccPage"></activity>
     </application>
 
