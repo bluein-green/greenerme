@@ -20,7 +20,12 @@
         <activity android:name=".LoginPage" />
         <activity android:name=".ItemsPage" />
         <activity android:name=".HomePage_loggedout" />
-        <activity android:name=".ForgotAccPage"></activity>
+        <activity android:name=".ForgotAccPage" />
+        <activity android:name=".FindItemsPage" />
+        <activity android:name=".TakeQuizPage" />
+        <activity android:name=".CheckPointsPage" />
+        <activity android:name=".AboutAppPage" />
+        <activity android:name=".ViewAccountPage"></activity>
     </application>
 
 </manifest>

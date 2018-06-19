@@ -83,10 +83,10 @@
         android:layout_height="56dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/quiz_button"
+        app:layout_constraintEnd_toEndOf="@+id/quiz_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/quiz_button"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message"
         app:srcCompat="@drawable/search" />
 
@@ -105,16 +105,16 @@
         app:layout_constraintVertical_bias="0.681" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/quiz_button"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/points_button"
+        app:layout_constraintEnd_toEndOf="@+id/points_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
+        app:layout_constraintStart_toStartOf="@+id/points_button"
         app:layout_constraintTop_toBottomOf="@+id/search_button"
         app:srcCompat="@drawable/quiz" />
 
@@ -126,22 +126,22 @@
         android:text="@string/take_quiz"
         android:textColor="#333333"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+        app:layout_constraintBottom_toBottomOf="@+id/quiz_button"
         app:layout_constraintStart_toStartOf="@+id/find_item_text"
-        app:layout_constraintTop_toTopOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="@+id/quiz_button"
         app:layout_constraintVertical_bias="0.59" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/points_button"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton6"
+        app:layout_constraintBottom_toTopOf="@+id/settings_button"
+        app:layout_constraintEnd_toEndOf="@+id/settings_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/settings_button"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_button"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/points" />
 
@@ -155,12 +155,12 @@
         android:text="@string/check_points"
         android:textColor="#333333"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:layout_constraintBottom_toBottomOf="@+id/points_button"
         app:layout_constraintStart_toStartOf="@+id/take_quiz_text"
-        app:layout_constraintTop_toTopOf="@+id/imageButton5" />
+        app:layout_constraintTop_toTopOf="@+id/points_button" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/settings_button"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginBottom="40dp"
@@ -172,7 +172,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/points_button"
         app:srcCompat="@drawable/settings" />
 
     <TextView
@@ -185,10 +185,10 @@
         android:text="@string/view_account"
         android:textColor="#333333"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton6"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_button"
         app:layout_constraintStart_toEndOf="@+id/barrier4"
         app:layout_constraintStart_toStartOf="@+id/check_points_text"
-        app:layout_constraintTop_toTopOf="@+id/imageButton6"
+        app:layout_constraintTop_toTopOf="@+id/settings_button"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -202,18 +202,18 @@
         android:textColor="#7CCB6F"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton" />
+        app:layout_constraintStart_toEndOf="@+id/about_button" />
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="imageButton5,imageButton6,search_button,imageButton4"
+        app:constraint_referenced_ids="points_button,settings_button,search_button,quiz_button"
         tools:layout_editor_absoluteX="384dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/about_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
