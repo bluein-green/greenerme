@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:background="#3EB489"
         android:text="next"
         android:textColor="#000000"
@@ -22,23 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotAccText_btn" />
 
-    <Button
-        android:id="@+id/forgotAccText_btn"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Forgot user name or password?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#2EB2FF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_login" />
-
     <EditText
-        android:id="@+id/username_login"
+        android:id="@+id/email_login"
         android:layout_width="213dp"
         android:layout_height="42dp"
         android:layout_marginEnd="8dp"
@@ -46,8 +31,8 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Username"
-        android:inputType="textPersonName"
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_login" />
+        app:layout_constraintTop_toBottomOf="@+id/email_login" />
 
     <TextView
         android:id="@+id/logo_name"
@@ -85,4 +70,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.297" />
+
+    <TextView
+        android:id="@+id/forgotAccText_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Forgot user name or password?"
+        android:textColor="#2EB2FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_login" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="264dp" />
+
 </android.support.constraint.ConstraintLayout>

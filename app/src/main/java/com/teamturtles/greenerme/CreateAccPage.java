@@ -14,8 +14,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateAccPage extends AppCompatActivity {
 
@@ -55,6 +59,8 @@ public class CreateAccPage extends AppCompatActivity {
                 CreateAccPage.this.startActivity(login_intent);
             }
         });
+
+
     }
 
     private void registerUser() {
@@ -64,7 +70,7 @@ public class CreateAccPage extends AppCompatActivity {
 
         if (username.isEmpty() || password.isEmpty() || password.length() < 6 || email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             if (username.isEmpty()) {
-                username_signup.setError("Email is required");
+                username_signup.setError("Username is required");
                 username_signup.requestFocus();
             }
 
@@ -87,11 +93,11 @@ public class CreateAccPage extends AppCompatActivity {
                 email_signup.setError("Please enter a valid email");
                 email_signup.requestFocus();
             }
-
             return;
         }
 
         progressBar.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -101,9 +107,32 @@ public class CreateAccPage extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "User Registered Successful", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Some Error Occurred", Toast.LENGTH_SHORT).show();
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(getApplicationContext(),"You are already registered", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
     }
 }
+
+/* tap on image icon
+
+global variable private static final int CHOOSE_IMAGE = 101;
+
+private void showImageChooser() {
+ Intent intent = new Intent();
+ intent.setType("image/*);
+ intent.setAction(Intent.ACTION_GET_CONTENT);
+ startActivityForResult(Intent.createChooser(intent, "Select Profile Image'), CHOOSE_IMAGE"), CHOOSE_IMAGE; // constant
+
+ within OnCreate
+
+ imageView.setonClickListener(new View.onClickListener() {
+ @Override
+ public void onClickView(View view) {
+ 
+
+ */

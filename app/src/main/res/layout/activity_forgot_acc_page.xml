@@ -7,23 +7,6 @@
     tools:context=".ForgotAccPage">
 
     <Button
-        android:id="@+id/loginText_btn2"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="47dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/montserrat"
-        android:onClick="toSignInPage"
-        android:text="Ready to log in?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#2EB2FF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail_btn" />
-
-    <Button
         android:id="@+id/inputEmail_btn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="100dp"
@@ -90,4 +73,16 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Back to homepage?"
+        android:textColor="#2EB2FF"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail_btn"
+        tools:layout_editor_absoluteX="124dp" />
+
 </android.support.constraint.ConstraintLayout>
