@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">GreenerMe</string>
+
+    <!--- menu (home page, logged in) strings -->
     <string name="find_item">Find item</string>
     <string name="take_quiz">Take quiz</string>
     <string name="check_points">Check points</string>
     <string name="view_account">View account</string>
 
-    <string name="hi_greeting">"Hi "</string>
+    <string name="hi_greeting">Hi %s,</string>
     <string name="greeting">What would you like to do today?</string>
     <string name="about_app">About app</string>
+
+    <!--- about app strings -->
+    <string name="why_app">Why this app?</string>
+    <string name="why_app_desc">"This app is developed as part of NUS Orbital 2018. We noticed that blablabla this is to fill up the space woohoo"</string>
 </resources>
