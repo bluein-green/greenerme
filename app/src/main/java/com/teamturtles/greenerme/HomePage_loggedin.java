@@ -24,10 +24,18 @@ public class HomePage_loggedin extends AppCompatActivity {
     private ImageButton about_btn;
     private TextView about_txt;
 
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_loggedin);
+
+        // vary the greeting name
+        username = "Sam";
+        String greeting_result = getString(R.string.hi_greeting, username);
+        TextView textView = (TextView) findViewById(R.id.Hi_name);
+        textView.setText(greeting_result);
 
         // pop-up text
         Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
