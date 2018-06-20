@@ -25,7 +25,8 @@
         <activity android:name=".TakeQuizPage" />
         <activity android:name=".CheckPointsPage" />
         <activity android:name=".AboutAppPage" />
-        <activity android:name=".ViewAccountPage"></activity>
+        <activity android:name=".ViewAccountPage" />
+        <activity android:name=".User"></activity>
     </application>
 
 </manifest>

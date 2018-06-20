@@ -26,6 +26,9 @@ public class CreateAccPage extends AppCompatActivity {
     ProgressBar progressBar;
     EditText username_signup, password_signup, email_signup;
     Button signup_btn;
+    String username = username_signup.getText().toString().trim();
+    String password = password_signup.getText().toString().trim();
+    String email = email_signup.getText().toString().trim();
 
     private FirebaseAuth mAuth;
 
@@ -64,9 +67,6 @@ public class CreateAccPage extends AppCompatActivity {
     }
 
     private void registerUser() {
-        String username = username_signup.getText().toString().trim();
-        String password = password_signup.getText().toString().trim();
-        String email = email_signup.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty() || password.length() < 6 || email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             if (username.isEmpty()) {
@@ -105,6 +105,7 @@ public class CreateAccPage extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
 
                 if (task.isSuccessful()) {
+                    saveToFirebase();
                     Toast.makeText(getApplicationContext(), "User Registered Successful", Toast.LENGTH_SHORT).show();
                 } else {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException) {
@@ -116,23 +117,10 @@ public class CreateAccPage extends AppCompatActivity {
             }
         });
     }
+    public void saveToFirebase() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("User");
+        User userInformation = new User(username, email);
+        ref.setValue(userInformation);
+    }
 }
-
-/* tap on image icon
-
-global variable private static final int CHOOSE_IMAGE = 101;
-
-private void showImageChooser() {
- Intent intent = new Intent();
- intent.setType("image/*);
- intent.setAction(Intent.ACTION_GET_CONTENT);
- startActivityForResult(Intent.createChooser(intent, "Select Profile Image'), CHOOSE_IMAGE"), CHOOSE_IMAGE; // constant
-
- within OnCreate
-
- imageView.setonClickListener(new View.onClickListener() {
- @Override
- public void onClickView(View view) {
-
-
- */
