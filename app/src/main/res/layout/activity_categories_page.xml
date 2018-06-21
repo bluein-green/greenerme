@@ -7,12 +7,12 @@
     tools:context=".CategoriesPage">
 
     <ImageView
-        android:id="@+id/FI_findcat_mainlogo"
+        android:id="@+id/FI_item_details_mainlogo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/FI_itemcats_txt"
+        app:layout_constraintEnd_toStartOf="@+id/FI_itemc_details_txt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,18 +20,18 @@
         app:srcCompat="@drawable/search" />
 
     <TextView
-        android:id="@+id/FI_itemcats_txt"
+        android:id="@+id/FI_itemc_details_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/FI_itemcategories"
         android:textColor="#3EB489"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/FI_findcat_mainlogo"
+        app:layout_constraintBottom_toBottomOf="@+id/FI_item_details_mainlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/FI_findcat_mainlogo"
-        app:layout_constraintTop_toTopOf="@+id/FI_findcat_mainlogo" />
+        app:layout_constraintStart_toEndOf="@+id/FI_item_details_mainlogo"
+        app:layout_constraintTop_toTopOf="@+id/FI_item_details_mainlogo" />
 
     <EditText
         android:id="@+id/editText"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="@+id/editText2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/FI_findcat_mainlogo" />
+        app:layout_constraintTop_toBottomOf="@+id/FI_item_details_mainlogo" />
 
     <EditText
         android:id="@+id/editText2"

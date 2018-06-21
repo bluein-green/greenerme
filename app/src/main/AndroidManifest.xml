@@ -26,7 +26,8 @@
         <activity android:name=".CheckPointsPage" />
         <activity android:name=".AboutAppPage" />
         <activity android:name=".ViewAccountPage" />
-        <activity android:name=".CategoriesPage"></activity>
+        <activity android:name=".CategoriesPage" />
+        <activity android:name=".ItemDetailsPage"></activity>
     </application>
 
 </manifest>

@@ -21,5 +21,11 @@
 
     <string name="FI_itemcategories">Item Categories</string>
 
+    <!-- Item details strings -->
+    <string name="Det_item_details">Item Details</string>
+    <string name="Det_details_for">Details for</string>
+    <string name="Det_category">"Category: "</string>
+    <string name="Det_howtorecycle">How to recycle</string>
+
 
 </resources>
