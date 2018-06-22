@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:background="#3EB489"
-        android:onClick="toSignInPage"
+        android:onClick="resetPassword"
         android:text="Next"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -75,14 +75,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/logoutHomepageText_btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat"
         android:text="Back to homepage?"
         android:textColor="#2EB2FF"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail_btn"
-        tools:layout_editor_absoluteX="124dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail_btn" />
 
 </android.support.constraint.ConstraintLayout>

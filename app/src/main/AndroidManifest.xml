@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.teamturtles.greenerme">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomePage_loggedin">
+        <activity android:name=".HomePage_loggedout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +21,7 @@
         <activity android:name=".CreateAccPage" />
         <activity android:name=".LoginPage" />
         <activity android:name=".ItemsPage" />
-        <activity android:name=".HomePage_loggedout" />
+        <activity android:name=".HomePage_loggedin" />
         <activity android:name=".ForgotAccPage" />
         <activity android:name=".FindItemsPage" />
         <activity android:name=".TakeQuizPage" />

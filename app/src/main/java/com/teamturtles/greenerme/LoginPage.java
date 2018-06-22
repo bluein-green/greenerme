@@ -1,5 +1,6 @@
 package com.teamturtles.greenerme;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,44 +18,44 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginPage extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity implements View.OnClickListener{
 
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
-    EditText email_login, password_login;
-    Button signin_btn;
-    ProgressBar progressBar;
+    private ProgressDialog progressDialog;
+
+    private EditText email_login, password_login;
+    private Button signin_btn;
+    private TextView forgotAccText_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        mAuth. = FirebaseAuth.getInstance();
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        /*
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+        }
+        */
+
+        progressDialog = new ProgressDialog(this);
+
         email_login = findViewById(R.id.email_login);
-        password_login = findViewById(R.id.email_login);
+        password_login = findViewById(R.id.password_login);
+
         signin_btn = (Button) findViewById(R.id.signin_btn);
+        forgotAccText_btn = (TextView) findViewById(R.id.forgotAccText_btn);
 
-        TextView forgotAccText_btn = (TextView) findViewById(R.id.forgotAccText_btn);
-
-        forgotAccText_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent forgotAcc_intent = new Intent(LoginPage.this, ForgotAccPage.class);
-                LoginPage.this.startActivity(forgotAcc_intent);
-            }
-        });
-
-        signin_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                userSignin();
-            }
-        });
+        signin_btn.setOnClickListener(this);
+        forgotAccText_btn.setOnClickListener(this);
     }
 
-    private void userSignin() {
+    private void userLogin() {
 
         String email = email_login.getText().toString().trim();
         String password = password_login.getText().toString().trim();
@@ -78,21 +79,33 @@ public class LoginPage extends AppCompatActivity {
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressDialog. setMessage("Logging in User...");
+        progressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, password ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                ProgressBar.setVisibility(View.GONE);
+
+                progressDialog.dismiss();
+
                 if (task.isSuccessful()) {
-                    Intent signin_intent = new Intent(LoginPage.this, HomePage_loggedin.class);
-                    signin_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(signin_intent);
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-        })
+        });
+    }
 
+    @Override
+    public void onClick(View view) {
+        if (view == signin_btn) {
+            userLogin();
+        }
+        if (view == forgotAccText_btn) {
+            finish();
+            startActivity(new Intent(this, ForgotAccPage.class));
+        }
     }
 }

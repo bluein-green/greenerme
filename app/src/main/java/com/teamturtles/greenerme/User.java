@@ -4,13 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class User {
-    private String username;
-    private String email;
-    private int num_points;
+    public String username;
+    public String email;
+    public int num_points;
 
-    public Item(String name, String address) {
-        username = name;
-        email = address;
+    public User() {
+
+    }
+
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
         num_points = 0;
     }
 
