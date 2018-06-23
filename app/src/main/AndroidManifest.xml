@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.teamturtles.greenerme">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
 
     <application
         android:allowBackup="true"
@@ -28,9 +28,8 @@
         <activity android:name=".CheckPointsPage" />
         <activity android:name=".AboutAppPage" />
         <activity android:name=".ViewAccountPage" />
-        <activity android:name=".User"/>
         <activity android:name=".CategoriesPage" />
-        <activity android:name=".ItemDetailsPage"></activity>
+        <activity android:name=".ItemDetailsPage" />
     </application>
 
 </manifest>
