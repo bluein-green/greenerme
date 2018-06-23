@@ -1,5 +1,6 @@
 package com.teamturtles.greenerme;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -14,57 +15,68 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class CreateAccPage extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
 
-    ProgressBar progressBar;
-    EditText username_signup, password_signup, email_signup;
-    Button signup_btn;
+public class CreateAccPage extends AppCompatActivity implements View.OnClickListener {
+
+    private ProgressDialog progressDialog;
+
+    private EditText username_signup, password_signup, email_signup;
+    private Button signup_btn;
+    private TextView loginText_btn;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_acc_page);
 
-        username_signup = (EditText) findViewById(R.id.username_signup);
-        password_signup = (EditText) findViewById(R.id.password_signup);
-        email_signup = (EditText) findViewById(R.id.email_signup);
-        signup_btn = (Button) findViewById(R.id.signup_btn);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
 
-        signup_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                registerUser();
-            }
-        });
+        /*
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+        }
+        */
 
-        TextView loginText_btn = (TextView) findViewById(R.id.loginText_btn);
+        progressDialog = new ProgressDialog(this);
 
-        loginText_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
-            @Override
-            public void onClick(View view) { // To click to the create account page
-                Intent login_intent = new Intent(CreateAccPage.this, LoginPage.class);
-                CreateAccPage.this.startActivity(login_intent);
-            }
-        });
+        username_signup = (EditText) findViewById(R.id.username_signup);
+        password_signup = (EditText) findViewById(R.id.password_signup);
+        email_signup = (EditText) findViewById(R.id.email_signup);
+
+        signup_btn = (Button) findViewById(R.id.signup_btn);
+        loginText_btn = (TextView) findViewById(R.id.loginText_btn);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        signup_btn.setOnClickListener(this);
+        loginText_btn.setOnClickListener(this);
     }
 
     private void registerUser() {
+
         String username = username_signup.getText().toString().trim();
         String password = password_signup.getText().toString().trim();
         String email = email_signup.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty() || password.length() < 6 || email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             if (username.isEmpty()) {
-                username_signup.setError("Email is required");
+                username_signup.setError("Username is required");
                 username_signup.requestFocus();
             }
 
@@ -87,23 +99,50 @@ public class CreateAccPage extends AppCompatActivity {
                 email_signup.setError("Please enter a valid email");
                 email_signup.requestFocus();
             }
-
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressDialog. setMessage("Registering User...");
+        progressDialog.show();
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                progressBar.setVisibility(View.GONE);
+                progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "User Registered Successful", Toast.LENGTH_SHORT).show();
+                    finish();
+
+                    saveUserInfo();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Some Error Occurred", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(CreateAccPage.this, Registration unsuccessful, please try again", Toast.LENGTH_SHORT).show();
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(getApplicationContext(),"You are already registered", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
+    }
+    public void saveUserInfo() {
+
+        String username = username_signup.getText().toString().trim();
+        String email = email_signup.getText().toString().trim();
+        User newUser = new User(username, email);
+
+        String user_id = mAuth.getCurrentUser().getUid();
+        FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
+     }
+
+    @Override
+    public void onClick(View view) {
+        if(view == signup_btn) {
+            registerUser();
+        }
+        if (view == loginText_btn) {
+            startActivity(new Intent(this, LoginPage.class));
+        }
     }
 }

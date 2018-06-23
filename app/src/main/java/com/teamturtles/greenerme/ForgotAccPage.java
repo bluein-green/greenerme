@@ -1,6 +1,7 @@
 package com.teamturtles.greenerme;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -8,10 +9,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ForgotAccPage extends AppCompatActivity {
 
-    EditText email_forgotAcc;
+    private EditText email_forgotAcc;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,21 +29,14 @@ public class ForgotAccPage extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_acc_page);
 
         email_forgotAcc = (EditText) findViewById(R.id.email_forgotAcc);
+        mAuth = FirebaseAuth.getInstance();
 
-        TextView loginText_btn2 = (TextView) findViewById(R.id.loginText_btn2);
-        loginText_btn2.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
+        TextView logoutHomepageText_btn = (TextView) findViewById(R.id.logoutHomepageText_btn);
+        logoutHomepageText_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
             @Override
             public void onClick(View view) { // To click to the create account page
-                Intent login_intent = new Intent(ForgotAccPage.this, LoginPage.class);
-                ForgotAccPage.this.startActivity(login_intent);
-            }
-        });
-
-        TextView inputEmail_btn = (TextView) findViewById(R.id.inputEmail_btn);
-        inputEmail_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
-            @Override
-            public void onClick(View view) { // To click to the create account page
-                checkEmail();
+                Intent logoutHomepage_intent = new Intent(ForgotAccPage.this, HomePage_loggedout.class);
+                ForgotAccPage.this.startActivity(logoutHomepage_intent);
             }
         });
     }
@@ -42,17 +45,27 @@ public class ForgotAccPage extends AppCompatActivity {
 
         String email = email_forgotAcc.getText().toString().trim();
 
-
-        /*if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            email_forgotAcc.setError("This email has not been registered");
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            email_forgotAcc.setError("Please input a valid email");
             email_forgotAcc.requestFocus();
         }
-        */
 
+        // put a progress bar
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(ForgotAccPage.this, "Check email to reset your password!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ForgotAccPage.this, "Fail to send reset password email!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
-    public void toSignInPage (View view) { // created & send to the sign in page
-        Intent startIntent = new Intent(getApplicationContext(), LoginPage.class);
-        startActivity(startIntent);
+    public void resetPassword (View view) { // send email to reset password
+        checkEmail();
     }
 }
