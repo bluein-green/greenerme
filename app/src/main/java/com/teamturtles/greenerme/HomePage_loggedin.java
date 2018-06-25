@@ -176,7 +176,7 @@ public class HomePage_loggedin extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() == null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedout.class));
         }
 
         FirebaseUser user = mAuth.getCurrentUser();
