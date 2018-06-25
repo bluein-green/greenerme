@@ -31,6 +31,11 @@ public class ForgotAccPage extends AppCompatActivity {
         email_forgotAcc = (EditText) findViewById(R.id.email_forgotAcc);
         mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+        }
+
         TextView logoutHomepageText_btn = (TextView) findViewById(R.id.logoutHomepageText_btn);
         logoutHomepageText_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
             @Override

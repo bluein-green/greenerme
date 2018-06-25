@@ -113,7 +113,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
                 if (task.isSuccessful()) {
                     finish();
-
                     saveUserInfo();
                 } else {
                     // Toast.makeText(CreateAccPage.this, Registration unsuccessful, please try again", Toast.LENGTH_SHORT).show();
@@ -134,6 +133,10 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         String user_id = mAuth.getCurrentUser().getUid();
         FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
+        mAuth.signOut();
+
+        Intent logoutHomepage_intent = new Intent(CreateAccPage.this, HomePage_loggedout.class);
+        CreateAccPage.this.startActivity(logoutHomepage_intent);
      }
 
     @Override
