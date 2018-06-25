@@ -17,8 +17,8 @@ public class Item {
         this.name = name;
     }
 
-    public void setRecyclability(int recyclabileStatus) {
-        this.recyclableStatus = recyclabileStatus;
+    public void setRecyclability(int recyclableStatus) {
+        this.recyclableStatus = recyclableStatus;
     }
 
     public void setProcedure(String procedure) {
@@ -29,6 +29,18 @@ public class Item {
         this.hdb_recyclable = hdb_recyclable;
         this.separated_recyclable = separated_recyclable;
         this.others_recyclable = others_recyclable;
+    }
+
+    public void setHdbRecyclable(boolean hdb_recyclable) {
+        this.hdb_recyclable = hdb_recyclable;
+    }
+
+    public void setOthersRecyclable(boolean others_recyclable) {
+        this.others_recyclable = others_recyclable;
+    }
+
+    public void setSeparatedRecyclable(boolean separated_recyclable) {
+        this.separated_recyclable = separated_recyclable;
     }
 
     public String getName() {
