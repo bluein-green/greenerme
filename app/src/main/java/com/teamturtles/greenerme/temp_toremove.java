@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesPage extends AppCompatActivity {
+public class temp_toremove extends AppCompatActivity {
     private EditText name;
     private EditText recyclability;
     private EditText HDB_recyclable;
@@ -88,7 +88,7 @@ public class CategoriesPage extends AppCompatActivity {
                         // dispResult.setText(rItem_name);
 
                         // make an ArrayAdapter to show results
-                        ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter<Item>(CategoriesPage.this, android.R.layout.simple_list_item_1, items);
+                        ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter<Item>(temp_toremove.this, android.R.layout.simple_list_item_1, items);
 
                         ListView listView = (ListView) findViewById(R.id.list_demo);
                         listView.setAdapter(itemArrayAdapter);

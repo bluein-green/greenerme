@@ -14,6 +14,8 @@ public class ItemDetailsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details_page);
 
+
+
         // set click listener for BACK TO HOME
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
         home_btn.setOnClickListener(new View.OnClickListener() {
