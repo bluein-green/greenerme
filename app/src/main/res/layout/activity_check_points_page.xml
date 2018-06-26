@@ -11,27 +11,29 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/myPoints_logo"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/txt_mypoints_3"
+        app:layout_constraintEnd_toStartOf="@+id/myPoints"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/points" />
 
     <TextView
-        android:id="@+id/myPoints_logo"
+        android:id="@+id/myPoints"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat"
-        android:text="My Points"
+        android:text="@string/myPoints"
         android:textColor="#FF9580"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/FI_item_details_mainlogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/FI_item_details_mainlogo"
-        app:layout_constraintTop_toTopOf="@+id/FI_item_details_mainlogo" />
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/FI_item_details_mainlogo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txt_mypoints_0"
@@ -39,14 +41,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat"
-        android:text="You have earned"
+        android:text="@string/txt_mypoints_0"
         android:textColor="#333333"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myPoints_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/myPoints" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -54,7 +56,8 @@
         android:layout_height="145dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/DEF_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,32 +70,31 @@
         android:layout_height="52dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat"
-        android:text="Earn points from searching for items and taking the weekly quiz"
+        android:text="@string/txt_mypoints_1"
         android:textAlignment="center"
         android:textColor="#666666"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    // what I want
-
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/leaderboard_btn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="167dp"
         android:layout_height="61dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_pink"
         android:fontFamily="@font/montserrat"
-        android:text="View leaderboard"
+        android:text="@string/leaderboard_btn"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_mypoints_1" />
 
@@ -102,14 +104,14 @@
         android:layout_height="37dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
-        android:text="Win prizes in our monthly lucky draw! More points, more chances"
+        android:text="@string/txt_mypoints_2"
         android:textAlignment="center"
         android:textColor="#2EB2FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_btn" />
 
     <TextView
         android:id="@+id/txt_mypoints_3"
@@ -118,7 +120,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat"
-        android:text="points"
+        android:text="@string/txt_mypoints_3"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -134,7 +136,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/montserrat"
-        android:text="AHHH"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
+    <ImageView
+        android:id="@+id/bigLogo"
+        android:layout_width="71dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/DEF_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/signin_btn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="172dp"
+        android:layout_height="61dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:background="#3EB489"
-        android:text="next"
+        android:background="@drawable/button_green"
+        android:text="@string/signin_btn"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,15 +43,15 @@
         android:layout_height="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Email address"
+        android:hint="@string/email_login"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_name" />
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
     <EditText
         android:id="@+id/password_login"
@@ -47,7 +62,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Password"
+        android:hint="@string/password_login"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -55,21 +70,19 @@
         app:layout_constraintTop_toBottomOf="@+id/email_login" />
 
     <TextView
-        android:id="@+id/logo_name"
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/euphoria_script"
-        android:text="GreenerMe"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="@android:dimen/app_icon_size"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintTop_toBottomOf="@+id/bigLogo" />
 
     <TextView
         android:id="@+id/forgotAccText_btn"
@@ -78,7 +91,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat"
-        android:text="Forgot user name or password?"
+        android:text="@string/forgotAccText_btn"
         android:textColor="#2EB2FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

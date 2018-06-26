@@ -1,5 +1,6 @@
 package com.teamturtles.greenerme;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,9 +19,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ForgotAccPage extends AppCompatActivity {
+public class ForgotAccPage extends AppCompatActivity implements View.OnClickListener{
+
+    private ProgressDialog progressDialog;
 
     private EditText email_forgotAcc;
+    private Button inputEmail_btn;
+    private TextView logoutHomepageText_btn;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -36,17 +42,17 @@ public class ForgotAccPage extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
         }
 
-        TextView logoutHomepageText_btn = (TextView) findViewById(R.id.logoutHomepageText_btn);
-        logoutHomepageText_btn.setOnClickListener(new View.OnClickListener() { // To click to the createe account page
-            @Override
-            public void onClick(View view) { // To click to the create account page
-                Intent logoutHomepage_intent = new Intent(ForgotAccPage.this, HomePage_loggedout.class);
-                ForgotAccPage.this.startActivity(logoutHomepage_intent);
-            }
-        });
+        progressDialog = new ProgressDialog(this);
+
+        email_forgotAcc = (EditText) findViewById(R.id.email_forgotAcc);
+        inputEmail_btn = (Button) findViewById(R.id.inputEmail_btn);
+        logoutHomepageText_btn = (TextView) findViewById(R.id.logoutHomepageText_btn);
+
+        inputEmail_btn.setOnClickListener(this);
+        logoutHomepageText_btn.setOnClickListener(this);
     }
 
-    private void checkEmail() {
+    private void resetPasswordViaEmail() {
 
         String email = email_forgotAcc.getText().toString().trim();
 
@@ -55,12 +61,16 @@ public class ForgotAccPage extends AppCompatActivity {
             email_forgotAcc.requestFocus();
         }
 
-        // put a progress bar
+        progressDialog. setMessage("Sending email...");
+        progressDialog.show();
 
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+
+                        progressDialog.dismiss();
+
                         if (task.isSuccessful()) {
                             Toast.makeText(ForgotAccPage.this, "Check email to reset your password!", Toast.LENGTH_SHORT).show();
                         } else {
@@ -70,7 +80,13 @@ public class ForgotAccPage extends AppCompatActivity {
                 });
     }
 
-    public void resetPassword (View view) { // send email to reset password
-        checkEmail();
+    @Override
+    public void onClick(View view) {
+        if(view == inputEmail_btn) {
+            resetPasswordViaEmail();
+        }
+        if (view == logoutHomepageText_btn) {
+            startActivity(new Intent(this, HomePage_loggedout.class));
+        }
     }
 }

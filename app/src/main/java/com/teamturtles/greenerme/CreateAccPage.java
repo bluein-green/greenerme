@@ -46,12 +46,10 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         mAuth = FirebaseAuth.getInstance();
 
-        /*
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
         }
-        */
 
         progressDialog = new ProgressDialog(this);
 
@@ -112,7 +110,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
                 progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
-                    finish();
                     saveUserInfo();
                 } else {
                     // Toast.makeText(CreateAccPage.this, Registration unsuccessful, please try again", Toast.LENGTH_SHORT).show();
