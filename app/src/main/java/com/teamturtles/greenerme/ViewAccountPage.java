@@ -130,7 +130,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
         String new_username = newUsername_EditText.getText().toString().trim();
 
         if (new_username.isEmpty()) {
-            newUsername_EditText.setError("Password is required");
+            newUsername_EditText.setError("Username is required");
             newUsername_EditText.requestFocus();
             return;
         }
