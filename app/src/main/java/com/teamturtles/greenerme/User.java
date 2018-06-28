@@ -6,7 +6,7 @@ import android.os.Bundle;
 public class User {
     public String username;
     public String email;
-    public int num_points;
+    public int points;
 
     public User() {
 
@@ -15,15 +15,15 @@ public class User {
     public User(String username, String email) {
         this.username = username;
         this.email = email;
-        num_points = 0;
+        this.points = 0;
     }
 
     public int getPoints() {
-        return num_points;
+        return points;
     }
 
     public void addPoints(int pointsToBeAdded) {
-        num_points += pointsToBeAdded;
+        points += pointsToBeAdded;
     }
 
     public String getUsername() {

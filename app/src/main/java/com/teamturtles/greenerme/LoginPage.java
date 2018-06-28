@@ -36,12 +36,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         mAuth = FirebaseAuth.getInstance();
 
-        /*
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
         }
-        */
 
         progressDialog = new ProgressDialog(this);
 

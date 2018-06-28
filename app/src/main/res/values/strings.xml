@@ -2,6 +2,32 @@
     <string name="app_name">GreenerMe</string>
     <string name="DEF_placeholder">" "</string>
 
+
+    <!--- "homepage logged out" strings -->
+    <string name="textView_loggedOut">Start recycling today</string>
+    <string name="login_btn">Log in</string>
+    <string name="signupText_btn">Don’t have an account?</string>
+
+
+    <!-- "login page" strings -->
+    <string name="forgotAccText_btn">Forgot your password?</string>
+    <string name="signin_btn">next</string>
+    <string name="email_login">Email address</string>
+    <string name="password_login">Password</string>
+
+
+    <!-- "forgot account page" strings -->
+    <string name="textView_forgotAcc">Enter email address</string>
+    <string name="logoutHomepageText_btn">Back to homepage?</string>
+
+
+    <!-- "create account page" strings -->
+    <string name="textView_createAcc">Create Your Account</string>
+    <string name="username_signup">Username</string>
+    <string name="signup_btn">Sign Up</string>
+    <string name="loginText_btn">Already have an account? Login here</string>
+
+
     <!--- menu (home page, logged in) strings -->
     <string name="find_item">Find item</string>
     <string name="take_quiz">Take quiz</string>
@@ -12,14 +38,16 @@
     <string name="greeting">What would you like to do today?</string>
     <string name="about_app">About app</string>
 
+
     <!--- about app strings -->
     <string name="why_app">Why this app?</string>
     <string name="why_app_desc">"This app is developed as part of NUS Orbital 2018. We noticed that blablabla this is to fill up the space woohoo"</string>
 
+
     <!-- Find item strings -->
     <string name="FI_finditem">Find Item</string>
-
     <string name="FI_itemcategories">Item Categories</string>
+
 
     <!-- Item details strings -->
     <string name="Det_item_details">Item Details</string>
@@ -27,5 +55,12 @@
     <string name="Det_category">"Category: "</string>
     <string name="Det_howtorecycle">How to recycle</string>
 
+    <!-- "My Points page" strings -->
+    <string name="myPoints">My Points</string>
+    <string name="txt_mypoints_0">You have earned</string>
+    <string name="txt_mypoints_1">Earn points from searching for items and taking the weekly quiz</string>
+    <string name="txt_mypoints_2">Win prizes in our monthly lucky draw! More points, more chances</string>
+    <string name="txt_mypoints_3">points</string>
+    <string name = "leaderboard_btn">View leaderboard</string>
 
 </resources>
