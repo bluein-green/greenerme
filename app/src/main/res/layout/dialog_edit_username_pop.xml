@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/editUsernameHeading"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/border_top_bottom"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:padding="10dip"
+        android:text="@string/editUsernameHeading"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#333"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/cancel_btn"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_rectangle"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/cancel_btn"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/editUsernamePop_btn"
+        app:layout_constraintEnd_toStartOf="@+id/editUsernamePop_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editUsernamePop_btn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/editUsernamePop_btn"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_top_bottom_right"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/editUsernameHeading"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancel_btn"
+        app:layout_constraintTop_toBottomOf="@+id/newUsername_EditText" />
+
+    <TextView
+        android:id="@+id/Username_TextView"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/DEF_placeholder"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/oldUsername_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/editUsernameHeading" />
+
+    <TextView
+        android:id="@+id/oldUsername_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/oldUsername"
+        android:textAlignment="center"
+        android:textColor="#333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Username_TextView"
+        app:layout_constraintEnd_toStartOf="@+id/Username_TextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Username_TextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/newUsername_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/newUsername"
+        android:textAlignment="center"
+        android:textColor="#333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/newUsername_EditText"
+        app:layout_constraintEnd_toStartOf="@+id/newUsername_EditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/newUsername_EditText"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <EditText
+        android:id="@+id/newUsername_EditText"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_rectangle"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/DEF_placeholder"
+        android:inputType="textPersonName"
+        android:padding="5dip"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/newUsername_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Username_TextView" />
+
+
+    <android.support.constraint.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</android.support.constraint.ConstraintLayout>

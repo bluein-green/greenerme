@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
     private TextView loginText_btn;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         signup_btn = (Button) findViewById(R.id.signup_btn);
         loginText_btn = (TextView) findViewById(R.id.loginText_btn);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         signup_btn.setOnClickListener(this);
         loginText_btn.setOnClickListener(this);
@@ -100,7 +98,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressDialog. setMessage("Registering User...");
+        progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -110,6 +108,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
                 progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),"Registered Successfully", Toast.LENGTH_SHORT).show();
                     saveUserInfo();
                 } else {
                     // Toast.makeText(CreateAccPage.this, Registration unsuccessful, please try again", Toast.LENGTH_SHORT).show();
@@ -132,9 +131,31 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
         FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
         mAuth.signOut();
 
+        finish();
         Intent logoutHomepage_intent = new Intent(CreateAccPage.this, HomePage_loggedout.class);
         CreateAccPage.this.startActivity(logoutHomepage_intent);
      }
+
+     /*
+     public void sendEmailVerification() {
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                // Re-enable button
+                findViewById(R.id.verify_email_button.setEnabled(true);
+
+                if (task.isSuccessful()) {
+                    Toast.makeText(EmailPasswordActivity.this, "Verification email sent to " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e(TAG, "sendEmailVerification", task.getException());
+                    Toast.makeText(EmailPasswordActivitythis, "Failed to send verification email.", Toast.LENGTH_SHORT()).show();
+                }
+            }
+        })
+     }
+     */
 
     @Override
     public void onClick(View view) {
