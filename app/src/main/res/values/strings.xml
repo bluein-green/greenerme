@@ -86,6 +86,11 @@
     <string name="oldUsername">Current Username: </string>
     <string name="newUsername">New Username: </string>
 
-
+    <!-- "Email Not Verified Pop" strings -->
+    <string name="emailVerificationHeading">Email has not been verified</string>
+    <string name="emailVerificationText">Please check your inbox for the verification email.</string>
+    <string name="emailSentTo">Email sent to:</string>
+    <string name="resendEmail_btn">Resend Email</string>
+    <string name="verified_btn">Verified</string>
 
 </resources>
