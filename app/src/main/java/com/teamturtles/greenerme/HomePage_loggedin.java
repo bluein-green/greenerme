@@ -251,7 +251,7 @@ public class HomePage_loggedin extends AppCompatActivity {
                 startActivity(new Intent(HomePage_loggedin.this, HomePage_loggedout.class));
             }
         });
-
+        
         verified_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
