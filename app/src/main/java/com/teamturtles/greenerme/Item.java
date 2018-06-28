@@ -1,6 +1,9 @@
 package com.teamturtles.greenerme;
 
-public class Item {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Item implements Parcelable {
     private String name;
     private int recyclableStatus;   // 0: no, 1: general yes, 2: yes
     private String procedure;
@@ -67,11 +70,54 @@ public class Item {
         return others_recyclable;
     }
 
+    /*
     @Override
     public String toString() {
         String disp_result = "";
         disp_result += name + ": " + Integer.toString(recyclableStatus);
         return disp_result;
     }
+*/
+
+    // Parcelable methods
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    // constructor that takes a Parcel and gives you an object populated with its values
+    private Item(Parcel in) {
+        this.name = in.readString();
+        this.recyclableStatus = in.readInt();
+        this.procedure = in.readString();
+        this.hdb_recyclable = in.readInt() != 0;
+        this.separated_recyclable = in.readInt() != 0;
+        this.others_recyclable = in.readInt() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        // Write each field into the parcel. When we read from parcel, they
+        // will come back in the same order
+        dest.writeString(name);
+        dest.writeInt(recyclableStatus);
+        dest.writeString(procedure);
+        dest.writeInt((int) (hdb_recyclable ? 1 : 0));
+        dest.writeInt((int) (separated_recyclable ? 1 : 0));
+        dest.writeInt((int) (others_recyclable ? 1 : 0));
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+
+
 
 }
