@@ -73,6 +73,7 @@ public class CategoriesPage extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
+/*
                 Toast.makeText(
                         getApplicationContext(),
                         expandableListTitle.get(groupPosition)
@@ -85,7 +86,7 @@ public class CategoriesPage extends AppCompatActivity {
                 System.out.println("group pos = " + groupPosition);
                 System.out.println("child pos = " + childPosition);
                 System.out.println("id = " + id);
-
+*/
                 Intent intent = new Intent(CategoriesPage.this, ItemDetailsPage.class);
                 intent.putExtra("ITEM_ID", (int) id);
                 startActivity(intent);

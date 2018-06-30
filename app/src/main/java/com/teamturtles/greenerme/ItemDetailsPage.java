@@ -111,14 +111,3 @@ public class ItemDetailsPage extends AppCompatActivity {
     }
 }
 
-
-/*
-
-                String itemName = item.getName();
-                int recyclability = item.getRecyclability();
-                Boolean hdb_recyclable = item.getHdbRecyclable();
-                Boolean separated_recyclable = item.getSeparatedRecyclable();
-                Boolean others_recyclable = item.getOthersRecyclable();
-                String procedure = item.getProcedure();
-
- */
