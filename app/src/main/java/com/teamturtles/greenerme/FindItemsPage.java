@@ -26,7 +26,7 @@ public class FindItemsPage extends AppCompatActivity {
     }
 
     public void openCategoryPage() {
-        Intent intent = new Intent(this, CategoriesPage.class);
+        Intent intent = new Intent(this, temp_toremove.class);
         startActivity(intent);
     }
 }

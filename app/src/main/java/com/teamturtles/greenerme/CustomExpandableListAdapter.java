@@ -15,10 +15,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<String> expandableListTitle;
-    private LinkedHashMap<String, List<String>> expandableListDetail;
+    private LinkedHashMap<String, List<Pair>> expandableListDetail;
 
     public CustomExpandableListAdapter(Context context, List<String> expandableListTitle,
-                                       LinkedHashMap<String, List<String>> expandableListDetail) {
+                                       LinkedHashMap<String, List<Pair>> expandableListDetail) {
         this.context = context;
         this.expandableListTitle = expandableListTitle;
         this.expandableListDetail = expandableListDetail;
@@ -27,12 +27,14 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
         return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
-                .get(expandedListPosition);
+                .get(expandedListPosition).getName();
     }
 
     @Override
     public long getChildId(int listPosition, int expandedListPosition) {
-        return expandedListPosition;
+        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+                .get(expandedListPosition).getId();
+        // expandedListPosition;
     }
 
     @Override

@@ -30,7 +30,7 @@ public class temp_toremove extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories_page);
+        setContentView(R.layout.activity_temp_toremove);
 
         // for fields
         name = (EditText) findViewById(R.id.editText);
@@ -42,8 +42,10 @@ public class temp_toremove extends AppCompatActivity {
         DatabaseReference dbReference = database.getReference();
         final DatabaseReference catRef = dbReference.child("testbranch");
 
+
         // add listener for submit button
         Button submit_btn = (Button) findViewById(R.id.button);
+
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,22 +55,28 @@ public class temp_toremove extends AppCompatActivity {
                 item.setRecyclability(Integer.parseInt(recyclability.getText().toString()));
                 item.setStatus(Boolean.parseBoolean(HDB_recyclable.getText().toString()), false, false);
                 item.setProcedure("testing only");
+                ArrayList<String> lol = new ArrayList<>();
+                lol.add("this is the first step");
+                lol.add("this is step 2");
+                lol.add("why am i doing this");
+                item.setTest(lol);
 
                 catRef.push().setValue(item);
             }
         });
 
+
         // to view fetched text
         final TextView dispResult = (TextView) findViewById(R.id.textView5);
         final List<Item> items = new ArrayList<Item>();
-        final DatabaseReference itemsRef = dbReference.child("Item categories").child("Paper");
+        // final DatabaseReference itemsRef = dbReference.child("Item categories").child("Paper");
 
         // add listener for fetch button
         Button fetch_btn = (Button) findViewById(R.id.button2);
         fetch_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                itemsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                catRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -80,10 +88,10 @@ public class temp_toremove extends AppCompatActivity {
                             items.add(rItem);
                         }
 
-                        /*
-                        Item rItem = dataSnapshot.getValue(Item.class);
-                        String rItem_name = rItem.getName();
-                        */
+
+                        // Item rItem = dataSnapshot.getValue(Item.class);
+                        //String rItem_name = rItem.getName();
+
 
                         // dispResult.setText(rItem_name);
 
@@ -101,6 +109,8 @@ public class temp_toremove extends AppCompatActivity {
                 });
             }
         });
+
+
     }
 
 

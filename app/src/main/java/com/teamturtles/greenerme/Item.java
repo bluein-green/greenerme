@@ -3,13 +3,17 @@ package com.teamturtles.greenerme;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Item implements Parcelable {
+import java.util.ArrayList;
+
+public class Item {
+    // implements Parcelable
     private String name;
     private int recyclableStatus;   // 0: no, 1: general yes, 2: yes
     private String procedure;
     private boolean hdb_recyclable;
     private boolean separated_recyclable;
     private boolean others_recyclable;
+    private ArrayList<String> test;
 
 
     // Default constructor required for calls to
@@ -58,6 +62,7 @@ public class Item implements Parcelable {
         return procedure;
     }
 
+
     public boolean getHdbRecyclable() {
         return hdb_recyclable;
     }
@@ -70,15 +75,23 @@ public class Item implements Parcelable {
         return others_recyclable;
     }
 
-    /*
+
     @Override
     public String toString() {
         String disp_result = "";
         disp_result += name + ": " + Integer.toString(recyclableStatus);
         return disp_result;
     }
-*/
 
+    public void setTest(ArrayList<String> test) {
+        this.test = test;
+    }
+
+    public ArrayList<String> getTest() {
+        return test;
+    }
+
+    /*
     // Parcelable methods
     @Override
     public int describeContents() {
@@ -118,6 +131,7 @@ public class Item implements Parcelable {
         }
     };
 
+*/
 
 
 }
