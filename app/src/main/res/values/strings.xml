@@ -65,6 +65,36 @@
     <string name="txt_mypoints_1">Earn points from searching for items and taking the weekly quiz</string>
     <string name="txt_mypoints_2">Win prizes in our monthly lucky draw! More points, more chances</string>
     <string name="txt_mypoints_3">points</string>
-    <string name = "leaderboard_btn">View leaderboard</string>
+    <string name="leaderboard_btn">View leaderboard</string>
+
+    <!-- "View Account page" strings -->
+    <string name="accSettings">Account Settings</string>
+    <string name="changeUsername_btn">Edit Username</string>
+    <string name="changePassword_btn">Change Password</string>
+    <string name="deleteAccount_btn">Delete Account</string>
+    <string name="logout_btn">Log Out</string>
+
+    <!-- "Delete Account Pop" strings -->
+    <string name="deleteAccHeading">Delete Account?</string>
+    <string name="deleteAccText">All user data will be deleted. Continue?</string>
+    <string name="cancel_btn">Cancel</string>
+
+    <!-- "Change Password Pop" strings -->
+    <string name="changePasswordHeading">Change Password</string>
+    <string name="oldPassword">Old Password: </string>
+    <string name="newPassword">New Password: </string>
+    <string name="confirmPassword">Confirm Password: </string>
+
+    <!-- " Edit Username Pop" strings -->
+    <string name="editUsernameHeading">Edit Username</string>
+    <string name="oldUsername">Current Username: </string>
+    <string name="newUsername">New Username: </string>
+
+    <!-- "Email Not Verified Pop" strings -->
+    <string name="emailVerificationHeading">Email has not been verified</string>
+    <string name="emailVerificationText">Please check your inbox for the verification email.</string>
+    <string name="emailSentTo">Email sent to:</string>
+    <string name="resendEmail_btn">Resend Email</string>
+    <string name="verified_btn">Verified</string>
 
 </resources>

@@ -1,17 +1,23 @@
 package com.teamturtles.greenerme;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -37,26 +43,36 @@ public class HomePage_loggedin extends AppCompatActivity {
     private ImageButton about_btn;
     private TextView about_txt;
 
-    private TextView textView; // changed
-    private FirebaseAuth mAuth; // changed
+    private Button resendEmail_btn;
+    private Button logoutEmail_btn;
+    private TextView emailAddress;
+    private Button verified_btn;
 
-    private String username; // changed
+    private TextView textView;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
+
+    private String username;
+
+    private AlertDialog.Builder mBuilder;
+    private View mView;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_loggedin);
 
-        loadUserInformation(); // changed
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+        loadUserInformation();
 
         // vary the greeting name
         //String greeting_result = getString(R.string.hi_greeting, username);
         //TextView textView = (TextView) findViewById(R.id.Hi_name);
         //textView.setText(greeting_result);
 
-
-        // pop-up text
-        Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
 
         // click listeners for SEARCH
         item_btn = (ImageButton) findViewById(R.id.search_button);
@@ -172,8 +188,6 @@ public class HomePage_loggedin extends AppCompatActivity {
 
     private void loadUserInformation() { // added
 
-        mAuth = FirebaseAuth.getInstance();
-
         if (mAuth.getCurrentUser() == null) {
             finish();
             startActivity(new Intent(getApplicationContext(), HomePage_loggedout.class));
@@ -190,7 +204,7 @@ public class HomePage_loggedin extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
                     User loggedin_User = dataSnapshot.getValue(User.class);
-                    username = loggedin_User.getUsername();
+                    username = loggedin_User.getUsername();;
                     String greeting_result = getString(R.string.hi_greeting, username);
                     textView.setText(greeting_result);
                 }
@@ -201,11 +215,88 @@ public class HomePage_loggedin extends AppCompatActivity {
                 // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        if (!user.isEmailVerified()) {
+            Toast.makeText(HomePage_loggedin.this, "Email is not verified!", Toast.LENGTH_SHORT).show();
+            emailVerifiedPop();
+        }
+
     }
 
-    public void logOut(View view) {
-        finish();
-        mAuth.signOut();
-        startActivity(new Intent(this, HomePage_loggedout.class));
+
+    private void emailVerifiedPop() {
+
+        mBuilder = new AlertDialog.Builder(this);
+        mView = getLayoutInflater().inflate(R.layout.dialog_email_not_verified_pop, null);
+
+        mBuilder.setView(mView);
+        dialog = mBuilder.create();
+        dialog.show();
+
+        resendEmail_btn = (Button) mView.findViewById(R.id.resendEmail_btn);
+        logoutEmail_btn = (Button) mView.findViewById(R.id.logoutEmail_btn);
+        verified_btn = (Button) mView.findViewById(R.id.verified_btn);
+
+        resendEmail_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resendEmail();
+            }
+        });
+        logoutEmail_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                mAuth.signOut();
+                startActivity(new Intent(HomePage_loggedin.this, HomePage_loggedout.class));
+            }
+        });
+        
+        verified_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                user.reload();
+
+                if (!user.isEmailVerified()) {
+                    Toast.makeText(HomePage_loggedin.this, "Email is not verified!", Toast.LENGTH_SHORT).show();
+                } else {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+    }
+    private void resendEmail() {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Successfully Resend Email", Toast.LENGTH_SHORT).show();
+                } else { // no idea what may this case be!!!
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    //restart this activity
+                    overridePendingTransition(0, 0);
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                }
+            }
+        });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            dialog.dismiss();
+            finish();
+            return true;
+        }
+        return false;
     }
 }

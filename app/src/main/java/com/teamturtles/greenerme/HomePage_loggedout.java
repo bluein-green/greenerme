@@ -27,8 +27,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
-        } else {
-            Toast.makeText(this, "Hi There! Welcome in!", Toast.LENGTH_SHORT).show();
         }
 
         login_btn = (Button) findViewById(R.id.login_btn);

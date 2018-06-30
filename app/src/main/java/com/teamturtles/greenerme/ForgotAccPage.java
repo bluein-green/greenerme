@@ -56,9 +56,16 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
 
         String email = email_forgotAcc.getText().toString().trim();
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            email_forgotAcc.setError("Please input a valid email");
-            email_forgotAcc.requestFocus();
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
+            if (email.isEmpty()) {
+                email_forgotAcc.setError("Email is required");
+                email_forgotAcc.requestFocus();
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                email_forgotAcc.setError("Please input a valid email");
+                email_forgotAcc.requestFocus();
+            }
+            return;
         }
 
         progressDialog. setMessage("Sending email...");
@@ -73,6 +80,9 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
 
                         if (task.isSuccessful()) {
                             Toast.makeText(ForgotAccPage.this, "Check email to reset your password!", Toast.LENGTH_SHORT).show();
+                            finish();
+                            Intent logoutHomepage_intent = new Intent(ForgotAccPage.this, HomePage_loggedout.class);
+                            ForgotAccPage.this.startActivity(logoutHomepage_intent);
                         } else {
                             Toast.makeText(ForgotAccPage.this, "Fail to send reset password email!", Toast.LENGTH_SHORT).show();
                         }

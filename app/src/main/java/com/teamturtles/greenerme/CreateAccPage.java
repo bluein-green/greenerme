@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
     private TextView loginText_btn;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,6 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         signup_btn = (Button) findViewById(R.id.signup_btn);
         loginText_btn = (TextView) findViewById(R.id.loginText_btn);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         signup_btn.setOnClickListener(this);
         loginText_btn.setOnClickListener(this);
@@ -100,7 +98,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressDialog. setMessage("Registering User...");
+        progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -111,10 +109,12 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
                 if (task.isSuccessful()) {
                     saveUserInfo();
+                    sendVerificationEmail();
+                    Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_LONG).show();
                 } else {
                     // Toast.makeText(CreateAccPage.this, Registration unsuccessful, please try again", Toast.LENGTH_SHORT).show();
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
-                        Toast.makeText(getApplicationContext(),"You are already registered", Toast.LENGTH_SHORT).show();
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -122,6 +122,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
     public void saveUserInfo() {
 
         String username = username_signup.getText().toString().trim();
@@ -130,15 +131,36 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         String user_id = mAuth.getCurrentUser().getUid();
         FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
-        mAuth.signOut();
+    }
 
-        Intent logoutHomepage_intent = new Intent(CreateAccPage.this, HomePage_loggedout.class);
-        CreateAccPage.this.startActivity(logoutHomepage_intent);
-     }
+    private void sendVerificationEmail() {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    mAuth.signOut();
+                    finish();
+                    startActivity(new Intent(CreateAccPage.this, HomePage_loggedout.class));
+                } else { // no idea what may this case be!!!
+                    Toast.makeText(getApplicationContext(), "Please sign up again", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    //restart this activity
+                    overridePendingTransition(0, 0);
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                }
+            }
+        });
+    }
+
 
     @Override
     public void onClick(View view) {
-        if(view == signup_btn) {
+        if (view == signup_btn) {
             registerUser();
         }
         if (view == loginText_btn) {
