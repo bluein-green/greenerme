@@ -49,19 +49,25 @@ public class temp_toremove extends AppCompatActivity {
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Item item = new Item();
+//                Item item = new Item();
+//
+//                item.setName(name.getText().toString());
+//                item.setRecyclability(Integer.parseInt(recyclability.getText().toString()));
+//                item.setStatus(Boolean.parseBoolean(HDB_recyclable.getText().toString()), false, false);
+//                item.setProcedure("testing only");
+//                ArrayList<String> lol = new ArrayList<>();
+//                lol.add("this is the first step");
+//                lol.add("this is step 2");
+//                lol.add("why am i doing this");
+//                item.setTest(lol);
 
-                item.setName(name.getText().toString());
-                item.setRecyclability(Integer.parseInt(recyclability.getText().toString()));
-                item.setStatus(Boolean.parseBoolean(HDB_recyclable.getText().toString()), false, false);
-                item.setProcedure("testing only");
-                ArrayList<String> lol = new ArrayList<>();
-                lol.add("this is the first step");
-                lol.add("this is step 2");
-                lol.add("why am i doing this");
-                item.setTest(lol);
+                QuizQuestions qns = new QuizQuestions();
+                ArrayList<String> act = new ArrayList<>();
+                act.add("lolol");
+                act.add("hello from this side");
+                qns.setQuestions(act);
 
-                catRef.push().setValue(item);
+                catRef.push().setValue(qns);
             }
         });
 

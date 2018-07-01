@@ -12,6 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class QuizQuestionPage extends AppCompatActivity {
     // view references
     private TextView topic_txt;
@@ -20,9 +22,8 @@ public class QuizQuestionPage extends AppCompatActivity {
     // firebase references
     private FirebaseDatabase database;
     private DatabaseReference dbReference;
-    private DatabaseReference quizQuestionsRef;
-    private DatabaseReference quizChoicesRef;
-    private DatabaseReference quizAnswersRef;
+    private DatabaseReference quizRef;
+    private DatabaseReference currQnRef;
 
     // question counter
     private int qnNum = 0;
@@ -35,7 +36,6 @@ public class QuizQuestionPage extends AppCompatActivity {
     private QuizChoices choices;
 
     // callback
-    private MyQuizCallback myCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +54,66 @@ public class QuizQuestionPage extends AppCompatActivity {
         // set firebase references
         database = FirebaseDatabase.getInstance();
         dbReference = database.getReference();
-        quizQuestionsRef = dbReference.child("Quiz").child("Questions");
-        quizChoicesRef = dbReference.child("Quiz").child("Choices");
-        quizAnswersRef = dbReference.child("Quiz").child("Answers");
+        quizRef = dbReference.child("Quiz");
 
         // get questions from database
-        quizQuestionsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        readQuizData(new FirebaseCallback() {
+            @Override
+            public void onCallback(QuizQuestions qns) {
+                System.out.println(qns.getQuestions());
+                questions = qns;
+                System.out.println("questions ref = " + questions);
+            }
+        });
+
+        System.out.println("i am outside now");
+        System.out.println(questions);
+
+
+//        // get choices from database
+//        quizChoicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                choices = dataSnapshot.getValue(QuizChoices.class);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        // get answers from database
+//        quizAnswersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                answers = dataSnapshot.getValue(QuizAnswers.class);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        // get number of questions
+//        totalNumQn = questions.getNumQuestions();
+//        System.out.println("num of questions = " + totalNumQn);
+//
+//
+//        // set question number
+//        qnNum_txt = (TextView) findViewById(R.id.Qn_questionNum);
+
+
+    }
+
+
+    public void readQuizData(final FirebaseCallback myCallback) {
+        quizRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 questions = dataSnapshot.getValue(QuizQuestions.class);
-                 myCallback.onCallback(questions);
+                questions = dataSnapshot.getValue(QuizMaterials.class);
+                myCallback.onCallback(questions);
             }
 
             @Override
@@ -71,46 +121,9 @@ public class QuizQuestionPage extends AppCompatActivity {
 
             }
         });
+    }
 
-        readData(new MyQuizCallback() {
-            @Overridepublic void onCa
-        })
-
-        // get choices from database
-        quizChoicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                choices = dataSnapshot.getValue(QuizChoices.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        // get answers from database
-        quizAnswersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                answers = dataSnapshot.getValue(QuizAnswers.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        // get number of questions
-        totalNumQn = questions.getNumQuestions();
-        System.out.println("num of questions = " + totalNumQn);
-
-
-        // set question number
-        qnNum_txt = (TextView) findViewById(R.id.Qn_questionNum);
-
-
-
+    private interface FirebaseCallback {
+        void onCallback(QuizMaterials quizMaterials);
     }
 }
