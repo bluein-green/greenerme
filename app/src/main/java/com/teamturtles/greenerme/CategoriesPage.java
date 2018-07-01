@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class CategoriesPage extends AppCompatActivity {
     private ExpandableListView expandableListView;
     private ExpandableListAdapter expandableListAdapter;
     private List<String> expandableListTitle;
-    private LinkedHashMap<String, List<String>> expandableListDetail;
+    private LinkedHashMap<String, List<Pair>> expandableListDetail;
 
     // for BACK TO HOME button
     private ImageButton home_btn;
@@ -74,21 +73,23 @@ public class CategoriesPage extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
+/*
                 Toast.makeText(
                         getApplicationContext(),
                         expandableListTitle.get(groupPosition)
                                 + " -> "
                                 + expandableListDetail.get(
                                 expandableListTitle.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT
+                                childPosition).getName(), Toast.LENGTH_SHORT
                 ).show();
 
                 System.out.println("group pos = " + groupPosition);
                 System.out.println("child pos = " + childPosition);
                 System.out.println("id = " + id);
-
-//                Intent intent = new Intent(CategoriesPage.this, ItemDetailsPage.class);
-//                startActivity(intent);
+*/
+                Intent intent = new Intent(CategoriesPage.this, ItemDetailsPage.class);
+                intent.putExtra("ITEM_ID", (int) id);
+                startActivity(intent);
 
                 return false;
             }

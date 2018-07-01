@@ -3,9 +3,9 @@ package com.teamturtles.greenerme;
 
 public class Pair {
     private String name;
-    private String id;
+    private int id;
 
-    public Pair(String name, String id) {
+    public Pair(String name, int id) {
         this.name = name;
         this.id = id;
     }
@@ -14,7 +14,7 @@ public class Pair {
         return name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -22,7 +22,7 @@ public class Pair {
         this.name = name;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

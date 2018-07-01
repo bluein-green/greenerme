@@ -54,6 +54,29 @@
     <string name="Det_details_for">Details for</string>
     <string name="Det_category">"Category: "</string>
     <string name="Det_howtorecycle">How to recycle</string>
+    <string name="Det_whattodo">What to do</string>
+
+    <string name="Det_txt_recyclable">Recyclable</string>
+    <string name="Det_txt_notRecyclable">Not Recyclable</string>
+
+
+    <!-- Quiz main page strings -->
+    <string name="Quiz_weekly_quiz">Weekly Quiz</string>
+    <string name="Quiz_startToEndDates">"%s to %s"</string>
+    <string name="Quiz_encouragement">Take the weekly quiz, learn and earn points!</string>
+
+    <string name="Quiz_focus">This week, let’s focus on</string>
+    <string name="Quiz_triedAlr">You have tried this week’s quiz on</string>
+
+    <string name="Quiz_start">Start</string>
+    <string name="Quiz_viewAns">View quiz</string>
+
+    <string name="Quiz_comeback">Come back again next week to earn points and stay on the leaderboard!</string>
+
+
+    <!-- Quiz questions page strings -->
+    <string name="Qn_weekly_quiz">Weekly Quiz</string>
+    <string name="Qn_questionNum">"Question %d/%d"</string>
 
     <!-- "My Points page" strings -->
     <string name="myPoints">My Points</string>
