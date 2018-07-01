@@ -72,9 +72,11 @@ public class QuizQuestionPage extends AppCompatActivity {
             }
         });
 
-        readData(new MyQuizCallback() {
+        /*
+        readData(new MyQuizCallback() { // to be commented back
             @Overridepublic void onCa
         })
+        */
 
         // get choices from database
         quizChoicesRef.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -86,6 +86,14 @@
     <string name="txt_mypoints_3">points</string>
     <string name="leaderboard_btn">View leaderboard</string>
 
+    <!-- "Leader board Page" strings -->
+    <string name="leaderboardHeading">Leaderboard</string>
+    <string name="rankLB">Rank</string>
+    <string name="nameLB">Name</string>
+    <string name="pointsLB">Points</string>
+
+
+
     <!-- "View Account page" strings -->
     <string name="accSettings">Account Settings</string>
     <string name="changeUsername_btn">Edit Username</string>

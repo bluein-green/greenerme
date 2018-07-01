@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
     private EditText username_signup, password_signup, email_signup;
     private Button signup_btn;
     private TextView loginText_btn;
+    private ImageView bigLogo;
 
     private FirebaseAuth mAuth;
 
@@ -59,9 +61,11 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         signup_btn = (Button) findViewById(R.id.signup_btn);
         loginText_btn = (TextView) findViewById(R.id.loginText_btn);
+        bigLogo = (ImageView) findViewById(R.id.bigLogo);
 
         signup_btn.setOnClickListener(this);
         loginText_btn.setOnClickListener(this);
+        bigLogo.setOnClickListener(this);
     }
 
     private void registerUser() {
@@ -165,6 +169,9 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
         }
         if (view == loginText_btn) {
             startActivity(new Intent(this, LoginPage.class));
+        }
+        if (view == bigLogo) {
+            startActivity(new Intent(this, HomePage_loggedout.class));
         }
     }
 }
