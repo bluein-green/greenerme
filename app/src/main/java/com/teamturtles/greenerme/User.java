@@ -7,6 +7,7 @@ public class User {
     public String username;
     public String email;
     public int points;
+    public boolean takenQuiz;
 
     public User() {
 
@@ -16,14 +17,11 @@ public class User {
         this.username = username;
         this.email = email;
         this.points = 0;
+        this.takenQuiz = false;
     }
 
     public int getPoints() {
         return points;
-    }
-
-    public void addPoints(int pointsToBeAdded) {
-        points += pointsToBeAdded;
     }
 
     public String getUsername() {
@@ -32,5 +30,9 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean getTakenQuiz() {
+        return takenQuiz;
     }
 }

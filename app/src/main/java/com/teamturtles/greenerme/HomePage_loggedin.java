@@ -251,7 +251,7 @@ public class HomePage_loggedin extends AppCompatActivity {
                 startActivity(new Intent(HomePage_loggedin.this, HomePage_loggedout.class));
             }
         });
-        
+
         verified_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -259,7 +259,7 @@ public class HomePage_loggedin extends AppCompatActivity {
                 user.reload();
 
                 if (!user.isEmailVerified()) {
-                    Toast.makeText(HomePage_loggedin.this, "Email is not verified!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomePage_loggedin.this, "Email is not verified! Please try again! ", Toast.LENGTH_SHORT).show();
                 } else {
                     dialog.dismiss();
                 }
