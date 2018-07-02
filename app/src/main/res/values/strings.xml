@@ -76,7 +76,7 @@
 
     <!-- Quiz questions page strings -->
     <string name="Qn_weekly_quiz">Weekly Quiz</string>
-    <string name="Qn_questionNum">"Question %d/%d"</string>
+    <string name="Qn_questionNum">"Question 1/5"</string>
 
     <!-- "My Points page" strings -->
     <string name="myPoints">My Points</string>

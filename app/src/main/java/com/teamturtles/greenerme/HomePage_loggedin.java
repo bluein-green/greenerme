@@ -161,7 +161,7 @@ public class HomePage_loggedin extends AppCompatActivity {
     }
 
     public void openSearchPage() {
-        Intent intent = new Intent(this, FindItemsPage.class);
+        Intent intent = new Intent(this, CategoriesPage.class);
         startActivity(intent);
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,11 @@ public class QuizQuestionPage extends AppCompatActivity {
     private TextView topic_txt;
     private TextView qnNum_txt;
     private TextView qn_txt;
+    private Button choice1_txt;
+    private Button choice2_txt;
+    private Button choice3_txt;
+    private Button choice4_txt;
+
 
     // firebase references
     private FirebaseDatabase database;
@@ -58,13 +64,21 @@ public class QuizQuestionPage extends AppCompatActivity {
         quizRef = dbReference.child("Quiz");
         numQnRef = dbReference.child("Quiz").child("Number of Questions");
 
+
+        // set other view references
+        qnNum_txt = (TextView) findViewById(R.id.Qn_questionNum);
+        choice1_txt = (Button) findViewById(R.id.Qn_choice1);
+        choice2_txt = (Button) findViewById(R.id.Qn_choice2);
+        choice3_txt = (Button) findViewById(R.id.Qn_choice3);
+        choice4_txt = (Button) findViewById(R.id.Qn_choice4);
+
+
         // get number of questions from database
         numQnRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 totalNumQn = dataSnapshot.getValue(Integer.class);
                 System.out.println("num of qn = " + totalNumQn);
-                qnNum_txt = (TextView) findViewById(R.id.Qn_questionNum);
                 // qnNum_txt.setText(Integer)
             }
 
@@ -86,6 +100,11 @@ public class QuizQuestionPage extends AppCompatActivity {
                 System.out.println(quizMaterials.getQuestion());
                 System.out.println(quizMaterials.getChoices());
                 System.out.println(quizMaterials.getAnswer());
+
+                choice1_txt.setText(quizMaterials.getChoice1());
+                choice2_txt.setText(quizMaterials.getChoice2());
+                choice3_txt.setText(quizMaterials.getChoice3());
+                choice4_txt.setText(quizMaterials.getChoice4());
 
 
             }
