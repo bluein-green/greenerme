@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
     private EditText email_forgotAcc;
     private Button inputEmail_btn;
     private TextView logoutHomepageText_btn;
+    private ImageView bigLogo;
 
     private FirebaseAuth mAuth;
 
@@ -37,6 +39,7 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
         email_forgotAcc = (EditText) findViewById(R.id.email_forgotAcc);
         mAuth = FirebaseAuth.getInstance();
 
+
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
@@ -47,9 +50,11 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
         email_forgotAcc = (EditText) findViewById(R.id.email_forgotAcc);
         inputEmail_btn = (Button) findViewById(R.id.inputEmail_btn);
         logoutHomepageText_btn = (TextView) findViewById(R.id.logoutHomepageText_btn);
+        bigLogo = (ImageView) findViewById(R.id.bigLogo);
 
         inputEmail_btn.setOnClickListener(this);
         logoutHomepageText_btn.setOnClickListener(this);
+        bigLogo.setOnClickListener(this);
     }
 
     private void resetPasswordViaEmail() {
@@ -85,7 +90,7 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
                             ForgotAccPage.this.startActivity(logoutHomepage_intent);
                         } else {
                             Toast.makeText(ForgotAccPage.this, "Fail to send reset password email!", Toast.LENGTH_SHORT).show();
-                        }
+                    }
                     }
                 });
     }
@@ -96,6 +101,9 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
             resetPasswordViaEmail();
         }
         if (view == logoutHomepageText_btn) {
+            startActivity(new Intent(this, HomePage_loggedout.class));
+        }
+        if (view == bigLogo) {
             startActivity(new Intent(this, HomePage_loggedout.class));
         }
     }

@@ -87,7 +87,12 @@ public class QuizQuestionPage extends AppCompatActivity {
 
             }
         });
-
+        
+        /*
+        readData(new MyQuizCallback() { // to be commented back
+            @Overridepublic void onCa
+        })
+        */
 
         // get questions from database
         readQuizData(qnNum, new FirebaseCallback() {

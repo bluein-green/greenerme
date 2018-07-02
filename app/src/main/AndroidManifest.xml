@@ -35,7 +35,8 @@
         <activity android:name=".ItemDetailsPage" />
         <activity android:name=".temp_toremove" />
         <activity android:name=".EmailVerifyPage" />
-        <activity android:name=".QuizQuestionPage"></activity>
+        <activity android:name=".QuizQuestionPage" />
+        <activity android:name=".LeaderboardPage"></activity>
     </application>
 
 </manifest>

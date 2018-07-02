@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     private EditText email_login, password_login;
     private Button signin_btn;
     private TextView forgotAccText_btn;
+    private ImageView bigLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +50,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         signin_btn = (Button) findViewById(R.id.signin_btn);
         forgotAccText_btn = (TextView) findViewById(R.id.forgotAccText_btn);
+        bigLogo = (ImageView) findViewById(R.id.bigLogo);
 
         signin_btn.setOnClickListener(this);
         forgotAccText_btn.setOnClickListener(this);
+        bigLogo.setOnClickListener(this);
     }
 
     private void userLogin() {
@@ -104,6 +108,9 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         if (view == forgotAccText_btn) {
             finish();
             startActivity(new Intent(this, ForgotAccPage.class));
+        }
+        if (view == bigLogo) {
+            startActivity(new Intent(this, HomePage_loggedout.class));
         }
     }
 }

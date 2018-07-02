@@ -3,6 +3,7 @@ package com.teamturtles.greenerme;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
     private Button changePassword_btn;
     private Button deleteAcc_btn;
     private Button logout_btn;
+    private ImageButton home_btn;
 
     private AlertDialog.Builder mBuilder;
     private View mView;
@@ -70,11 +73,13 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
         changePassword_btn = (Button) findViewById(R.id.changePassword_btn);
         deleteAcc_btn = (Button) findViewById(R.id.deleteAcc_btn);
         logout_btn = (Button) findViewById(R.id.logout_btn);
+        home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
 
         changeUsername_btn.setOnClickListener(this);
         changePassword_btn.setOnClickListener(this);
         deleteAcc_btn.setOnClickListener(this);
         logout_btn.setOnClickListener(this);
+        home_btn.setOnClickListener(this);
     }
 
 
@@ -326,6 +331,8 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
         if (view == deleteAccPop_btn) {
             deleteAcc();
         }
-
+        if (view == home_btn) {
+            startActivity(new Intent(this, HomePage_loggedin.class));
+        }
     }
 }
