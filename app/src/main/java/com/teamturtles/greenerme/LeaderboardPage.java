@@ -37,25 +37,37 @@ public class LeaderboardPage extends AppCompatActivity {
     private FirebaseUser currentUser;
     private String user_id;
 
-    private ListView mListView;
+    private ListView mListViewPoints;
+    private ListView mListViewNames;
+    private ArrayList<String> pointsAL;
+    private ArrayList<String> namesAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard_page);
 
-        mListView = (ListView) findViewById(R.id.leaderboard_listview);
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(); // .child("Users");
-        list = new ArrayList<String>();
+        mListViewNames = (ListView) findViewById(R.id.names_listview);
+        mListViewPoints = (ListView) findViewById(R.id.points_listview);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list);
-        mListView.setAdapter(adapter);
+        pointsAL = new ArrayList<String>();
+        namesAL = new ArrayList<String>();
+
+        getScores();
+
+        final ArrayAdapter<String> adapterNames = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, namesAL);
+        final ArrayAdapter<String> adapterPoints = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, pointsAL);
+        mListViewNames.setAdapter(adapterNames);
+        mListViewPoints.setAdapter(adapterPoints);
 
         mDatabaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                list.add(dataSnapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
+                namesAL.add(dataSnapshot.getValue(String.class));
+                adapterNames.notifyDataSetChanged();
+                pointsAL.add(dataSnapshot.getValue(String.class));
+                adapterPoints.notifyDataSetChanged();
             }
 
             @Override
@@ -64,8 +76,10 @@ public class LeaderboardPage extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                list.remove(dataSnapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
+                namesAL.remove(dataSnapshot.getValue(String.class));
+                adapterNames.notifyDataSetChanged();
+                pointsAL.remove(dataSnapshot.getValue(String.class));
+                adapterPoints.notifyDataSetChanged();
             }
 
             @Override
@@ -78,23 +92,24 @@ public class LeaderboardPage extends AppCompatActivity {
         });
     }
 
-    private ArrayList<String> getScores() {
+    private void getScores() {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         user_id = currentUser.getUid();
+        DatabaseReference mRef = mDatabaseReference.child("Users");
 
-
-        /*
-        paperCat.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> items = dataSnapshot.getChildren();
 
                 for (DataSnapshot itemSnap : items) {
-                    String itemName = itemSnap.getValue(String.class);
-                    int id = Integer.parseInt(itemSnap.getKey());
-                    paper.add(new Pair(itemName, id));
+                    User user = itemSnap.getValue(User.class);
+                    int points = user.getPoints();
+                    String name = user.getUsername();
+                    pointsAL.add(Integer.toString(points));
+                    namesAL.add(name);
                 }
             }
 
@@ -103,32 +118,5 @@ public class LeaderboardPage extends AppCompatActivity {
 
             }
         });
-        */
-
-        /*
-        mDatabase.addChildEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> items = dataSnapshot.getChildren();
-
-                for (DataSnapshot itemSnap: items) {
-
-                }
-
-                if (dataSnapshot.getValue() != null) {
-                    User loggedin_User = dataSnapshot.getValue(User.class);
-                    username = loggedin_User.getUsername();;
-                    String greeting_result = getString(R.string.hi_greeting, username);
-                    textView.setText(greeting_result);
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                throw databaseError.toException(); // Don't ignore errors
-                // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
-            }
-        });
-       */
-        return null;
     }
 }
