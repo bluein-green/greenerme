@@ -48,8 +48,6 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
         leaderboard_btn.setOnClickListener(this);
         home_btn.setOnClickListener(this);
 
-        /*
-
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -64,7 +62,6 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
                 // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
             }
         });
-        */
     }
 
 
