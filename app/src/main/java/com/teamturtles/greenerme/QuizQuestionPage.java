@@ -1,7 +1,6 @@
 package com.teamturtles.greenerme;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,8 +82,6 @@ public class QuizQuestionPage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 totalNumQn = dataSnapshot.getValue(Integer.class);
-                System.out.println("num of qn = " + totalNumQn);
-                qnNum_txt.setText(Integer.toString(totalNumQn));
             }
 
             @Override
@@ -111,14 +108,10 @@ public class QuizQuestionPage extends AppCompatActivity {
     }
 
     public void readQuizData(final FirebaseCallback myCallback) {
-        // String query_result = "Q" + Integer.toString(qnNum);
-
         quizRef.child("Material").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> quizMat = dataSnapshot.getChildren();
-
-                // QuizMaterials mat = dataSnapshot.getValue(QuizMaterials.class);
                 myCallback.onCallback(quizMat);
             }
 
@@ -153,7 +146,7 @@ public class QuizQuestionPage extends AppCompatActivity {
         setNumCurrChoices(qnNum);
         setQuestionOnScreen(qnNum);
         setCorrectAns(qnNum);
-        System.out.println("correct ans = " + currAns);
+        // System.out.println("correct ans = " + currAns);
         setClickListeners();
     }
 
@@ -163,10 +156,8 @@ public class QuizQuestionPage extends AppCompatActivity {
             choices.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("CLICKED!");
                     // set clicked choice number to change views
                     clickedChoiceNum = counter;
-                    System.out.println("counter here is = " + counter);
 
                     // check if it is the correct answer, based on the choice number
                     if (checkCorrectAnswer(counter)) {  // is correct
@@ -262,7 +253,10 @@ public class QuizQuestionPage extends AppCompatActivity {
 
 
     private void setQuestionOnScreen(int qnNum) {
-        System.out.println("hELLO, setting stuff on screen...");
+        // set question number
+        qnNum_txt.setText("Question " + (qnNum + 1));
+
+        // set question text
         currQn = quizMaterialsList.get(qnNum).getQuestion();
         qn_txt.setText(currQn);
 
@@ -273,7 +267,7 @@ public class QuizQuestionPage extends AppCompatActivity {
         }
 
         // set rest of the options (if necessary) to visibility.GONE
-        for (int i = 3; i >= this.numCurrChoices; i++) {
+        for (int i = 3; i >= this.numCurrChoices; i--) {
             choices.get(i).setVisibility(View.GONE);
         }
 
@@ -313,49 +307,3 @@ public class QuizQuestionPage extends AppCompatActivity {
     }
 
 }
-//        choice1_txt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (checkCorrectAnswer(0)) {
-//
-//                } else {
-//
-//                }
-//            }
-//        });
-//
-//        choice1_txt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (checkCorrectAnswer(1)) {
-//                    // correct answer
-//                    // change colour of button to green
-//                } else {
-//                    // wrong answer
-//                    // change colour of button to red
-//                    // change colour of correct answer button to green
-//                }
-//            }
-//        });
-//
-//        choice1_txt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (checkCorrectAnswer(2)) {
-//
-//                } else {
-//
-//                }
-//            }
-//        });
-//
-//        choice1_txt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (checkCorrectAnswer(3)) {
-//
-//                } else {
-//
-//                }
-//            }
-//        });

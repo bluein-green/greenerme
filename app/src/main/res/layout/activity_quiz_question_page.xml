@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Qn_logo"
         app:layout_constraintTop_toTopOf="@+id/Qn_logo" />
-<!---
+    <!---
     <View
         android:id="@+id/colored_bar"
         android:layout_width="0dp"
@@ -179,11 +179,19 @@
         android:id="@+id/Qn_next_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginTop="32dp"
         android:text="next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrier3" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="Qn_choice4,Qn_choice2,Qn_choice3,Qn_choice1"
+        tools:layout_editor_absoluteY="567dp" />
 
 
 </android.support.constraint.ConstraintLayout>
