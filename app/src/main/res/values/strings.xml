@@ -77,6 +77,7 @@
     <!-- Quiz questions page strings -->
     <string name="Qn_weekly_quiz">Weekly Quiz</string>
     <string name="Qn_questionNum">"Question 1/5"</string>
+    <string name="Qn_end_quiz">"End Quiz"</string>
 
     <!-- "My Points page" strings -->
     <string name="myPoints">My Points</string>
@@ -91,7 +92,6 @@
     <string name="rankLB">Rank</string>
     <string name="nameLB">Name</string>
     <string name="pointsLB">Points</string>
-
 
 
     <!-- "View Account page" strings -->

@@ -52,6 +52,11 @@ public class QuizMaterials {
         return choices.get(3);
     }
 
+    public String getChoice(int choiceNum) {
+        return choices.get(choiceNum);
+    }
+
+
 
     // get number of choices
     public int getNumChoices() {
