@@ -74,16 +74,44 @@ public class HomePage_loggedin extends AppCompatActivity {
         //textView.setText(greeting_result);
 
 
-        // click listeners for SEARCH
+        // set view references
+        setViewRefs();
+
+        // set clicks listeners
+        setClickListeners();
+
+    }
+
+    private void setViewRefs() {
+        // SEARCH
         item_btn = (ImageButton) findViewById(R.id.search_button);
+        item_txt = (TextView) findViewById(R.id.find_item_text);
+
+        // QUIZ
+        quiz_btn = (ImageButton) findViewById(R.id.quiz_button);
+        quiz_txt = (TextView) findViewById(R.id.take_quiz_text);
+
+        // POINTS
+        points_btn = (ImageButton) findViewById(R.id.points_button);
+        points_txt = (TextView) findViewById(R.id.check_points_text);
+
+        // ACCOUNT SETTINGS
+        acct_btn = (ImageButton) findViewById(R.id.settings_button);
+        acct_txt = (TextView) findViewById(R.id.view_account_text);
+
+        // ABOUT APP
+        about_btn = (ImageButton) findViewById(R.id.about_button);
+        about_txt = (TextView) findViewById(R.id.about_app_text);
+    }
+
+    private void setClickListeners() {
+        // SEARCH
         item_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openSearchPage();
             }
         });
-
-        item_txt = (TextView) findViewById(R.id.find_item_text);
         item_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,16 +119,13 @@ public class HomePage_loggedin extends AppCompatActivity {
             }
         });
 
-        // click listeners for QUIZ
-        quiz_btn = (ImageButton) findViewById(R.id.quiz_button);
+        // QUIZ
         quiz_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openQuizPage();
             }
         });
-
-        quiz_txt = (TextView) findViewById(R.id.take_quiz_text);
         quiz_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,16 +133,13 @@ public class HomePage_loggedin extends AppCompatActivity {
             }
         });
 
-        // click listeners for POINTS
-        points_btn = (ImageButton) findViewById(R.id.points_button);
+        // POINTS
         points_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openPointsPage();
             }
         });
-
-        points_txt = (TextView) findViewById(R.id.check_points_text);
         points_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,16 +147,13 @@ public class HomePage_loggedin extends AppCompatActivity {
             }
         });
 
-        // click listeners for ACCOUNT
-        acct_btn = (ImageButton) findViewById(R.id.settings_button);
+        // ACCOUNT SETTINGS
         acct_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAcctPage();
             }
         });
-
-        acct_txt = (TextView) findViewById(R.id.view_account_text);
         acct_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,16 +161,13 @@ public class HomePage_loggedin extends AppCompatActivity {
             }
         });
 
-        // click listeners for ABOUT APP
-        about_btn = (ImageButton) findViewById(R.id.about_button);
+        // ABOUT APP
         about_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAboutPage();
             }
         });
-
-        about_txt = (TextView) findViewById(R.id.about_app_text);
         about_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,27 +176,27 @@ public class HomePage_loggedin extends AppCompatActivity {
         });
     }
 
-    public void openSearchPage() {
+    private void openSearchPage() {
         Intent intent = new Intent(this, CategoriesPage.class);
         startActivity(intent);
     }
 
-    public void openQuizPage() {
+    private void openQuizPage() {
         Intent intent = new Intent(this, TakeQuizPage.class);
         startActivity(intent);
     }
 
-    public void openPointsPage() {
+    private void openPointsPage() {
         Intent intent = new Intent(this, CheckPointsPage.class);
         startActivity(intent);
     }
 
-    public void openAcctPage() {
+    private void openAcctPage() {
         Intent intent = new Intent(this, ViewAccountPage.class);
         startActivity(intent);
     }
 
-    public void openAboutPage() {
+    private void openAboutPage() {
         Intent intent = new Intent(this, AboutAppPage.class);
         startActivity(intent);
     }

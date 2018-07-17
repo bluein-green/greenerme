@@ -23,12 +23,8 @@ public class QuizQuestionPage extends AppCompatActivity {
     private TextView qnNum_txt;
     private TextView qn_txt;
     private List<Button> choices = new ArrayList<>();
-    private Button choice1_txt;
-    private Button choice2_txt;
-    private Button choice3_txt;
-    private Button choice4_txt;
-    private Button next_btn;
 
+    private Button next_btn;
 
     // firebase references
     private FirebaseDatabase database;
@@ -42,7 +38,6 @@ public class QuizQuestionPage extends AppCompatActivity {
     private int numQnCorrect = 0;
 
     // questions, answers, choices
-    private String currQn;
     private int currAns;
     private int numCurrChoices;
     private int clickedChoiceNum;
@@ -61,12 +56,10 @@ public class QuizQuestionPage extends AppCompatActivity {
         String topic_name = intent.getStringExtra("TOPIC_NAME");
 
         // set view references
-        this.setViewRefs();
-
+        setViewRefs();
 
         // set topic name
-        String topic_result = "- " + topic_name + " -";
-        topic_txt.setText(topic_result);
+        setTopicName(topic_name);
 
         // set firebase references
         database = FirebaseDatabase.getInstance();
@@ -119,6 +112,11 @@ public class QuizQuestionPage extends AppCompatActivity {
         });
     }
 
+    private void setTopicName(String topic_name) {
+        String topic_result = "- " + topic_name + " -";
+        topic_txt.setText(topic_result);
+    }
+
     private void setViewRefs() {
         // topic name
         topic_txt = (TextView) findViewById(R.id.Qn_topic);
@@ -126,10 +124,10 @@ public class QuizQuestionPage extends AppCompatActivity {
         // set other view references
         qnNum_txt = (TextView) findViewById(R.id.Qn_questionNum);
         qn_txt = (TextView) findViewById(R.id.Qn_question);
-        choice1_txt = (Button) findViewById(R.id.Qn_choice1);
-        choice2_txt = (Button) findViewById(R.id.Qn_choice2);
-        choice3_txt = (Button) findViewById(R.id.Qn_choice3);
-        choice4_txt = (Button) findViewById(R.id.Qn_choice4);
+        Button choice1_txt = (Button) findViewById(R.id.Qn_choice1);
+        Button choice2_txt = (Button) findViewById(R.id.Qn_choice2);
+        Button choice3_txt = (Button) findViewById(R.id.Qn_choice3);
+        Button choice4_txt = (Button) findViewById(R.id.Qn_choice4);
 
         choices.add(choice1_txt);
         choices.add(choice2_txt);
@@ -261,8 +259,8 @@ public class QuizQuestionPage extends AppCompatActivity {
         qnNum_txt.setText(qnNum_res);
 
         // set question text
-        currQn = quizMaterialsList.get(qnNum).getQuestion();
-        qn_txt.setText(currQn);
+        String currQnTxt = quizMaterialsList.get(qnNum).getQuestion();
+        qn_txt.setText(currQnTxt);
 
         // display only the buttons (and text) for the specified number of choices
         for (int i = 0; i < this.numCurrChoices; i++) {

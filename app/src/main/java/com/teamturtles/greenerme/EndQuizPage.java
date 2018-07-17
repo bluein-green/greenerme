@@ -19,8 +19,6 @@ public class EndQuizPage extends AppCompatActivity {
     private Button viewAns_btn;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
