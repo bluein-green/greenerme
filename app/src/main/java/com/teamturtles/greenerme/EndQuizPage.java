@@ -42,6 +42,7 @@ public class EndQuizPage extends AppCompatActivity {
         setBackToHomeClickListener();
 
         // set view answers click listener
+        setViewAnsClickListener();
     }
 
 
@@ -72,5 +73,15 @@ public class EndQuizPage extends AppCompatActivity {
             }
         });
     }
+
+    private void setViewAnsClickListener() {
+        viewAns_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // stub
+            }
+        });
+    }
+
 
 }
