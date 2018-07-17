@@ -49,12 +49,7 @@ public class ItemDetailsPage extends AppCompatActivity {
         itemRef = dbReference.child("Items").child(Integer.toString(itemId));
 
         // set View references
-        itemName_txt = (TextView) findViewById(R.id.Det_item_name_txt);
-        recyclable_icon = (ImageView) findViewById(R.id.Det_recyclable_icon);
-        recyclable_txt = (TextView) findViewById(R.id.Det_recyclable_txt);
-        howto_txt = (TextView) findViewById(R.id.Det_how_txt);
-        hdb_icon = (ImageView) findViewById(R.id.Det_hdb_result);
-        sep_icon = (ImageView) findViewById(R.id.Det_sep_result);
+        setViewRefs();
 
         // get item from database
         itemRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -97,10 +92,22 @@ public class ItemDetailsPage extends AppCompatActivity {
 
 
 
-
-
         // set click listener for BACK TO HOME
+        setBackToHomeClickListener();
+
+    }
+
+    private void setViewRefs() {
+        itemName_txt = (TextView) findViewById(R.id.Det_item_name_txt);
+        recyclable_icon = (ImageView) findViewById(R.id.Det_recyclable_icon);
+        recyclable_txt = (TextView) findViewById(R.id.Det_recyclable_txt);
+        howto_txt = (TextView) findViewById(R.id.Det_how_txt);
+        hdb_icon = (ImageView) findViewById(R.id.Det_hdb_result);
+        sep_icon = (ImageView) findViewById(R.id.Det_sep_result);
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
+    }
+
+    private void setBackToHomeClickListener() {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

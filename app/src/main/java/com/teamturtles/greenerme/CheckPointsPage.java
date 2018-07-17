@@ -42,7 +42,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         points_textView = (TextView) findViewById(R.id.points_textView);
-        leaderboard_btn = (Button) findViewById(R.id.leaderboard_btn);
+        leaderboard_btn = (Button) findViewById(R.id.EQ_viewans_btn);
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
 
         leaderboard_btn.setOnClickListener(this);

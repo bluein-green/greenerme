@@ -76,8 +76,18 @@
 
     <!-- Quiz questions page strings -->
     <string name="Qn_weekly_quiz">Weekly Quiz</string>
-    <string name="Qn_questionNum">"Question 1/5"</string>
+    <string name="Qn_questionNum">"Question %d"</string>
     <string name="Qn_end_quiz">"End Quiz"</string>
+
+    <!--- End quiz page strings -->
+    <string name="EQ_endofquiz">Quiz Results</string>
+    <string name="EQ_yougot">You got</string>
+    <string name="EQ_correct">correct</string>
+    <string name="EQ_pointsearned">" points earned"</string>
+    <string name="EQ_comeback">"Come back again next week to earn points and stay on the leaderboard!"</string>
+    <string name="EQ_viewans">View answers</string>
+
+
 
     <!-- "My Points page" strings -->
     <string name="myPoints">My Points</string>

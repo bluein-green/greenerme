@@ -216,7 +216,12 @@ public class QuizQuestionPage extends AppCompatActivity {
             public void onClick(View view) {
                 // open End Quiz page
                 Intent intent = new Intent(QuizQuestionPage.this, EndQuizPage.class);
-                intent.putExtra("NUM_QN_CORRECT", (int) (numQnCorrect+1));  // +1 for participation
+                intent.putExtra("NUM_QN_CORRECT", (int) numQnCorrect);  // +1 for participation
+                intent.putExtra("TOTAL_NUM_QN", (int) totalNumQn);
+
+                System.out.println("correct = " + numQnCorrect);
+                System.out.println("total qns = " + totalNumQn);
+
                 startActivity(intent);
                 finish();   // prevent user from going back to quiz
             }
@@ -252,7 +257,8 @@ public class QuizQuestionPage extends AppCompatActivity {
 
     private void setQuestionOnScreen(int qnNum) {
         // set question number
-        qnNum_txt.setText("Question " + (qnNum + 1));
+        String qnNum_res = "Question " + (qnNum + 1);
+        qnNum_txt.setText(qnNum_res);
 
         // set question text
         currQn = quizMaterialsList.get(qnNum).getQuestion();

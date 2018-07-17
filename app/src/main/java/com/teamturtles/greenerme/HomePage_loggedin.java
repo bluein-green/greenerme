@@ -204,7 +204,7 @@ public class HomePage_loggedin extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
                     User loggedin_User = dataSnapshot.getValue(User.class);
-                    username = loggedin_User.getUsername();;
+                    username = loggedin_User.getUsername();
                     String greeting_result = getString(R.string.hi_greeting, username);
                     textView.setText(greeting_result);
                 }

@@ -7,12 +7,12 @@
     tools:context=".TakeQuizPage">
 
     <ImageView
-        android:id="@+id/Qn_logo"
+        android:id="@+id/EQ_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/Qn_title_txt"
+        app:layout_constraintEnd_toStartOf="@+id/EQ_title_txt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,18 +20,18 @@
         app:srcCompat="@drawable/quiz" />
 
     <TextView
-        android:id="@+id/Qn_title_txt"
+        android:id="@+id/EQ_title_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/Quiz_weekly_quiz"
         android:textColor="#4495BE"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Qn_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/EQ_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Qn_logo"
-        app:layout_constraintTop_toTopOf="@+id/Qn_logo" />
+        app:layout_constraintStart_toEndOf="@+id/EQ_logo"
+        app:layout_constraintTop_toTopOf="@+id/EQ_logo" />
 
     <TextView
         android:id="@+id/Quiz_date_txt"
@@ -47,7 +47,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Qn_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/EQ_logo" />
 
     <TextView
         android:id="@+id/Quiz_enc_txt"
