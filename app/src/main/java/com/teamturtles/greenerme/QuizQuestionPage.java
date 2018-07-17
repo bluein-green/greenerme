@@ -34,7 +34,6 @@ public class QuizQuestionPage extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference dbReference;
     private DatabaseReference quizRef;
-    // private DatabaseReference currQnRef;
     private DatabaseReference numQnRef;
 
     // question counter
@@ -47,7 +46,6 @@ public class QuizQuestionPage extends AppCompatActivity {
     private int currAns;
     private int numCurrChoices;
     private int clickedChoiceNum;
-    // private ArrayList<String> currChoices;
 
     // quiz materials
     private List<QuizMaterials> quizMaterialsList;

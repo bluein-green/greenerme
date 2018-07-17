@@ -35,28 +35,10 @@ public class QuizMaterials {
         this.answer = answer;
     }
 
-    // individual choice getter
-    public String getChoice1() {
-        return choices.get(0);
-    }
-
-    public String getChoice2() {
-        return choices.get(1);
-    }
-
-    public String getChoice3() {
-        return choices.get(2);
-    }
-
-    public String getChoice4() {
-        return choices.get(3);
-    }
 
     public String getChoice(int choiceNum) {
         return choices.get(choiceNum);
     }
-
-
 
     // get number of choices
     public int getNumChoices() {
