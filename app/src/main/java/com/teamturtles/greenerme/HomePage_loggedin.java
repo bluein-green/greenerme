@@ -210,8 +210,13 @@ public class HomePage_loggedin extends AppCompatActivity {
         }
 
         FirebaseUser user = mAuth.getCurrentUser();
-        String user_id = user.getUid();
+        textView = (TextView) findViewById(R.id.Hi_name);
 
+        username = user.getDisplayName();
+        String greeting_result = getString(R.string.hi_greeting, username);
+        textView.setText(greeting_result);
+
+        /*
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         textView = (TextView) findViewById(R.id.Hi_name);
 
@@ -231,6 +236,8 @@ public class HomePage_loggedin extends AppCompatActivity {
                 // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        */
 
         if (!user.isEmailVerified()) {
             Toast.makeText(HomePage_loggedin.this, "Email is not verified!", Toast.LENGTH_SHORT).show();

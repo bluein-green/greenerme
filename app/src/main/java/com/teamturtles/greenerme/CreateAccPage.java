@@ -39,6 +39,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
     private ImageView bigLogo;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         if (mAuth.getCurrentUser() != null) {
             finish();
@@ -129,13 +131,37 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
     public void saveUserInfo() {
 
-        String username = username_signup.getText().toString().trim();
-        String email = email_signup.getText().toString().trim();
-        User newUser = new User(username, email);
+        final String username = username_signup.getText().toString().trim();
+        FirebaseUser user = mAuth.getCurrentUser();
 
-        String user_id = mAuth.getCurrentUser().getUid();
-        FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
+        final DatabaseReference mRef = mDatabaseReference.child("Leaderboard");
+
+        progressDialog.setMessage("Updating Username...");
+        progressDialog.show();
+
+        UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
+        user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                progressDialog.dismiss();
+                if (!task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                } else {
+                    String user_id = mAuth.getCurrentUser().getUid();
+                    mRef.child(user_id).child("name").setValue(username);
+                    mRef.child(user_id).child("points").setValue(0);
+                    mRef.child(user_id).child("hasTakenQuiz").setValue(false);
+                }
+            }
+        });
     }
+
+
+        // String email = email_signup.getText().toString().trim();
+        // User newUser = new User(username, email);
+
+        // String user_id = mAuth.getCurrentUser().getUid();
+        // FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
 
     private void sendVerificationEmail() {
         FirebaseUser user = mAuth.getCurrentUser();

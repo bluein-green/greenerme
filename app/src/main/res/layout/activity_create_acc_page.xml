@@ -29,7 +29,7 @@
         android:layout_height="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:hint="@string/email_login"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_createAcc" />
 
     <EditText
         android:id="@+id/username_signup"
@@ -45,7 +45,7 @@
         android:layout_height="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:hint="@string/username_signup"
@@ -53,9 +53,9 @@
         android:padding="5dip"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_createAcc" />
+        app:layout_constraintTop_toBottomOf="@+id/password_signup" />
 
     <EditText
         android:id="@+id/password_signup"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/email_signup" />
 
     <TextView
         android:id="@+id/textView_createAcc"
@@ -83,7 +83,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/textView_createAcc"
         android:textAllCaps="true"
-        android:textColor="#000000"
+        android:textColor="#2F4F4F"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,19 +92,20 @@
     <Button
         android:id="@+id/signup_btn"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="196dp"
-        android:layout_height="61dp"
+        android:layout_width="193dp"
+        android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_green"
         android:fontFamily="@font/montserrat"
         android:text="@string/signup_btn"
         android:textAllCaps="false"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/username_signup" />
 
     <TextView
         android:id="@+id/loginText_btn"
@@ -119,10 +120,10 @@
         android:textColor="#2EB2FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_btn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.896" />
 
     <ImageView
         android:id="@+id/bigLogo"
@@ -137,5 +138,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_button"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="467dp"></com.google.android.gms.common.SignInButton>
 
 </android.support.constraint.ConstraintLayout>

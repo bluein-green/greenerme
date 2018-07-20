@@ -6,22 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".LeaderboardPage">
 
-    <ListView
-        android:id="@+id/points_listview"
-        android:layout_width="192dp"
-        android:layout_height="422dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myPoints"></ListView>
 
     <ImageView
         android:id="@+id/myPoints_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/txt_mypoints_3"
         app:layout_constraintEnd_toStartOf="@+id/myPoints"
         app:layout_constraintHorizontal_bias="0.5"
@@ -44,17 +35,185 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/myPoints_logo"
-        app:layout_constraintTop_toTopOf="@+id/myPoints_logo" />
+        app:layout_constraintTop_toTopOf="@+id/myPoints_logo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/names_listview"
-        android:layout_width="192dp"
-        android:layout_height="422dp"
+        android:layout_width="185dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:listSelector="@android:color/transparent"
+        android:longClickable="false"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toStartOf="@+id/points_listview"
+        app:layout_constraintStart_toEndOf="@+id/ranking_listview"
+        app:layout_constraintTop_toBottomOf="@+id/myPoints">
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/points_listview"
+        android:layout_width="103dp"
+        android:layout_height="350dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:listSelector="@android:color/transparent"
+        android:longClickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/names_listview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/names_listview"
+        app:layout_constraintTop_toTopOf="@+id/names_listview"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ListView
+        android:id="@+id/ranking_listview"
+        android:layout_width="70dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:listSelector="@android:color/transparent"
+        android:longClickable="false"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="@+id/names_listview"
+        app:layout_constraintEnd_toStartOf="@+id/names_listview"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/names_listview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/myCoordinatorLayout"
+        android:layout_width="248dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToPts_btn"
+        app:layout_constraintVertical_bias="1.0">
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="360dp"
+        android:layout_height="426dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/myCoordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myPoints"
+        app:layout_constraintVertical_bias="1.0"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/rank_LB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/rankLB"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name_LB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name_LB"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/name_LB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/nameLB"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/names_listview"
+        app:layout_constraintEnd_toStartOf="@+id/points_LB"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toEndOf="@+id/rank_LB"
+        app:layout_constraintTop_toBottomOf="@+id/myPoints"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/points_LB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/pointsLB"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name_LB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name_LB"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_leaderboard"
+        android:layout_width="288dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/txt_leaderboard"
+        android:textAlignment="center"
+        android:textColor="#2EB2FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/names_listview" />
+
+    <Button
+        android:id="@+id/backToPts_btn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_pink"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/backToPts_btn"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_leaderboard" />
+
+    <ImageButton
+        android:id="@+id/Det_backtohome_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myPoints"></ListView>
-
+        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>
