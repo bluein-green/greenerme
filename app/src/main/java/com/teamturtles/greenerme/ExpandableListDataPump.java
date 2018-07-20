@@ -22,6 +22,81 @@ public class ExpandableListDataPump {
         DatabaseReference dbReference = database.getReference();
         DatabaseReference catRef = dbReference.child("Item Categories");
 
+        List<String> itemCategories = new ArrayList<>();
+        itemCategories.add("Plastic");
+        itemCategories.add("Paper");
+        itemCategories.add("Metal");
+        itemCategories.add("E-waste");
+        itemCategories.add("Others");
+
+        for (int i = 0; i < itemCategories.size(); i++) {
+            DatabaseReference specificCat = catRef.child(itemCategories.get(i));
+            final List<Pair> items = new ArrayList<>();
+            specificCat.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Iterable<DataSnapshot> itemSnapshots = dataSnapshot.getChildren();
+
+                    for (DataSnapshot itemSnap : itemSnapshots) {
+                        String itemName = itemSnap.getValue(String.class);
+                        int id = Integer.parseInt(itemSnap.getKey());
+                        items.add(new Pair(itemName, id));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
+
+            expandableListDetail.put(itemCategories.get(i).toUpperCase(), items);
+        }
+
+        return expandableListDetail;
+
+        // TODO: organise items based on certain order (usage -- others at the bottom) [DONE]
+        // TODO: pull from database properly -.- [DONE]
+        // TODO: add the rule to optimise queries
+        // TODO: refactor and use functions instead of hardcoding the order of display [DONE]
+        // TODO: glass category
+
+    }
+}
+
+
+
+
+/*
+        // HARDCODED WAY -------------------------------------
+        DatabaseReference plasticCat = catRef.child("Plastic");
+        DatabaseReference paperCat = catRef.child("Paper");
+        DatabaseReference metalCat = catRef.child("Metal");
+        DatabaseReference eWasteCat = catRef.child("E-waste");
+        DatabaseReference othersCat = catRef.child("Others");
+
+
+        // for paper
+        final List<Pair> paper = new ArrayList<Pair>();
+        paperCat.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> items = dataSnapshot.getChildren();
+
+                for (DataSnapshot itemSnap : items) {
+                    String itemName = itemSnap.getValue(String.class);
+                    int id = Integer.parseInt(itemSnap.getKey());
+                    paper.add(new Pair(itemName, id));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        expandableListDetail.put("PAPER", paper);
+*/
         /*
         catRef.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -52,37 +127,7 @@ public class ExpandableListDataPump {
             }
         });
 */
-        // HARDCODED WAY -------------------------------------
-        DatabaseReference plasticCat = catRef.child("Plastic");
-        DatabaseReference paperCat = catRef.child("Paper");
-        DatabaseReference metalCat = catRef.child("Metal");
-        DatabaseReference eWasteCat = catRef.child("E-waste");
-        DatabaseReference othersCat = catRef.child("Others");
-
-
-        // for paper
-        final List<Pair> paper = new ArrayList<Pair>();
-        paperCat.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> items = dataSnapshot.getChildren();
-
-                for (DataSnapshot itemSnap : items) {
-                    String itemName = itemSnap.getValue(String.class);
-                    int id = Integer.parseInt(itemSnap.getKey());
-                    paper.add(new Pair(itemName, id));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        expandableListDetail.put("PAPER", paper);
-
-
+/*
         // for plastics
         final List<Pair> plastic = new ArrayList<Pair>();
         plasticCat.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
@@ -175,14 +220,4 @@ public class ExpandableListDataPump {
         });
 
         expandableListDetail.put("OTHERS", others);
-
-        return expandableListDetail;
-
-        // TODO: organise items based on certain order (usage -- others at the bottom)
-        // TODO: pull from database properly -.-
-        // TODO: add the rule to optimise queries
-        // TODO: refactor and use functions instead of hardcoding the order of display
-        // TODO: glass category
-
-    }
-}
+*/

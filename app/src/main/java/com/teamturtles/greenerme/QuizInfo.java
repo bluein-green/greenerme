@@ -4,6 +4,7 @@ public class QuizInfo {
     private String startDate;
     private String endDate;
     private String topic;
+    private String description;
 
     public QuizInfo() {}
 
@@ -19,6 +20,10 @@ public class QuizInfo {
         return topic;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
@@ -29,6 +34,10 @@ public class QuizInfo {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

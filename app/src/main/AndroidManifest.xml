@@ -37,6 +37,7 @@
         <activity android:name=".EmailVerifyPage" />
         <activity android:name=".QuizQuestionPage" />
         <activity android:name=".LeaderboardPage" />
+        <activity android:name=".EndQuizPage"></activity>
     </application>
 
 </manifest>

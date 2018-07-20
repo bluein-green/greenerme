@@ -21,6 +21,7 @@ public class TakeQuizPage extends AppCompatActivity {
     private ImageButton home_btn;
     private TextView topic_txt;
     private TextView date_txt;
+    private TextView description_txt;
 
     // firebase references
     private FirebaseDatabase database;
@@ -45,8 +46,8 @@ public class TakeQuizPage extends AppCompatActivity {
         quizTopicRef = dbReference.child("Quiz").child("Topic");
 
         // set date, topic, topic description view refs
-        topic_txt = (TextView) findViewById(R.id.Quiz_topic_txt);
-        date_txt = (TextView) findViewById(R.id.Quiz_date_txt);
+        setViewRefs();
+
 
         // get dates, topic and topic description
         quizTopicRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -61,17 +62,35 @@ public class TakeQuizPage extends AppCompatActivity {
                 // set quiz topic
                 topic = quizInfo.getTopic();
                 topic_txt.setText(topic);
+
+                // set quiz description
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
 
         // set click listener for start button
+        setStartBtnClickListener();
+
+
+        // set click listener for back to home button
+        setBackToHomeClickListener();
+
+    }
+
+
+    private void setViewRefs() {
+        topic_txt = (TextView) findViewById(R.id.Quiz_topic_txt);
+        date_txt = (TextView) findViewById(R.id.Quiz_date_txt);
+        description_txt = (TextView) findViewById(R.id.Quiz_description_txt);
         start_btn = (Button) findViewById(R.id.Quiz_start_btn);
+        home_btn = (ImageButton) findViewById(R.id.Quiz_backtohome_btn);
+    }
+
+    private void setStartBtnClickListener() {
         start_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,9 +99,9 @@ public class TakeQuizPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        // set click listener for back to home button
-        home_btn = (ImageButton) findViewById(R.id.Quiz_backtohome_btn);
+    private void setBackToHomeClickListener() {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
