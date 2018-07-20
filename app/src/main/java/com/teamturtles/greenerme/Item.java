@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class Item {
     // implements Parcelable
     private String name;
-    private int recyclableStatus;   // 0: no, 1: general yes, 2: yes
+    private String category;
+    private int recyclableStatus;   // 0: no, 1: yes, 2: yes with special notes (and exceptions), 3: no with special notes
     private String procedure;
     private boolean hdb_recyclable;
     private boolean separated_recyclable;
@@ -23,6 +24,8 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setCategory(String category) { this.category = category; }
 
     public void setRecyclability(int recyclableStatus) {
         this.recyclableStatus = recyclableStatus;
@@ -50,9 +53,12 @@ public class Item {
         this.separated_recyclable = separated_recyclable;
     }
 
+    // public getters
     public String getName() {
         return name;
     }
+
+    public String getCategory() { return category; }
 
     public int getRecyclability() {
         return recyclableStatus;
