@@ -40,7 +40,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = mAuth.getCurrentUser();
         String user_id = user.getUid();
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Leaderboard").child(user_id);
         points_textView = (TextView) findViewById(R.id.points_textView);
         leaderboard_btn = (Button) findViewById(R.id.leaderboard_btn);
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
@@ -48,12 +48,12 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
         leaderboard_btn.setOnClickListener(this);
         home_btn.setOnClickListener(this);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mDatabase.child("points").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
-                    User loggedin_User = dataSnapshot.getValue(User.class);
-                    points_textView.setText(Integer.toString(loggedin_User.getPoints()));
+                    int points = dataSnapshot.getValue(Integer.class) * -1;
+                    points_textView.setText(Integer.toString(points));
                 }
             }
             @Override
@@ -69,8 +69,8 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
 
         if (view == leaderboard_btn) {
-            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_SHORT).show();
-            //startActivity(new Intent(this, LeaderboardPage.class));
+            // Toast.makeText(this, "Coming Soon!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, LeaderboardPage.class));
         }
         if (view == home_btn) {
             startActivity(new Intent(this, HomePage_loggedin.class));

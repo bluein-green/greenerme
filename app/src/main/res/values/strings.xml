@@ -14,6 +14,7 @@
     <string name="signin_btn">next</string>
     <string name="email_login">Email address</string>
     <string name="password_login">Password</string>
+    <string name="google_login">Google Login</string>
 
 
     <!-- "forgot account page" strings -->
@@ -91,7 +92,8 @@
     <string name="rankLB">Rank</string>
     <string name="nameLB">Name</string>
     <string name="pointsLB">Points</string>
-
+    <string name="txt_leaderboard">Win prizes in our monthly lucky draw! More points, more chances</string>
+    <string name="backToPts_btn">Back to My Points</string>
 
 
     <!-- "View Account page" strings -->

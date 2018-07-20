@@ -97,4 +97,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_login" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signinGoogle_btn"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="439dp"></com.google.android.gms.common.SignInButton>
+
 </android.support.constraint.ConstraintLayout>
