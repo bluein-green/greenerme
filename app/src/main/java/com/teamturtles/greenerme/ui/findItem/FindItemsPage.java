@@ -1,11 +1,13 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.findItem;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+
+import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.findItem.CategoriesPage;
 
 public class FindItemsPage extends AppCompatActivity {
     private Button category_btn;

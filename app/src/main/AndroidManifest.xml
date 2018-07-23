@@ -14,30 +14,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomePage_loggedout">
+        <activity android:name=".ui.main.HomePage_loggedout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateAccPage" />
-        <activity android:name=".LoginPage" />
+        <activity android:name=".ui.account.CreateAccPage" />
+        <activity android:name=".ui.account.LoginPage" />
         <activity android:name=".ItemsPage" />
-        <activity android:name=".HomePage_loggedin" />
-        <activity android:name=".ForgotAccPage" />
-        <activity android:name=".FindItemsPage" />
-        <activity android:name=".TakeQuizPage" />
-        <activity android:name=".CheckPointsPage" />
-        <activity android:name=".AboutAppPage" />
-        <activity android:name=".ViewAccountPage" />
-        <activity android:name=".CategoriesPage" />
-        <activity android:name=".ItemDetailsPage" />
+        <activity android:name=".ui.main.HomePage_loggedin" />
+        <activity android:name=".ui.account.ForgotAccPage" />
+        <activity android:name=".ui.findItem.FindItemsPage" />
+        <activity android:name=".ui.quiz.TakeQuizPage" />
+        <activity android:name=".ui.points.CheckPointsPage" />
+        <activity android:name=".ui.main.AboutAppPage" />
+        <activity android:name=".ui.account.ViewAccountPage" />
+        <activity android:name=".ui.findItem.CategoriesPage" />
+        <activity android:name=".ui.findItem.ItemDetailsPage" />
         <activity android:name=".temp_toremove" />
         <activity android:name=".EmailVerifyPage" />
-        <activity android:name=".QuizQuestionPage" />
-        <activity android:name=".LeaderboardPage" />
-        <activity android:name=".EndQuizPage"></activity>
+        <activity android:name=".ui.quiz.QuizQuestionPage" />
+        <activity android:name=".ui.points.LeaderboardPage" />
+        <activity android:name=".ui.quiz.EndQuizPage"></activity>
     </application>
 
 </manifest>

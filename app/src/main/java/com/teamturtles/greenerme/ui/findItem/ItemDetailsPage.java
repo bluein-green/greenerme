@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.findItem;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -22,6 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.model.Item;
+import com.teamturtles.greenerme.R;
 
 import java.io.File;
 import java.io.IOException;

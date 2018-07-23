@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoriesPage">
+    tools:context=".ui.findItem.CategoriesPage">
 
     <ImageView
-        android:id="@+id/Det_logo"
+        android:id="@+id/FI_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -27,11 +27,11 @@
         android:text="@string/FI_itemcategories"
         android:textColor="#3EB489"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Det_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/FI_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Det_logo"
-        app:layout_constraintTop_toTopOf="@+id/Det_logo" />
+        app:layout_constraintStart_toEndOf="@+id/FI_logo"
+        app:layout_constraintTop_toTopOf="@+id/FI_logo" />
 
     <ImageButton
         android:id="@+id/IC_backtohome_btn"
@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toTopOf="@+id/IC_backtohome_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Det_logo">
+        app:layout_constraintTop_toBottomOf="@+id/FI_logo">
 
         <ExpandableListView
             android:id="@+id/IC_expandableListView"

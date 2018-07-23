@@ -1,7 +1,9 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.teamturtles.greenerme.R;
 
 public class AboutAppPage extends AppCompatActivity {
 

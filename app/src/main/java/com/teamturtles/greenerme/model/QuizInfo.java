@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.model;
 
 public class QuizInfo {
     private String startDate;

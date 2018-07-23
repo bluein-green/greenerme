@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.account.CreateAccPage;
+import com.teamturtles.greenerme.ui.account.LoginPage;
 
 public class HomePage_loggedout extends AppCompatActivity implements View.OnClickListener {
 

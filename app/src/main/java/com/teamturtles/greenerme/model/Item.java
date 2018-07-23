@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -15,6 +15,7 @@ public class Item {
     private boolean separated_recyclable;
     private boolean others_recyclable;
     private ArrayList<String> test;
+    private int id;
 
 
     // Default constructor required for calls to
@@ -53,6 +54,10 @@ public class Item {
         this.separated_recyclable = separated_recyclable;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     // public getters
     public String getName() {
         return name;
@@ -81,6 +86,9 @@ public class Item {
         return others_recyclable;
     }
 
+    public int getId() {
+        return this.id;
+    }
 
     @Override
     public String toString() {
