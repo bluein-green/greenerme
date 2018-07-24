@@ -22,6 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
 import com.teamturtles.greenerme.model.Item;
 import com.teamturtles.greenerme.R;
@@ -51,6 +56,8 @@ public class ItemDetailsPage extends AppCompatActivity {
     private StorageReference picRef;
 
     // local file for picture
+    private DisplayImageOptions displayImageOptions;
+    private ImageLoader imageLoader;
     private File localfile;
     private String picId;
     private int itemId;
@@ -79,6 +86,29 @@ public class ItemDetailsPage extends AppCompatActivity {
 
         // set View references
         setViewRefs();
+
+        // Configure Universal Image Loader.
+        displayImageOptions = new DisplayImageOptions.Builder()
+                .cacheOnDisk(true)
+                .resetViewBeforeLoading(true)
+                .displayer(new FadeInBitmapDisplayer(300))
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .build();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                imageLoader = ImageLoader.getInstance();
+                ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(ItemDetailsPage.this)
+                        .memoryCacheSize(2 * 1024 * 1024)
+                        .memoryCacheSizePercentage(13) // default
+                        .build();
+                imageLoader.init(configuration);
+            }
+        }).start();
+
+
+
+
 
         // get item from database
         itemRef.addListenerForSingleValueEvent(new ValueEventListener() {

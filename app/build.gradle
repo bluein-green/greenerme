@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui:0.4.0'
     implementation 'com.android.support:design:27.1.0'
     implementation 'com.algolia:algoliasearch-android:3.+'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 }
 
 

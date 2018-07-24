@@ -11,17 +11,19 @@ public class ItemJsonParser {
             return null;
         }
 
-        String name = jsonObject.optString("itemName");
-        int id = jsonObject.optInt("objectID");
+        String name = jsonObject.optString("name");
+        String category = jsonObject.optString("category");
+        int id = jsonObject.optInt("objectID", -1);
 
-        if (name != null) {
+        if (name != null && category != null && id >= 0) {
             Item item = new Item();
             item.setName(name);
+            item.setCategory(category);
             item.setId(id);
             return item;
-        } else {
-            return null;
         }
+
+        return null;
     }
 
 

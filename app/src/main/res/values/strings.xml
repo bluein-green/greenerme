@@ -49,6 +49,9 @@
     <string name="FI_finditem">Find Item</string>
     <string name="FI_itemcategories">Item Categories</string>
 
+    <!-- Search strings -->
+    <string name="search_hint">Search...</string>
+
 
     <!-- Item details strings -->
     <string name="Det_item_details">Item Details</string>
