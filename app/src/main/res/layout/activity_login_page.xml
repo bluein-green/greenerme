@@ -31,6 +31,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/button_green"
         android:text="@string/signin_btn"
+        android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,11 +98,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_login" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signinGoogle_btn"
-        android:layout_width="195dp"
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
+        android:layout_width="296dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="439dp"></com.google.android.gms.common.SignInButton>
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="422dp">
+
+    </FrameLayout>
+
+
+
 
 </android.support.constraint.ConstraintLayout>

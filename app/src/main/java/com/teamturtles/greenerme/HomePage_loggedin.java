@@ -45,7 +45,6 @@ public class HomePage_loggedin extends AppCompatActivity {
 
     private Button resendEmail_btn;
     private Button logoutEmail_btn;
-    private TextView emailAddress;
     private Button verified_btn;
 
     private TextView textView;

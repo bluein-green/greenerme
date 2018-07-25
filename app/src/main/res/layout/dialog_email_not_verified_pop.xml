@@ -10,7 +10,7 @@
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_top_bottom_right"
         android:gravity="center"
         android:text="@string/verified_btn"
@@ -50,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailVerificationHeading" />
+
 
     <Button
         android:id="@+id/logoutEmail_btn"

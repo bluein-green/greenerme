@@ -11,10 +11,9 @@
 
     <!-- "login page" strings -->
     <string name="forgotAccText_btn">Forgot your password?</string>
-    <string name="signin_btn">next</string>
+    <string name="signin_btn">Continue</string>
     <string name="email_login">Email address</string>
     <string name="password_login">Password</string>
-    <string name="google_login">Google Login</string>
 
 
     <!-- "forgot account page" strings -->
@@ -89,7 +88,6 @@
     <string name="EQ_viewans">View answers</string>
 
 
-
     <!-- "My Points page" strings -->
     <string name="myPoints">My Points</string>
     <string name="txt_mypoints_0">You have earned</string>
@@ -117,6 +115,7 @@
     <string name="deleteAccHeading">Delete Account?</string>
     <string name="deleteAccText">All user data will be deleted. Continue?</string>
     <string name="cancel_btn">Cancel</string>
+    <string name="txt_password">Confirm with Password:</string>
 
     <!-- "Change Password Pop" strings -->
     <string name="changePasswordHeading">Change Password</string>
@@ -135,5 +134,6 @@
     <string name="emailSentTo">Email sent to:</string>
     <string name="resendEmail_btn">Resend Email</string>
     <string name="verified_btn">Verified</string>
+    <string name="emailText">Email has been sent to:</string>
 
 </resources>
