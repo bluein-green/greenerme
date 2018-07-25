@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.io;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.model.Pair;
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 

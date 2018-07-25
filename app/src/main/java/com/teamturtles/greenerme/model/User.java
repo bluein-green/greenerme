@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.model;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

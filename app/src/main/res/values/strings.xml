@@ -48,6 +48,9 @@
     <string name="FI_finditem">Find Item</string>
     <string name="FI_itemcategories">Item Categories</string>
 
+    <!-- Search strings -->
+    <string name="search_hint">Search...</string>
+
 
     <!-- Item details strings -->
     <string name="Det_item_details">Item Details</string>
@@ -85,7 +88,7 @@
     <string name="EQ_correct">correct</string>
     <string name="EQ_pointsearned">" points earned"</string>
     <string name="EQ_comeback">"Come back again next week to earn points and stay on the leaderboard!"</string>
-    <string name="EQ_viewans">View answers</string>
+    <string name="EQ_viewans">Review quiz</string>
 
 
     <!-- "My Points page" strings -->

@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.quiz;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.R;
 
 public class EndQuizPage extends AppCompatActivity {
     // points per answer correct

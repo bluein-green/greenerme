@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutAppPage">
+    tools:context=".ui.main.AboutAppPage">
 
     <ImageView
         android:id="@+id/homepage_loggedout_logo"

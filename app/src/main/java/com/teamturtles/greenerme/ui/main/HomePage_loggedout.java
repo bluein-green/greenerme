@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.main;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -26,12 +26,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.Arrays;
+import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.account.CreateAccPage;
+import com.teamturtles.greenerme.ui.account.LoginPage;
 
 public class HomePage_loggedout extends AppCompatActivity implements View.OnClickListener {
 

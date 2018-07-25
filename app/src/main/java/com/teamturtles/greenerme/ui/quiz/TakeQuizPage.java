@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.ui.quiz;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,6 +14,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.model.QuizInfo;
+import com.teamturtles.greenerme.R;
 
 public class TakeQuizPage extends AppCompatActivity {
     // view references
