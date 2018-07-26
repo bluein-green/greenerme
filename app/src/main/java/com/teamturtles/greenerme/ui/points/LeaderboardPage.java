@@ -229,6 +229,7 @@ public class LeaderboardPage extends AppCompatActivity implements SwipeRefreshLa
                 final ArrayAdapter<String> adapterNames = new ArrayAdapter<String>(LeaderboardPage.this, R.layout.mylist_2, namesAL);
                 final ArrayAdapter<String> adapterPoints = new ArrayAdapter<String>(LeaderboardPage.this, R.layout.mylist, pointsAL);
                 final ArrayAdapter<String> adapterRanking = new ArrayAdapter<String>(LeaderboardPage.this, R.layout.mylist, rankAL);
+                boolean inTop10 = false;
 
                 for (DataSnapshot itemSnap : items) {
                     int points = itemSnap.child("points").getValue(Integer.class) * -1;
@@ -237,12 +238,15 @@ public class LeaderboardPage extends AppCompatActivity implements SwipeRefreshLa
                     pointsAL.add(Integer.toString(points));
                     namesAL.add(name);
                     count++;
+
+                    if (name.equals(currentUser.getDisplayName()) && itemSnap.getKey().equals(user_id)) {
+                        inTop10 = true;
+                    }
                 }
 
-                if (namesAL.contains(currentUser.getDisplayName())) {
+                if (inTop10) {
                     Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Congrats! You are in the top 10!" , Snackbar.LENGTH_INDEFINITE).show();
                 } else {
-
                     Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Sorry! You are not in the top 10!", Snackbar.LENGTH_INDEFINITE).show();
                 }
 
