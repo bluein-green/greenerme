@@ -52,6 +52,15 @@ public class HomePage_loggedin extends AppCompatActivity {
     private AlertDialog dialog;
 
     @Override
+    public void onResume(){
+        super.onResume();
+        username = user.getDisplayName();
+        String greeting_result = getString(R.string.hi_greeting, username);
+        textView.setText(greeting_result);
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_loggedin);

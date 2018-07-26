@@ -23,6 +23,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,9 +31,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.Arrays;
+
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.account.CreateAccPage;
 import com.teamturtles.greenerme.ui.account.LoginPage;
@@ -63,6 +69,7 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_home_page_loggedout);
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         if (mAuth.getCurrentUser() != null) {
             finish();
@@ -152,7 +159,7 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
                     Toast.makeText(HomePage_loggedout.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(HomePage_loggedout.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin.class));
+                    checkForUser();
                 }
             }
         });
@@ -172,6 +179,30 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
         mRef.child(user_id).child("name").setValue(username);
         mRef.child(user_id).child("points").setValue(0);
         mRef.child(user_id).child("hasTakenQuiz").setValue(false);
+    }
+
+    private void checkForUser() {
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        final String user_id = user.getUid();
+        DatabaseReference mRef = mDatabaseReference.child("Leaderboard");
+
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.child(user_id).exists()) {
+                    saveUserInfo();
+                    Toast.makeText(HomePage_loggedout.this, "Creating Account", Toast.LENGTH_SHORT).show();
+                }
+                startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(HomePage_loggedout.this, "Error Occurred", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+            }
+        });
     }
 
 
