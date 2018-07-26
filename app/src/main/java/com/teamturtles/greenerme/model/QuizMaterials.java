@@ -6,6 +6,7 @@ public class QuizMaterials {
     private String question;
     private ArrayList<String> choices;
     private int answer;
+    private String explanation;
 
     public QuizMaterials() {}
 
@@ -22,6 +23,8 @@ public class QuizMaterials {
         return answer;
     }
 
+    public String getExplanation() { return explanation; }
+
     // public setters
     public void setQuestion(String question) {
         this.question = question;
@@ -34,6 +37,8 @@ public class QuizMaterials {
     public void setAnswer(int answer) {
         this.answer = answer;
     }
+
+    public void setExplanation(String explanation) {this.explanation = explanation; }
 
 
     public String getChoice(int choiceNum) {

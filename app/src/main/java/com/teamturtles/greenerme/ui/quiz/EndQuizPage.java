@@ -81,7 +81,8 @@ public class EndQuizPage extends AppCompatActivity {
         viewAns_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // stub
+                Intent intent = new Intent(EndQuizPage.this, ViewAnsPage_v2.class);
+                startActivity(intent);
             }
         });
     }

@@ -87,6 +87,7 @@ public class ItemDetailsPage extends AppCompatActivity {
         // set View references
         setViewRefs();
 
+/*
         // Configure Universal Image Loader.
         displayImageOptions = new DisplayImageOptions.Builder()
                 .cacheOnDisk(true)
@@ -103,9 +104,16 @@ public class ItemDetailsPage extends AppCompatActivity {
                         .memoryCacheSizePercentage(13) // default
                         .build();
                 imageLoader.init(configuration);
+
+                item_pic.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageLoader.displayImage(result.getResult().getImage(), posterImageView, displayImageOptions);
+                    }
+                })
             }
         }).start();
-
+*/
 
 
 
@@ -163,7 +171,7 @@ public class ItemDetailsPage extends AppCompatActivity {
         });
 
         // display item picture
-        displayItemPic();
+        // displayItemPic();
 
 
 

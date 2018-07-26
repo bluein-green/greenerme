@@ -14,7 +14,6 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -243,7 +242,6 @@ public class FindItemsPage extends AppCompatActivity implements AbsListView.OnSc
                 cell = (ViewGroup) getLayoutInflater().inflate(R.layout.cell_item_result, null);
             }
 
-            // ImageView posterImageView = (ImageView) cell.findViewById(R.id.imageview_poster);
             TextView itemNameTextView = (TextView) cell.findViewById(R.id.item_name);
             TextView catNameTextView = (TextView) cell.findViewById(R.id.category_name);
 
@@ -251,7 +249,7 @@ public class FindItemsPage extends AppCompatActivity implements AbsListView.OnSc
 
             // imageLoader.displayImage(result.getResult().getImage(), posterImageView, displayImageOptions);
             itemNameTextView.setText(highlightRenderer.renderHighlights(result.getHighlight("name").getHighlightedValue()));
-            // catNameTextView.setText(highlightRenderer.renderHighlights(result.getHighlight("category").getHighlightedValue()));
+            catNameTextView.setText(result.getResult().getCategory());
 
             return cell;
         }
