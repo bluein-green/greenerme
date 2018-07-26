@@ -243,7 +243,6 @@ public class LeaderboardPage extends AppCompatActivity implements SwipeRefreshLa
                         inTop10 = true;
                     }
                 }
-
                 if (inTop10) {
                     Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Congrats! You are in the top 10!" , Snackbar.LENGTH_INDEFINITE).show();
                 } else {
