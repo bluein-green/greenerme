@@ -3,12 +3,15 @@ package com.teamturtles.greenerme.ui.account;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
     private Button signup_btn;
     private TextView loginText_btn;
     private ImageView bigLogo;
+    private ImageButton info_btn;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference;
@@ -62,6 +66,9 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
         loginText_btn = (TextView) findViewById(R.id.loginText_btn);
         bigLogo = (ImageView) findViewById(R.id.bigLogo);
 
+        info_btn = (ImageButton) findViewById(R.id.info_btn);
+
+        info_btn.setOnClickListener(this);
         signup_btn.setOnClickListener(this);
         loginText_btn.setOnClickListener(this);
         bigLogo.setOnClickListener(this);
@@ -148,17 +155,11 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
                     mRef.child(user_id).child("name").setValue(username);
                     mRef.child(user_id).child("points").setValue(0);
                     mRef.child(user_id).child("hasTakenQuiz").setValue(false);
+
                 }
             }
         });
     }
-
-
-        // String email = email_signup.getText().toString().trim();
-        // User newUser = new User(username, email);
-
-        // String user_id = mAuth.getCurrentUser().getUid();
-        // FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).setValue(newUser);
 
     private void sendVerificationEmail() {
         FirebaseUser user = mAuth.getCurrentUser();
@@ -195,6 +196,9 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
         }
         if (view == bigLogo) {
             startActivity(new Intent(this, HomePage_loggedout.class));
+        }
+        if (view == info_btn) {
+            Toast.makeText(getApplicationContext(), "Password must be at least 6 characters (Blankspace not included)", Toast.LENGTH_SHORT).show();
         }
     }
 }

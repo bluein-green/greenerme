@@ -1,6 +1,7 @@
 package com.teamturtles.greenerme.ui.points;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
     private TextView points_textView;
     private Button leaderboard_btn;
     private ImageButton home_btn;
+    private TextView txt_mypoints_3;
 
     private FirebaseAuth mAuth;
 
@@ -47,6 +49,10 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
         leaderboard_btn = (Button) findViewById(R.id.EQ_viewans_btn);
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
 
+        txt_mypoints_3 = (TextView) findViewById(R.id.txt_mypoints_3);
+
+        txt_mypoints_3.setVisibility(View.INVISIBLE);
+
         leaderboard_btn.setOnClickListener(this);
         home_btn.setOnClickListener(this);
 
@@ -56,6 +62,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
                 if (dataSnapshot.getValue() != null) {
                     int points = dataSnapshot.getValue(Integer.class) * -1;
                     points_textView.setText(Integer.toString(points));
+                    txt_mypoints_3.setVisibility(View.VISIBLE);
                 }
             }
             @Override

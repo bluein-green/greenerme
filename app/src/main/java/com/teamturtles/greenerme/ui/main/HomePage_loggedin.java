@@ -36,7 +36,6 @@ public class HomePage_loggedin extends AppCompatActivity {
 
     private Button resendEmail_btn;
     private Button logoutEmail_btn;
-    private TextView emailAddress;
     private Button verified_btn;
 
     private TextView textView;
@@ -45,9 +44,21 @@ public class HomePage_loggedin extends AppCompatActivity {
 
     private String username;
 
+    private TextView about_app_text;
+    private ImageButton about_button;
+
     private AlertDialog.Builder mBuilder;
     private View mView;
     private AlertDialog dialog;
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        username = user.getDisplayName();
+        String greeting_result = getString(R.string.hi_greeting, username);
+        textView.setText(greeting_result);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +67,23 @@ public class HomePage_loggedin extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+
+        about_app_text = (TextView) findViewById(R.id.about_app_text);
+        about_button = (ImageButton) findViewById(R.id.about_button);
+
+        about_app_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage_loggedin.this, AboutAppPage.class));
+            }
+        });
+
+        about_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage_loggedin.this, AboutAppPage.class));
+            }
+        });
 
         loadUserInformation();
 
@@ -202,10 +230,12 @@ public class HomePage_loggedin extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
         textView = (TextView) findViewById(R.id.Hi_name);
+        textView.setVisibility(View.INVISIBLE);
 
         username = user.getDisplayName();
         String greeting_result = getString(R.string.hi_greeting, username);
         textView.setText(greeting_result);
+        textView.setVisibility(View.VISIBLE);
 
         /*
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
@@ -301,16 +331,5 @@ public class HomePage_loggedin extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK) {
-            dialog.dismiss();
-            finish();
-            return true;
-        }
-        return false;
     }
 }

@@ -5,28 +5,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <Button
-        android:id="@+id/verified_btn"
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_top_bottom_right"
-        android:gravity="center"
-        android:text="@string/verified_btn"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/resendEmail_btn"
-        app:layout_constraintTop_toBottomOf="@+id/emailVerificationText" />
-
     <TextView
-        android:id="@+id/emailVerificationHeading"
+        android:id="@+id/deleteAccHeading"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@drawable/border_top_bottom"
         android:gravity="center"
         android:padding="10dip"
-        android:text="@string/emailVerificationHeading"
+        android:text="@string/deleteAccHeading"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#333"
@@ -37,52 +23,50 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/emailVerificationText"
+        android:id="@+id/deleteAccText"
         android:layout_width="260dp"
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/emailVerificationText"
+        android:layout_marginTop="24dp"
+        android:text="@string/deleteAccText"
         android:textAlignment="center"
         android:textColor="#333"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailVerificationHeading" />
-
+        app:layout_constraintTop_toBottomOf="@+id/deleteAccHeading" />
 
     <Button
-        android:id="@+id/logoutEmail_btn"
+        android:id="@+id/cancel_btn"
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/border_rectangle"
         android:gravity="center"
-        android:text="@string/logout_btn"
+        android:text="@string/cancel_btn"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/resendEmail_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteAccGooglePop_btn"
+        app:layout_constraintEnd_toStartOf="@+id/deleteAccGooglePop_btn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/resendEmail_btn"
-        app:layout_constraintEnd_toStartOf="@id/resendEmail_btn"
+        app:layout_constraintTop_toTopOf="@+id/deleteAccGooglePop_btn"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/resendEmail_btn"
+        android:id="@+id/deleteAccGooglePop_btn"
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="128dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/border_top_bottom_right"
         android:gravity="center"
-        android:text="@string/resendEmail_btn"
+        android:text="@string/deleteAccount_btn"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/verified_btn"
-        app:layout_constraintEnd_toStartOf="@+id/verified_btn"
-        app:layout_constraintStart_toEndOf="@+id/logoutEmail_btn"
-        app:layout_constraintTop_toTopOf="@+id/verified_btn"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancel_btn"
+        app:layout_constraintTop_toBottomOf="@+id/deleteAccText" />
 
     <android.support.constraint.Group
         android:id="@+id/group"
