@@ -35,6 +35,13 @@
     <string name="check_points">Check points</string>
     <string name="view_account">View account</string>
 
+    <string name="home_welcome_back">welcome back!</string>
+    <string name="home_view_all_items">View all items</string>
+    <string name="home_or_other">or</string>
+    <string name="home_weekly_quiz">"Weekly\nQuiz"</string>
+    <string name="home_my_points">My Points</string>
+    <string name="home_account_settings">"Account\nSettings"</string>
+
     <string name="hi_greeting">Hi %s,</string>
     <string name="greeting">What would you like to do today?</string>
     <string name="about_app">About app</string>
@@ -48,9 +55,10 @@
     <!-- Find item strings -->
     <string name="FI_finditem">Find Item</string>
     <string name="FI_itemcategories">Item Categories</string>
+    <string name="FI_viewAllItems">All Items</string>
 
     <!-- Search strings -->
-    <string name="search_hint">Search...</string>
+    <string name="search_hint">Item name</string>
 
 
     <!-- Item details strings -->
@@ -137,6 +145,12 @@
     <string name="emailSentTo">Email sent to:</string>
     <string name="resendEmail_btn">Resend Email</string>
     <string name="verified_btn">Verified</string>
+
+
+
+
+    <!-- added by android -->
+
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

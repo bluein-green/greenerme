@@ -47,6 +47,9 @@ public class QuizQuestionPage extends AppCompatActivity {
     // quiz materials
     private List<QuizMaterials> quizMaterialsList;
 
+    // topic name
+    private String topic_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class QuizQuestionPage extends AppCompatActivity {
 
         // get intent that started this activity
         Intent intent = getIntent();
-        String topic_name = intent.getStringExtra("TOPIC_NAME");
+        topic_name = intent.getStringExtra("TOPIC_NAME");
 
         // set view references
         setViewRefs();
@@ -218,6 +221,7 @@ public class QuizQuestionPage extends AppCompatActivity {
                 Intent intent = new Intent(QuizQuestionPage.this, EndQuizPage.class);
                 intent.putExtra("NUM_QN_CORRECT", (int) numQnCorrect);  // +1 for participation
                 intent.putExtra("TOTAL_NUM_QN", (int) totalNumQn);
+                intent.putExtra("TOPIC_NAME", (String) topic_name);
 
                 System.out.println("correct = " + numQnCorrect);
                 System.out.println("total qns = " + totalNumQn);
@@ -294,17 +298,12 @@ public class QuizQuestionPage extends AppCompatActivity {
     }
 
     private boolean checkCorrectAnswer(int ans) {
-        if (ans == this.currAns) {
-            return true;
-        } else {
-            return false;
-        }
+        return ans == this.currAns;
     }
 
     private void updateNumQnCorrect() {
         numQnCorrect++;
     }
-
 
     private interface FirebaseCallback {
         void onCallback(Iterable<DataSnapshot> dataSnapshots);

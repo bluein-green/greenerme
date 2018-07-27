@@ -7,7 +7,7 @@
     tools:context=".ui.quiz.QuizQuestionPage">
 
     <ImageView
-        android:id="@+id/Quiz_logo"
+        android:id="@+id/FI_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -27,11 +27,11 @@
         android:text="@string/Qn_weekly_quiz"
         android:textColor="#4495BE"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Quiz_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/FI_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Quiz_logo"
-        app:layout_constraintTop_toTopOf="@+id/Quiz_logo" />
+        app:layout_constraintStart_toEndOf="@+id/FI_logo"
+        app:layout_constraintTop_toTopOf="@+id/FI_logo" />
     <!---
     <View
         android:id="@+id/colored_bar"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/FI_logo" />
 
 
     <TextView
@@ -102,7 +102,9 @@
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
         android:text="choice1"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +121,9 @@
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
         android:text="choice2"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -137,7 +141,9 @@
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
         android:text="choice3"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -155,7 +161,9 @@
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
         android:text="choice4"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

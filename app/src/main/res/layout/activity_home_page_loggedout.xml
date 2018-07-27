@@ -64,6 +64,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/signupText_btn"
+        android:textAlignment="center"
         android:textColor="#2EB2FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

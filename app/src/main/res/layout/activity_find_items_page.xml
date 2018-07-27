@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/Quiz_logo"
+        android:id="@+id/FI_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -40,11 +40,11 @@
         android:text="@string/FI_finditem"
         android:textColor="#3EB489"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Quiz_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/FI_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Quiz_logo"
-        app:layout_constraintTop_toTopOf="@+id/Quiz_logo" />
+        app:layout_constraintStart_toEndOf="@+id/FI_logo"
+        app:layout_constraintTop_toTopOf="@+id/FI_logo" />
 
     <SearchView
         android:id="@+id/FI_searchView"
@@ -56,7 +56,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_logo"
+        app:layout_constraintTop_toBottomOf="@+id/FI_logo"
         android:iconifiedByDefault="false"
         android:queryHint="@string/search_hint"
         />

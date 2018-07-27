@@ -23,6 +23,10 @@ public class QuizMaterials {
         return answer;
     }
 
+    public String getAnswerText() {
+        return choices.get(getAnswer());
+    }
+
     public String getExplanation() { return explanation; }
 
     // public setters

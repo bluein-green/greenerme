@@ -7,7 +7,7 @@
     tools:context=".ui.quiz.EndQuizPage">
 
     <ImageView
-        android:id="@+id/Quiz_logo"
+        android:id="@+id/FI_logo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -27,11 +27,11 @@
         android:text="@string/Quiz_weekly_quiz"
         android:textColor="#4495BE"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Quiz_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/FI_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Quiz_logo"
-        app:layout_constraintTop_toTopOf="@+id/Quiz_logo" />
+        app:layout_constraintStart_toEndOf="@+id/FI_logo"
+        app:layout_constraintTop_toTopOf="@+id/FI_logo" />
 
 
     <ImageView
@@ -58,7 +58,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/FI_logo" />
 
     <TextView
         android:id="@+id/EQ_score_txt"

@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedout;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
@@ -54,7 +55,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
         }
 
         /*

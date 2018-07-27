@@ -21,6 +21,8 @@ public class EndQuizPage extends AppCompatActivity {
     private ImageButton home_btn;
     private Button viewAns_btn;
 
+    // topic name
+    private String topic_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class EndQuizPage extends AppCompatActivity {
         Intent intent = getIntent();
         int numQnCorrect = intent.getIntExtra("NUM_QN_CORRECT", 0);
         int totalNumQn = intent.getIntExtra("TOTAL_NUM_QN", 0);
+        topic_name = intent.getStringExtra("TOPIC_NAME");
 
         // set view refs
         setViewRefs();
@@ -82,6 +85,7 @@ public class EndQuizPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EndQuizPage.this, ViewAnsPage_v2.class);
+                intent.putExtra("TOPIC_NAME", topic_name);
                 startActivity(intent);
             }
         });
