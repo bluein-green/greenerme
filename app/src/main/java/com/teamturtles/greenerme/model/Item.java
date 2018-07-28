@@ -4,13 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Item {
     // implements Parcelable
     private String name;
     private String category;
     private int recyclableStatus;   // 0: no, 1: yes, 2: yes with special notes (and exceptions), 3: no with special notes
-    private String procedure;
+    private List<String> procedure;
     private boolean hdb_recyclable;
     private boolean separated_recyclable;
     private boolean others_recyclable;
@@ -32,7 +33,7 @@ public class Item {
         this.recyclableStatus = recyclableStatus;
     }
 
-    public void setProcedure(String procedure) {
+    public void setProcedure(List<String> procedure) {
         this.procedure = procedure;
     }
 
@@ -69,7 +70,7 @@ public class Item {
         return recyclableStatus;
     }
 
-    public String getProcedure() {
+    public List<String> getProcedure() {
         return procedure;
     }
 

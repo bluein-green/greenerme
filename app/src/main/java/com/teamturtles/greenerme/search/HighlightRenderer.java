@@ -1,4 +1,4 @@
-package com.teamturtles.greenerme;
+package com.teamturtles.greenerme.search;
 
 /*
  * Copyright (c) 2015 Algolia
@@ -29,6 +29,8 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
+
+import com.teamturtles.greenerme.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

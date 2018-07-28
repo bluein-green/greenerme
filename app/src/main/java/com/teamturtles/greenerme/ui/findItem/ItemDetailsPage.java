@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,6 +34,8 @@ import com.teamturtles.greenerme.R;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemDetailsPage extends AppCompatActivity {
     // displays
@@ -46,6 +49,12 @@ public class ItemDetailsPage extends AppCompatActivity {
     private ImageView sep_result;
     private ImageView sep_icon;
     private ImageView item_pic;
+    private List<TextView> procedure_txts;
+    private TextView procedure_txt1;
+    private TextView procedure_txt2;
+    private TextView procedure_txt3;
+    private TextView procedure_txt4;
+    private TextView procedure_txt5;    // MAX: 5 lines in text view
 
     // firebase references
     private FirebaseDatabase database;
@@ -135,6 +144,11 @@ public class ItemDetailsPage extends AppCompatActivity {
                 // TODO: upload item pictures + pull and display
                 // TODO: set the procedures!!!
 
+                // display procedures
+                List<String> procedure = item.getProcedure();
+                initProcedureViewRefs(procedure.size());
+                displayProcedures(item.getProcedure());
+
                 // set recyclable icon
                 int recyclability = item.getRecyclability(); // 0: no, 1: yes, 2: yes with special notes (and exceptions), 3: no with special notes
 
@@ -158,8 +172,6 @@ public class ItemDetailsPage extends AppCompatActivity {
 
                     // if there is a special note, toggle the "special note" message
                     // TODO: create special note UI and figure out placement
-
-
                 }
 
 
@@ -278,6 +290,34 @@ public class ItemDetailsPage extends AppCompatActivity {
         sep_icon = (ImageView) findViewById(R.id.Det_sep_icon);
         home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
         item_pic = (ImageView) findViewById(R.id.Det_itempic);
+
+        // procedure texts
+        procedure_txt1 = (TextView) findViewById(R.id.Det_procedure1);
+        procedure_txt2 = (TextView) findViewById(R.id.Det_procedure2);
+        procedure_txt3 = (TextView) findViewById(R.id.Det_procedure3);
+        procedure_txt4 = (TextView) findViewById(R.id.Det_procedure4);
+        procedure_txt5 = (TextView) findViewById(R.id.Det_procedure5);
+
+        procedure_txts = new ArrayList<>();
+        procedure_txts.add(procedure_txt1);
+        procedure_txts.add(procedure_txt2);
+        procedure_txts.add(procedure_txt3);
+        procedure_txts.add(procedure_txt4);
+        procedure_txts.add(procedure_txt5);
+
+    }
+
+    private void initProcedureViewRefs(int size) {
+        for (int i = size; i < 5; i++) {
+            procedure_txts.get(i).setVisibility(View.GONE);
+            System.out.println("hiding procedure: " + i);
+        }
+    }
+
+    private void displayProcedures(List<String> procedure) {
+        for (int i = 0; i < procedure.size(); i++) {
+            procedure_txts.get(i).setText(Html.fromHtml(procedure.get(i)));
+        }
     }
 
     private void setBackToHomeClickListener() {

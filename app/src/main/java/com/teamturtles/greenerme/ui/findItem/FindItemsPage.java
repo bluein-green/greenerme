@@ -3,9 +3,6 @@ package com.teamturtles.greenerme.ui.findItem;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.adapters.SearchViewBindingAdapter;
-import android.os.Build;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,12 +20,11 @@ import com.algolia.search.saas.Client;
 import com.algolia.search.saas.CompletionHandler;
 import com.algolia.search.saas.Index;
 import com.algolia.search.saas.Query;
-import com.teamturtles.greenerme.HighlightRenderer;
-import com.teamturtles.greenerme.HighlightedResult;
+import com.teamturtles.greenerme.search.HighlightRenderer;
+import com.teamturtles.greenerme.search.HighlightedResult;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.io.SearchResultsJsonParser;
 import com.teamturtles.greenerme.model.Item;
-import com.teamturtles.greenerme.ui.findItem.CategoriesPage;
 
 import org.json.JSONObject;
 

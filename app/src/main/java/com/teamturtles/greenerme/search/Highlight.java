@@ -1,5 +1,4 @@
-package com.teamturtles.greenerme;
-
+package com.teamturtles.greenerme.search;
 /*
  * Copyright (c) 2015 Algolia
  * http://www.algolia.com/
@@ -23,36 +22,27 @@ package com.teamturtles.greenerme;
  * THE SOFTWARE.
  */
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * An highlighted results holds a data model object along with any number of highlights for this
- * object's attributes.
- *
- * @param <T> The data model type.
+ * The highlighted value of an attribute.
  */
-public class HighlightedResult<T> {
-    private T result;
-    private Map<String, Highlight> highlights = new HashMap<>();
+public class Highlight
+{
+    private String attributeName;
+    private String highlightedValue;
 
-    public HighlightedResult(T result)
+    public Highlight(String attributeName, String highlightedValue)
     {
-        this.result = result;
+        this.attributeName = attributeName;
+        this.highlightedValue = highlightedValue;
     }
 
-    public T getResult()
+    public String getAttributeName()
     {
-        return result;
+        return attributeName;
     }
 
-    public Highlight getHighlight(String attributeName)
+    public String getHighlightedValue()
     {
-        return highlights.get(attributeName);
-    }
-
-    public void addHighlight(String attributeName, Highlight highlight) {
-        highlights.put(attributeName, highlight);
+        return highlightedValue;
     }
 }

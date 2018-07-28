@@ -1,7 +1,7 @@
 package com.teamturtles.greenerme.io;
 
-import com.teamturtles.greenerme.Highlight;
-import com.teamturtles.greenerme.HighlightedResult;
+import com.teamturtles.greenerme.search.Highlight;
+import com.teamturtles.greenerme.search.HighlightedResult;
 import com.teamturtles.greenerme.model.Item;
 
 import org.json.JSONArray;

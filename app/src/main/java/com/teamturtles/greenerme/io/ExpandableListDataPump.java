@@ -27,7 +27,8 @@ public class ExpandableListDataPump {
         itemCategories.add("Plastic");
         itemCategories.add("Paper");
         itemCategories.add("Metal");
-        itemCategories.add("E-waste");
+        itemCategories.add("Glass");
+        itemCategories.add("E-Waste");
         itemCategories.add("Others");
 
         for (int i = 0; i < itemCategories.size(); i++) {
@@ -59,7 +60,7 @@ public class ExpandableListDataPump {
         // TODO: pull from database properly -.- [DONE]
         // TODO: add the rule to optimise queries
         // TODO: refactor and use functions instead of hardcoding the order of display [DONE]
-        // TODO: glass category
+        // TODO: glass category [DONE]
 
     }
 }
