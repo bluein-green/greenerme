@@ -45,8 +45,11 @@
         <activity
             android:name=".ui.quiz.ViewAnsPage_v2"
             android:label="@string/title_activity_view_ans_page_v2"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ui.main.HomePage_loggedin_v2" />
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".ui.main.HomePage_loggedin_v2"
+            android:windowSoftInputMode="adjustNothing"
+            />
     </application>
 
 </manifest>

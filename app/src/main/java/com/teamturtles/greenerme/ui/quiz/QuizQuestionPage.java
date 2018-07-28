@@ -180,7 +180,7 @@ public class QuizQuestionPage extends AppCompatActivity {
                     // remove click listeners after clicking
                     removeChoicesClickListeners();
 
-                    // show explanation for question
+                    // TODO: show explanation for question
 
                     // show NEXT button
                     next_btn.setVisibility(View.VISIBLE);

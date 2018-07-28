@@ -2,10 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_actual_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.HomePage_loggedin_v2"
     tools:layout_editor_absoluteY="25dp">
+    <!--android:windowSoftInputMode="stateVisible|adjustNothing"-->
+
 
     <ImageView
         android:id="@+id/homepage_loggedin_logo"
@@ -76,8 +79,9 @@
         android:orientation="horizontal"
         android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
+        app:layout_constraintTop_toBottomOf="@+id/home_find_item" />
 
     <ListView
         android:id="@+id/FI_listView"
@@ -88,12 +92,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:descendantFocusability="blocksDescendants"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/home_algolia_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FI_searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/FI_searchView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/homepage_or"
@@ -244,11 +249,36 @@
         app:layout_constraintStart_toEndOf="@+id/about_button" />
 
     <android.support.constraint.Group
-        android:id="@+id/group2"
+        android:id="@+id/group_icons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="view_account_text,settings_button,take_quiz_text,check_points_text,quiz_button,points_button" />
+        app:constraint_referenced_ids="view_account_text,settings_button,take_quiz_text,check_points_text,quiz_button,points_button,home_find_item,about_button,about_app_text,homepage_or,search_button,find_item_text,Hi_name,welcome_message" />
+
+    <TextView
+        android:id="@+id/home_find_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_find"
+        android:textColor="#3EB489"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
+
+    <ImageView
+        android:id="@+id/home_algolia_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/algolia_text" />
 
 
 </android.support.constraint.ConstraintLayout>

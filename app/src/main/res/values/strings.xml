@@ -35,6 +35,7 @@
     <string name="view_account">View account</string>
 
     <string name="home_welcome_back">welcome back!</string>
+    <string name="home_find">Check if your item is recyclable</string>
     <string name="home_view_all_items">View all items</string>
     <string name="home_or_other">or</string>
     <string name="home_weekly_quiz">"Weekly\nQuiz"</string>
@@ -48,14 +49,15 @@
 
     <!--- about app strings -->
     <string name="why_app">Why This App?</string>
-    <string name="why_app_desc">Created during NUS Orbital 2018, the Greener App aims to conveniently provide information on recycling, increase awareness about the environment through weekly quizzes and encourage food environmental habits </string>
+    <string name="why_app_desc">Created during NUS Orbital 2018, the GreenerMe App aims to conveniently provide information on recycling, increase awareness about the environment through weekly quizzes and encourage food environmental habits </string>
     <string name="how_app">How To Use</string>
-    <string name="how_app_desc">The app contains a few simple features, to maximise your experience follow these steps:</string>
-    <string name="how_app_desc_1">1. Search for the item that you are interested in to gather recycling information specified to the item!</string>
-    <string name="how_app_desc_2">2. Create your own account via email or using your Google account to start collecting points!</string>
-    <string name="how_app_desc_3">3. Attempt the weekly quizzes to gain points and conquer the leaderboard to stand to win attractive prizes!</string>
+    <string name="how_app_desc">The app contains a few features. To maximise your experience follow these steps:</string>
+    <string name="how_app_desc_1"><b>1.</b> Search for the item that you are interested in to gather recycling information specified to the item!</string>
+    <string name="how_app_desc_2"><b>2.</b> Create your own account via email or using your Google account to start collecting points!</string>
+    <string name="how_app_desc_3"><b>3.</b> Attempt the weekly quizzes to gain points and conquer the leaderboard to stand to win attractive prizes!</string>
     <string name="credits_app">Credits</string>
-    <string name="credits_app_desc">Founded by Team Turtles (2018)</string>
+    <string name="credits_app_desc1">Created by Team Turtles (2018)</string>
+    <string name="credis_app_desc2">Leaf and icon images from flaticon.com</string>
 
     <!-- Find item strings -->
     <string name="FI_finditem">Find Item</string>
@@ -86,7 +88,7 @@
     <string name="Quiz_triedAlr">You have tried this week’s quiz on</string>
 
     <string name="Quiz_start">Start</string>
-    <string name="Quiz_viewAns">View quiz</string>
+    <string name="Quiz_viewAns">Review quiz</string>
 
     <string name="Quiz_comeback">Come back again next week to earn points and stay on the leaderboard!</string>
 
@@ -126,7 +128,7 @@
     <string name="changeUsername_btn">Edit Username</string>
     <string name="changePassword_btn">Change Password</string>
     <string name="deleteAccount_btn">Delete Account</string>
-    <string name="logout_btn">Log Out</string>
+    <string name="logout_btn">Log out</string>
 
     <!-- "Delete Account Pop" strings -->
     <string name="deleteAccHeading">Delete Account?</string>

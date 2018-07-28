@@ -13,7 +13,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/DEF_placeholder"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/about_title"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/about_title"
         android:layout_width="120dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
@@ -69,17 +69,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
-        android:layout_width="368dp"
-        android:layout_height="439dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/about_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_loggedout_logo">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:orientation="vertical">
 
             <TextView
@@ -88,11 +91,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:lineSpacingExtra="18sp"
-                android:text="@string/why_app"
                 android:paddingTop="8dp"
+                android:text="@string/why_app"
                 android:textAlignment="center"
                 android:textColor="#333333"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="162dp" />
 
@@ -103,7 +107,7 @@
                 android:fontFamily="@font/montserrat"
                 android:padding="8dp"
                 android:text="@string/why_app_desc"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 tools:layout_editor_absoluteX="125dp"
                 tools:layout_editor_absoluteY="137dp" />
 
@@ -113,11 +117,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:lineSpacingExtra="18sp"
-                android:text="@string/how_app"
                 android:paddingTop="8dp"
+                android:text="@string/how_app"
                 android:textAlignment="center"
                 android:textColor="#333333"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="162dp" />
 
@@ -139,7 +144,7 @@
                 android:fontFamily="@font/montserrat"
                 android:padding="6dp"
                 android:text="@string/how_app_desc_1"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 tools:layout_editor_absoluteX="125dp"
                 tools:layout_editor_absoluteY="137dp"
                 tools:text="@string/how_app_desc_1" />
@@ -151,7 +156,7 @@
                 android:fontFamily="@font/montserrat"
                 android:padding="4dp"
                 android:text="@string/how_app_desc_2"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 tools:layout_editor_absoluteX="125dp"
                 tools:layout_editor_absoluteY="137dp"
                 tools:text="@string/how_app_desc_2" />
@@ -163,7 +168,7 @@
                 android:fontFamily="@font/montserrat"
                 android:padding="4dp"
                 android:text="@string/how_app_desc_3"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 tools:layout_editor_absoluteX="125dp"
                 tools:layout_editor_absoluteY="137dp"
                 tools:text="@string/how_app_desc_3" />
@@ -179,19 +184,28 @@
                 android:textAlignment="center"
                 android:textColor="#333333"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="162dp" />
 
             <TextView
-                android:id="@+id/credits_app_desc"
+                android:id="@+id/credits_app_desc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/credits_app_desc"
+                android:text="@string/credits_app_desc1"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="125dp"
                 tools:layout_editor_absoluteY="137dp"
-                tools:text="@string/credits_app_desc" />
+                tools:text="@string/credits_app_desc1" />
+
+            <TextView
+                android:id="@+id/credits_app_desc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/credis_app_desc2"
+                android:textAlignment="center" />
 
         </LinearLayout>
     </ScrollView>

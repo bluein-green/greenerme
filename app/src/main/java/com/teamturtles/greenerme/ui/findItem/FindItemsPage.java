@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import java.util.Collection;
 import java.util.List;
 
-public class FindItemsPage extends AppCompatActivity implements AbsListView.OnScrollListener{
+public class FindItemsPage extends AppCompatActivity implements AbsListView.OnScrollListener {
     // BL:
     private Client client;
     private Index index;

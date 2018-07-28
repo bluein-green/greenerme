@@ -98,7 +98,6 @@
         android:lineSpacingExtra="1sp"
         android:text="answer"
         android:textAlignment="textStart"
-        android:textColor="#555555"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

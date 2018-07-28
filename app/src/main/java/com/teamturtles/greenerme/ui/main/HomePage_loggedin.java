@@ -44,9 +44,6 @@ public class HomePage_loggedin extends AppCompatActivity {
 
     private String username;
 
-    private TextView about_app_text;
-    private ImageButton about_button;
-
     private AlertDialog.Builder mBuilder;
     private View mView;
     private AlertDialog dialog;
@@ -57,6 +54,8 @@ public class HomePage_loggedin extends AppCompatActivity {
         username = user.getDisplayName();
         String greeting_result = getString(R.string.hi_greeting, username);
         textView.setText(greeting_result);
+
+
     }
 
 
@@ -68,22 +67,6 @@ public class HomePage_loggedin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
-        about_app_text = (TextView) findViewById(R.id.about_app_text);
-        about_button = (ImageButton) findViewById(R.id.about_button);
-
-        about_app_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage_loggedin.this, AboutAppPage.class));
-            }
-        });
-
-        about_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage_loggedin.this, AboutAppPage.class));
-            }
-        });
 
         loadUserInformation();
 
@@ -196,7 +179,7 @@ public class HomePage_loggedin extends AppCompatActivity {
     }
 
     private void openSearchPage() {
-        Intent intent = new Intent(this, FindItemsPage.class);
+        Intent intent = new Intent(this, HomePage_loggedin_v2.class);
         startActivity(intent);
     }
 

@@ -19,7 +19,7 @@
         android:text="@string/login_btn"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_loggedOut" />
@@ -72,17 +72,17 @@
 
     <ImageView
         android:id="@+id/bigLogo"
-        android:layout_width="111dp"
-        android:layout_height="125dp"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/DEF_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088"
+        app:layout_constraintVertical_bias="0.19999999"
         app:srcCompat="@drawable/logo" />
 
     <ImageView
@@ -101,16 +101,15 @@
         android:id="@+id/emailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/circle_white"
-        app:layout_constraintBottom_toBottomOf="@+id/googleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintBottom_toBottomOf="@+id/speechbox"
+        app:layout_constraintEnd_toEndOf="@+id/speechbox"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/googleButton"
-        app:layout_constraintTop_toTopOf="@+id/googleButton"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="@+id/speechbox"
         app:srcCompat="@drawable/email" />
 
     <ImageButton
@@ -118,12 +117,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/circle_white"
-        app:layout_constraintBottom_toBottomOf="@+id/speechbox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/speechbox"
+        app:layout_constraintBottom_toBottomOf="@+id/emailButton"
+        app:layout_constraintEnd_toStartOf="@+id/emailButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/speechbox"
+        app:layout_constraintTop_toTopOf="@+id/emailButton"
         app:srcCompat="@drawable/fui_ic_googleg_color_24dp" />
 
 </android.support.constraint.ConstraintLayout>
