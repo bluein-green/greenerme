@@ -91,7 +91,7 @@ public class ItemDetailsPage extends AppCompatActivity {
         stoRef = storage.getReference();
 
         picId = Integer.toString(itemId) + ".png";
-        picRef = stoRef.child(picId);
+//        picRef = stoRef.child(picId);
 
         // set View references
         setViewRefs();
@@ -140,9 +140,12 @@ public class ItemDetailsPage extends AppCompatActivity {
                 String category = item.getCategory();
                 category_txt.setText(category);
 
-                // display item picture
+                // display item picture - use category + id
                 // TODO: upload item pictures + pull and display
                 // TODO: set the procedures!!!
+                picRef = stoRef.child(category).child(picId);
+                downloadItemPic();
+
 
                 // display procedures
                 List<String> procedure = item.getProcedure();
@@ -266,6 +269,8 @@ public class ItemDetailsPage extends AppCompatActivity {
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                     // loaded file
                     loadPicture(localfile);
+                    item_pic.setVisibility(View.VISIBLE);
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
