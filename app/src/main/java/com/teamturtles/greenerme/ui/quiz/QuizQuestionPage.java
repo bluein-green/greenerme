@@ -77,6 +77,7 @@ public class QuizQuestionPage extends AppCompatActivity {
 
 
         // set click listener for back to home button
+        home_btn = (ImageButton) findViewById(R.id.Qn_backtohome_btn);
         setBackToHomeClickListener();
 
         // get number of questions from database
@@ -107,6 +108,7 @@ public class QuizQuestionPage extends AppCompatActivity {
                 setCurrQuizMaterial(qnNum);
             }
         });
+
     }
 
     public void readQuizData(final FirebaseCallback myCallback) {
