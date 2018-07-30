@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedout;
 
 public class ForgotAccPage extends AppCompatActivity implements View.OnClickListener{
@@ -104,7 +105,7 @@ public class ForgotAccPage extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, HomePage_loggedout.class));
         }
         if (view == bigLogo) {
-            startActivity(new Intent(this, HomePage_loggedout.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
     }
 }

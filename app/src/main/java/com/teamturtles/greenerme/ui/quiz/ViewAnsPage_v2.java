@@ -32,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.model.QuizMaterials;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 
 import org.w3c.dom.Text;
 
@@ -158,7 +159,7 @@ public class ViewAnsPage_v2 extends AppCompatActivity {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewAnsPage_v2.this, HomePage_loggedin.class);
+                Intent intent = new Intent(ViewAnsPage_v2.this, HomePage_loggedin_v2.class);
                 startActivity(intent);
             }
         });

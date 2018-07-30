@@ -292,7 +292,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                 progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
-
+                    finish();
                     delete();
 
                 } else {
@@ -353,8 +353,8 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
             }
         }
         if (view == logout_btn) {
+            finish();
             mAuth.signOut();
-
             if (mAuth.getCurrentUser() == null) {
                 finish();
                 startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));

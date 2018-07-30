@@ -52,7 +52,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
     private DatabaseReference mDatabaseReference;
 
     private Button login_btn;
-    private ImageButton home_btn;
     private TextView signupText_btn;
     private ImageView bigLogo;
 
@@ -116,9 +115,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
         login_btn = (Button) findViewById(R.id.login_btn);
         signupText_btn = (TextView) findViewById(R.id.signupText_btn);
         bigLogo = (ImageView) findViewById(R.id.bigLogo);
-
-        home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
-        home_btn.setOnClickListener(this);
 
         login_btn.setOnClickListener(this);
         signupText_btn.setOnClickListener(this);
@@ -234,9 +230,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
         }
         if (view == signupText_btn) {
             startActivity(new Intent(this, CreateAccPage.class));
-        }
-        if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
         if (view == bigLogo) {
             startActivity(new Intent(this, HomePage_loggedin_v2.class));

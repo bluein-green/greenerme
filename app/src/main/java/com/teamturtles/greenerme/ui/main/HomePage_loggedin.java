@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.account.ViewAccountPage;
-import com.teamturtles.greenerme.ui.findItem.FindItemsPage;
 import com.teamturtles.greenerme.ui.points.CheckPointsPage;
 import com.teamturtles.greenerme.ui.quiz.TakeQuizPage;
 
@@ -220,28 +218,6 @@ public class HomePage_loggedin extends AppCompatActivity {
         textView.setText(greeting_result);
         textView.setVisibility(View.VISIBLE);
 
-        /*
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-        textView = (TextView) findViewById(R.id.Hi_name);
-
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null) {
-                    User loggedin_User = dataSnapshot.getValue(User.class);
-                    username = loggedin_User.getUsername();
-                    String greeting_result = getString(R.string.hi_greeting, username);
-                    textView.setText(greeting_result);
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                throw databaseError.toException(); // Don't ignore errors
-                // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        */
 
         if (!user.isEmailVerified()) {
             Toast.makeText(HomePage_loggedin.this, "Email is not verified!", Toast.LENGTH_SHORT).show();

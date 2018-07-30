@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.model.QuizMaterials;
 import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,7 @@ public class QuizQuestionPage extends AppCompatActivity {
     // topic name
     private String topic_name;
 
+    private ImageButton home_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,9 @@ public class QuizQuestionPage extends AppCompatActivity {
         quizRef = dbReference.child("Quiz");
         numQnRef = dbReference.child("Quiz").child("Number of Questions");
 
+
+        // set click listener for back to home button
+        setBackToHomeClickListener();
 
         // get number of questions from database
         numQnRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -309,4 +315,13 @@ public class QuizQuestionPage extends AppCompatActivity {
         void onCallback(Iterable<DataSnapshot> dataSnapshots);
     }
 
+    private void setBackToHomeClickListener() {
+        home_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizQuestionPage.this, HomePage_loggedin_v2.class);
+                startActivity(intent);
+            }
+        });
+    }
 }

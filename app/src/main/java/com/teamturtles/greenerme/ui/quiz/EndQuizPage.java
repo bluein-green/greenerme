@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
 import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 
 public class EndQuizPage extends AppCompatActivity {
     // points per answer correct
@@ -124,7 +125,7 @@ public class EndQuizPage extends AppCompatActivity {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EndQuizPage.this, HomePage_loggedin.class);
+                Intent intent = new Intent(EndQuizPage.this, HomePage_loggedin_v2.class);
                 startActivity(intent);
             }
         });

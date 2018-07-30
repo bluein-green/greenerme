@@ -132,7 +132,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             startActivity(new Intent(this, ForgotAccPage.class));
         }
         if (view == bigLogo) {
-            startActivity(new Intent(this, HomePage_loggedout.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.findItem.FindItemsPage">
+    tools:context=".temp_toremove$FindItemsPage">
 
     <Button
         android:id="@+id/FI_categories_btn"

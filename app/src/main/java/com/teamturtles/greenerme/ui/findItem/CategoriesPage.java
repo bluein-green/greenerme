@@ -13,6 +13,7 @@ import com.teamturtles.greenerme.io.ExpandableListDataPump;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
 import com.teamturtles.greenerme.model.Pair;
 import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -106,7 +107,7 @@ public class CategoriesPage extends AppCompatActivity {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CategoriesPage.this, HomePage_loggedin.class);
+                Intent intent = new Intent(CategoriesPage.this, HomePage_loggedin_v2.class);
                 startActivity(intent);
             }
         });

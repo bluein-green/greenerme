@@ -18,7 +18,7 @@
 
     <!-- "forgot account page" strings -->
     <string name="textView_forgotAcc">Enter email address</string>
-    <string name="logoutHomepageText_btn">Back to homepage?</string>
+    <string name="logoutHomepageText_btn">Back to login page?</string>
 
 
     <!-- "create account page" strings -->

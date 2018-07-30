@@ -39,7 +39,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
 
         if (mAuth.getCurrentUser() == null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), HomePage_loggedout.class));
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
         }
 
         FirebaseUser user = mAuth.getCurrentUser();

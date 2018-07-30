@@ -28,7 +28,7 @@
         <activity android:name=".ItemsPage" />
         <activity android:name=".ui.main.HomePage_loggedin" />
         <activity android:name=".ui.account.ForgotAccPage" />
-        <activity android:name=".ui.findItem.FindItemsPage">
+        <activity android:name=".temp_toremove$FindItemsPage">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -43,7 +43,7 @@
         <activity android:name=".ui.quiz.QuizQuestionPage" />
         <activity android:name=".ui.points.LeaderboardPage" />
         <activity android:name=".ui.quiz.EndQuizPage" />
-        <activity android:name=".ui.quiz.ViewAnsPage" />
+        <activity android:name=".temp_toremove$ViewAnsPage" />
         <activity
             android:name=".ui.quiz.ViewAnsPage_v2"
             android:label="@string/title_activity_view_ans_page_v2"
