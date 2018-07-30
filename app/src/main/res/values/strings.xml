@@ -45,7 +45,7 @@
     <string name="hi_greeting">Hi %s,</string>
     <string name="greeting">What would you like to do today?</string>
     <string name="about_app">About app</string>
-    <string name="homepagelogout_btn">Login/Register</string>
+    <string name="homepagelogout_btn">Login / Register</string>
 
 
     <!--- about app strings -->
@@ -59,6 +59,7 @@
     <string name="credits_app">Credits</string>
     <string name="credits_app_desc1">Created by Team Turtles (2018)</string>
     <string name="credis_app_desc2">Leaf and icon images from flaticon.com</string>
+    <string name="credits_app_des3">Item details from NEA</string>
 
     <!-- Find item strings -->
     <string name="FI_finditem">Find Item</string>
