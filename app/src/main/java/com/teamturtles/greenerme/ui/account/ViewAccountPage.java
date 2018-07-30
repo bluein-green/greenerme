@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedout;
 
 import java.util.List;
@@ -318,7 +319,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                     // delete user info from database
                     FirebaseDatabase.getInstance().getReference().child("Leaderboard").child(user_id).removeValue();
                     finish();
-                    startActivity(new Intent(ViewAccountPage.this, HomePage_loggedout.class));
+                    startActivity(new Intent(ViewAccountPage.this, HomePage_loggedin_v2.class));
 
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -356,7 +357,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
 
             if (mAuth.getCurrentUser() == null) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), HomePage_loggedout.class));
+                startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
             }
 
         }
@@ -377,7 +378,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
             delete();
         }
         if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
     }
 }

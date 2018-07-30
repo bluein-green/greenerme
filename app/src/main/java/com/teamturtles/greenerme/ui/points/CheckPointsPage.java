@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedout;
 import com.teamturtles.greenerme.R;
 
@@ -82,7 +83,7 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, LeaderboardPage.class));
         }
         if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
 
     }

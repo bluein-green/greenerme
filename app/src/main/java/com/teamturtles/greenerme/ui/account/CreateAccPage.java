@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.teamturtles.greenerme.R;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedout;
 
 public class CreateAccPage extends AppCompatActivity implements View.OnClickListener {
@@ -53,7 +54,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
         }
 
         progressDialog = new ProgressDialog(this);
@@ -195,7 +196,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, LoginPage.class));
         }
         if (view == bigLogo) {
-            startActivity(new Intent(this, HomePage_loggedout.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
         if (view == info_btn) {
             Toast.makeText(getApplicationContext(), "Password must be at least 6 characters (Blankspace not included)", Toast.LENGTH_SHORT).show();

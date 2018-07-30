@@ -34,7 +34,7 @@
     <string name="check_points">Check points</string>
     <string name="view_account">View account</string>
 
-    <string name="home_welcome_back">welcome back!</string>
+    <string name="home_welcome_back">Welcome Back!</string>
     <string name="home_find">Check if your item is recyclable</string>
     <string name="home_view_all_items">View all items</string>
     <string name="home_or_other">or</string>
@@ -45,6 +45,7 @@
     <string name="hi_greeting">Hi %s,</string>
     <string name="greeting">What would you like to do today?</string>
     <string name="about_app">About app</string>
+    <string name="homepagelogout_btn">Login/Register</string>
 
 
     <!--- about app strings -->
