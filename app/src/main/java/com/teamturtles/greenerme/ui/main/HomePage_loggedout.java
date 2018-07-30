@@ -52,7 +52,9 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
     private DatabaseReference mDatabaseReference;
 
     private Button login_btn;
+    private ImageButton home_btn;
     private TextView signupText_btn;
+    private ImageView bigLogo;
 
     private ImageView speech_box;
     private ImageButton email_btn;
@@ -73,7 +75,7 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
 
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), HomePage_loggedin.class));
+            startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
         }
 
 
@@ -82,7 +84,7 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin.class));
+                    startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin_v2.class));
                 }
 
             }
@@ -113,6 +115,10 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
 
         login_btn = (Button) findViewById(R.id.login_btn);
         signupText_btn = (TextView) findViewById(R.id.signupText_btn);
+        bigLogo = (ImageView) findViewById(R.id.bigLogo);
+
+        home_btn = (ImageButton) findViewById(R.id.Det_backtohome_btn);
+        home_btn.setOnClickListener(this);
 
         login_btn.setOnClickListener(this);
         signupText_btn.setOnClickListener(this);
@@ -194,12 +200,11 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
                     saveUserInfo();
                     Toast.makeText(HomePage_loggedout.this, "Creating Account", Toast.LENGTH_SHORT).show();
                 }
-                startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin.class));
+                startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin_v2.class));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(HomePage_loggedout.this, "Error Occurred", Toast.LENGTH_SHORT).show();
                 mAuth.signOut();
             }
         });
@@ -221,23 +226,25 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
                 google_btn.setVisibility(View.GONE);
             }
         }
-
         if (view == email_btn) {
             startActivity(new Intent(this, LoginPage.class));
         }
-
         if (view == google_btn) {
             userGoogleLogin();
         }
-
         if (view == signupText_btn) {
             startActivity(new Intent(this, CreateAccPage.class));
+        }
+        if (view == home_btn) {
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
+        }
+        if (view == bigLogo) {
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
     }
 
     @Override
     public void onBackPressed() {
-
         if (signupText_btn.getVisibility() == View.GONE) {
             signupText_btn.setVisibility(View.VISIBLE);
             speech_box.setVisibility(View.GONE);

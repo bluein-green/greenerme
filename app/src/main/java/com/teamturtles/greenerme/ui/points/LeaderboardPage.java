@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.teamturtles.greenerme.ui.main.HomePage_loggedin;
 import com.teamturtles.greenerme.R;
+import com.teamturtles.greenerme.ui.main.HomePage_loggedin_v2;
 
 import java.util.ArrayList;
 
@@ -274,7 +275,7 @@ public class LeaderboardPage extends AppCompatActivity implements SwipeRefreshLa
             startActivity(new Intent(this, CheckPointsPage.class));
         }
         if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin.class));
+            startActivity(new Intent(this, HomePage_loggedin_v2.class));
         }
     }
 }
