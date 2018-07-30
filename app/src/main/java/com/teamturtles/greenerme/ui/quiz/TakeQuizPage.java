@@ -92,6 +92,8 @@ public class TakeQuizPage extends AppCompatActivity {
                 topic_txt.setText(topic);
 
                 // set quiz description
+                String description = quizInfo.getDescription();
+                description_txt.setText(description);
             }
 
             @Override

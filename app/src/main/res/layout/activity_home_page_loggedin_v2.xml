@@ -259,6 +259,7 @@
         android:id="@+id/home_find_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_find"
         android:textColor="#3EB489"
@@ -266,7 +267,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homepagelogout_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
 
     <ImageView
         android:id="@+id/home_algolia_logo"
@@ -280,23 +281,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/algolia_text" />
 
+    <View
+        android:id="@+id/home_covered_bar"
+        android:layout_width="0dp"
+        android:layout_height="112dp"
+        android:layout_marginBottom="88dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:alpha="0.8"
+        android:background="#c9ccc7"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/homepagelogout_btn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="29dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button_pink"
         android:fontFamily="@font/montserrat"
         android:text="@string/homepagelogout_btn"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
-
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/home_covered_bar"
+        app:layout_constraintEnd_toEndOf="@+id/home_covered_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_covered_bar"
+        app:layout_constraintTop_toTopOf="@+id/home_covered_bar" />
 
 
 </android.support.constraint.ConstraintLayout>
