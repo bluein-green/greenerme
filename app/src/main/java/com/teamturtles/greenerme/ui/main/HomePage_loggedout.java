@@ -137,8 +137,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
             if (result.isSuccess()) {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-            } else {
-                Toast.makeText(HomePage_loggedout.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -196,7 +194,7 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
                     saveUserInfo();
                     Toast.makeText(HomePage_loggedout.this, "Creating Account", Toast.LENGTH_SHORT).show();
                 }
-                startActivity(new Intent(HomePage_loggedout.this, HomePage_loggedin_v2.class));
+                startActivity((new Intent(HomePage_loggedout.this, HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
 
             @Override
