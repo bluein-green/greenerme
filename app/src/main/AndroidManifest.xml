@@ -15,39 +15,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.HomePage_loggedin_v2"
-            android:windowSoftInputMode="adjustNothing">
+            android:windowSoftInputMode="adjustNothing"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.HomePage_loggedout"/>
-        <activity android:name=".ui.account.CreateAccPage" />
-        <activity android:name=".ui.account.LoginPage" />
-        <activity android:name=".ItemsPage" />
-        <activity android:name=".ui.main.HomePage_loggedin" />
-        <activity android:name=".ui.account.ForgotAccPage" />
-        <activity android:name=".temp_toremove$FindItemsPage">
+        <activity android:screenOrientation="portrait" android:name=".ui.main.HomePage_loggedout"/>
+        <activity android:screenOrientation="portrait" android:name=".ui.account.CreateAccPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.account.LoginPage" />
+        <activity android:screenOrientation="portrait" android:name=".ItemsPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.main.HomePage_loggedin" />
+        <activity android:screenOrientation="portrait" android:name=".ui.account.ForgotAccPage" />
+        <activity android:screenOrientation="portrait" android:name=".temp_toremove$FindItemsPage">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".ui.quiz.TakeQuizPage" />
-        <activity android:name=".ui.points.CheckPointsPage" />
-        <activity android:name=".ui.main.AboutAppPage" />
-        <activity android:name=".ui.account.ViewAccountPage" />
-        <activity android:name=".ui.findItem.CategoriesPage" />
-        <activity android:name=".ui.findItem.ItemDetailsPage" />
-        <activity android:name=".temp_toremove" />
-        <activity android:name=".ui.quiz.QuizQuestionPage" />
-        <activity android:name=".ui.points.LeaderboardPage" />
-        <activity android:name=".ui.quiz.EndQuizPage" />
-        <activity android:name=".temp_toremove$ViewAnsPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.quiz.TakeQuizPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.points.CheckPointsPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.main.AboutAppPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.account.ViewAccountPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.findItem.CategoriesPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.findItem.ItemDetailsPage" />
+        <activity android:screenOrientation="portrait" android:name=".temp_toremove" />
+        <activity android:screenOrientation="portrait" android:name=".ui.quiz.QuizQuestionPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.points.LeaderboardPage" />
+        <activity android:screenOrientation="portrait" android:name=".ui.quiz.EndQuizPage" />
+        <activity android:screenOrientation="portrait" android:name=".temp_toremove$ViewAnsPage" />
         <activity
             android:name=".ui.quiz.ViewAnsPage_v2"
             android:label="@string/title_activity_view_ans_page_v2"
             android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
             />
     </application>
 
