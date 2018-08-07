@@ -107,8 +107,9 @@ public class CategoriesPage extends AppCompatActivity {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CategoriesPage.this, HomePage_loggedin_v2.class);
-                startActivity(intent);
+                // Intent intent = new Intent(CategoriesPage.this, HomePage_loggedin_v2.class);
+                // startActivity(intent);
+                onBackPressed();
             }
         });
     }

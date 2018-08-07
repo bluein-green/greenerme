@@ -269,7 +269,7 @@ public class QuizQuestionPage extends AppCompatActivity {
 
     private void setQuestionOnScreen(int qnNum) {
         // set question number
-        String qnNum_res = "Question " + (qnNum + 1);
+        String qnNum_res = "Question " + (qnNum + 1) + " / " + Integer.toString(totalNumQn);
         qnNum_txt.setText(qnNum_res);
 
         // set question text
