@@ -114,7 +114,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
                 if (task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
+                    startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }

@@ -87,6 +87,7 @@ public class TakeQuizPage extends AppCompatActivity {
                 // set quiz dates
                 String date_result = getString(R.string.Quiz_startToEndDates, quizInfo.getStartDate(), quizInfo.getEndDate());
                 date_txt.setText(date_result);
+                date_txt.setVisibility(View.VISIBLE);
 
                 // set quiz topic
                 topic = quizInfo.getTopic();
@@ -119,6 +120,8 @@ public class TakeQuizPage extends AppCompatActivity {
         // to vary depending on whether user has taken quiz
         focus_txt = (TextView) findViewById(R.id.Quiz_focus_txt);
         takenQuiz_txt = (TextView) findViewById(R.id.Quiz_taken_enc);
+
+        date_txt.setVisibility(View.INVISIBLE);
     }
 
     private void pullTakenQuizInfo() {

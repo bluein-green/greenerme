@@ -319,7 +319,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                     // delete user info from database
                     FirebaseDatabase.getInstance().getReference().child("Leaderboard").child(user_id).removeValue();
                     finish();
-                    startActivity(new Intent(ViewAccountPage.this, HomePage_loggedin_v2.class));
+                    startActivity((new Intent(ViewAccountPage.this, HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -357,7 +357,7 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
             mAuth.signOut();
             if (mAuth.getCurrentUser() == null) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), HomePage_loggedin_v2.class));
+                startActivity((new Intent(getApplicationContext(), HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
 
         }

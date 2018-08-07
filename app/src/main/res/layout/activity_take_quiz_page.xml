@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Quiz_focus_txt"
-        app:srcCompat="@drawable/quiz_pic_sample" />
+        app:srcCompat="@mipmap/quiz_pic_sample" />
 
     <TextView
         android:id="@+id/Quiz_description_txt"
