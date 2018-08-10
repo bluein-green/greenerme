@@ -318,5 +318,11 @@
         app:layout_constraintStart_toStartOf="@+id/home_covered_bar"
         app:layout_constraintTop_toTopOf="@+id/home_covered_bar" />
 
+    <android.support.constraint.Group
+        android:id="@+id/group_notLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="homepagelogout_btn,home_covered_bar" />
+
 
 </android.support.constraint.ConstraintLayout>
