@@ -276,36 +276,43 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
 
 
     private void deleteAcc() {
+        try {
+            final String email = currentUser.getEmail();
+            String password = password_EditText.getText().toString().trim();    // <-- might be an empty string
 
-        progressDialog.setMessage("Authenticating Password...");
-        progressDialog.show();
+            AuthCredential credential = EmailAuthProvider.getCredential(email, password); // <-- might have IllegalArgumentException
 
-        final String email = currentUser.getEmail();
-        String password = password_EditText.getText().toString().trim();
+            progressDialog.setMessage("Authenticating Password...");
+            progressDialog.show();
 
-        AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+            currentUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
 
-        currentUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
+                    progressDialog.dismiss();
 
-                progressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        finish();
+                        delete();
 
-                if (task.isSuccessful()) {
-                    finish();
-                    delete();
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(getApplicationContext(), "You did not enter your password", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void delete() {
 
         progressDialog.setMessage("Deleting User...");
         progressDialog.show();
+
+        // delete user info from database
+        FirebaseDatabase.getInstance().getReference().child("Leaderboard").child(user_id).removeValue();
 
         currentUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -316,8 +323,6 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "User have been deleted!", Toast.LENGTH_SHORT).show();
 
-                    // delete user info from database
-                    FirebaseDatabase.getInstance().getReference().child("Leaderboard").child(user_id).removeValue();
                     finish();
                     startActivity((new Intent(ViewAccountPage.this, HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
@@ -373,12 +378,14 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
         }
         if (view == deleteAccPop_btn) {
             deleteAcc();
+
         }
         if (view == deleteAccGooglePop_btn) {
             delete();
         }
         if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin_v2.class));
+            // startActivity(new Intent(this, HomePage_loggedin_v2.class));
+            onBackPressed();
         }
     }
 }

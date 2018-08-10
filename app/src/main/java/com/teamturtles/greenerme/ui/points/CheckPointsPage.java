@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -68,8 +69,8 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                throw databaseError.toException(); // Don't ignore errors
-                // Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
+                // throw databaseError.toException(); // Don't ignore errors
+                Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -83,7 +84,10 @@ public class CheckPointsPage extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, LeaderboardPage.class));
         }
         if (view == home_btn) {
-            startActivity(new Intent(this, HomePage_loggedin_v2.class));
+            // startActivity(new Intent(this, HomePage_loggedin_v2.class));
+            onBackPressed();
+
+            // TODO: remove click listener for points!!
         }
 
     }

@@ -269,10 +269,11 @@ public class LeaderboardPage extends AppCompatActivity implements SwipeRefreshLa
     }
 
     @Override
-
     public void onClick(View view) {
         if (view == backToPts_btn) {
-            startActivity(new Intent(this, CheckPointsPage.class));
+            // startActivity(new Intent(this, CheckPointsPage.class));
+            // finish();
+            onBackPressed();
         }
         if (view == home_btn) {
             startActivity(new Intent(this, HomePage_loggedin_v2.class));

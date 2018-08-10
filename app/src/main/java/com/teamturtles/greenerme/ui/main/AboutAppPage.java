@@ -33,8 +33,8 @@ public class AboutAppPage extends AppCompatActivity {
         title_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AboutAppPage.this, HomePage_loggedin_v2.class));
-                finish();
+                // startActivity(new Intent(AboutAppPage.this, HomePage_loggedin_v2.class));
+                onBackPressed();
             }
         });
     }

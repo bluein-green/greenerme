@@ -193,8 +193,9 @@ public class TakeQuizPage extends AppCompatActivity {
         home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TakeQuizPage.this, HomePage_loggedin_v2.class);
-                startActivity(intent);
+                // Intent intent = new Intent(TakeQuizPage.this, HomePage_loggedin_v2.class);
+                // startActivity(intent);
+                onBackPressed();
             }
         });
     }

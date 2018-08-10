@@ -152,6 +152,8 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
                 if (!task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
+                    // TODO: to refactor so that this information can be totally locked behind auth wall
+
                     String user_id = mAuth.getCurrentUser().getUid();
                     mRef.child(user_id).child("name").setValue(username);
                     mRef.child(user_id).child("points").setValue(0);
