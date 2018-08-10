@@ -107,8 +107,8 @@
 
 
     <ScrollView
-        android:layout_width="368dp"
-        android:layout_height="281dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -139,6 +139,7 @@
                 android:textColor="#ffffff"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
 
@@ -159,6 +160,7 @@
                 android:textColor="#ffffff"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,6 +177,7 @@
                 android:fontFamily="@font/montserrat"
                 android:padding="8dp"
                 android:text="choice3"
+                android:gravity="center"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
@@ -199,6 +202,7 @@
                 android:textColor="#ffffff"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
