@@ -134,8 +134,6 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            progressDialog.dismiss();
-
                             if (task.isSuccessful()) {
                                 usernameDatabase.setValue(newUsername_final);
 
@@ -321,8 +319,8 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
                 progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(), "User have been deleted!", Toast.LENGTH_SHORT).show();
-
                     finish();
                     startActivity((new Intent(ViewAccountPage.this, HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 

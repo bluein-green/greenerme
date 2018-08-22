@@ -171,9 +171,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
 
         DatabaseReference mRef = mDatabaseReference.child("Leaderboard");
 
-        progressDialog.setMessage("Updating Username...");
-        progressDialog.show();
-
         String user_id = user.getUid();
         String username = user.getDisplayName();
         mRef.child(user_id).child("name").setValue(username);
