@@ -48,7 +48,7 @@
         android:scrollbars="none"
         app:layout_constraintEnd_toStartOf="@+id/points_listview"
         app:layout_constraintStart_toEndOf="@+id/ranking_listview"
-        app:layout_constraintTop_toTopOf="@+id/barrier2">
+        app:layout_constraintTop_toBottomOf="@+id/name_LB">
 
     </ListView>
 
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/names_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/names_listview"
-        app:layout_constraintTop_toTopOf="@+id/barrier2" />
+        app:layout_constraintTop_toBottomOf="@+id/points_LB" />
 
     <ListView
         android:id="@+id/ranking_listview"
@@ -78,17 +78,19 @@
         app:layout_constraintEnd_toStartOf="@+id/names_listview"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/barrier2" />
+        app:layout_constraintTop_toBottomOf="@+id/rank_LB" />
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/myCoordinatorLayout"
         android:layout_width="248dp"
         android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToPts_btn"
+        app:layout_constraintVertical_bias="1.0">
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -145,7 +147,7 @@
         android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/txt_leaderboard"
         android:textAlignment="center"
@@ -161,7 +163,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/button_pink"
         android:fontFamily="@font/montserrat"
         android:text="@string/backToPts_btn"
@@ -192,7 +194,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/myCoordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
