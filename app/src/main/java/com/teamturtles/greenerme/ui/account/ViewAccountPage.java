@@ -291,8 +291,6 @@ public class ViewAccountPage extends AppCompatActivity implements View.OnClickLi
 
                     if (task.isSuccessful()) {
                         delete();
-                        finish();
-
                     } else {
                         Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_SHORT).show();
                     }
