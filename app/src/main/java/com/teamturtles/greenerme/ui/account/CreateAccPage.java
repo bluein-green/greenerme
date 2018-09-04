@@ -141,14 +141,16 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
 
         final DatabaseReference mRef = mDatabaseReference.child("Leaderboard");
 
-        progressDialog.setMessage("Updating Username...");
+        progressDialog.setMessage("Creating User Profile...");
         progressDialog.show();
 
         UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
         user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+
                 progressDialog.dismiss();
+
                 if (!task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
@@ -171,6 +173,7 @@ public class CreateAccPage extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+
                     mAuth.signOut();
                     finish();
                     startActivity(new Intent(CreateAccPage.this, HomePage_loggedout.class));

@@ -99,6 +99,8 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
             }
         }).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
 
+        mGoogleApiClient.connect();
+
         progressDialog = new ProgressDialog(this);
 
         speech_box = (ImageView) findViewById(R.id.speechbox);
@@ -189,7 +191,6 @@ public class HomePage_loggedout extends AppCompatActivity implements View.OnClic
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.child(user_id).exists()) {
                     saveUserInfo();
-                    Toast.makeText(HomePage_loggedout.this, "Creating Account", Toast.LENGTH_SHORT).show();
                 }
                 startActivity((new Intent(HomePage_loggedout.this, HomePage_loggedin_v2.class)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
