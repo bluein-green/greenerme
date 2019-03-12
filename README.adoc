@@ -1,7 +1,7 @@
 = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-image::docs/images/Logo.png[height=100]
+image::docs/images/Logo.png[height=100, align="center"]
 
 
 == About App
@@ -51,7 +51,7 @@ image::docs/images/Features.png[]
 
 
 == User Flow
-image::docs/images/UserFlow.png[width="600"]
+image::docs/images/UserFlow.png[]
 
 
 == How we are different from similar apps
