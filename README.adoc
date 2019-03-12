@@ -1,0 +1,124 @@
+= GreenerMe
+ifdef::env-github,env-browser[:relfileprefix: docs/]
+
+ifdef::env-github[]
+image::docs/images/Ui.png[width="600"]
+endif::[]
+
+ifndef::env-github[]
+image::images/Logo.png[width="600"]
+endif::[]
+
+== About App
+*GreenerMe* is an educational Android app about recycling and environmental sustainability
+targeted at youths in Singapore. It provides straightforward information on what can or cannot be recycled and how to do so with one simple search,
+and raises awareness about the environmental problems today in an engaging and motivating way through weekly quizzes. Users can
+earn points from these quizzes, which can be used to redeem prizes.
+
+Singapore's household recycling rates are reported to be only around 20%, and our only landfill, Pulau Semakau, is slated
+to run out of space by 2035 at our current rate of producing waste. We can definitely do more to foster and practise green habits - and be a greener me!
+
+ifndef::env-github[]
+image::images/Ui.png[width="600"]
+endif::[]
+
+== Features
+ifndef::env-github[]
+image::images/Features.png[width="600"]
+endif::[]
+
+. Provide information to people about what can or cannot be recycled. If the item can be recycled, provide the procedure on recycling the items
+** Find item using:
+*** Search item by name
+*** Filter by material category
+** Provide information on item
+*** If recyclable, how to recycle it, what to take note of
+*** Collection points for some types of items
+. Weekly quizzes
+** Learn fun facts and earn points for questions answered correctly
+. Points system as gamification
+** Leaderboard and possible rewards - possible rewards sponsored or supported by organisations such as NEA
+** Encourage participation in the quizzes
+
+== User Stories
+* As a person who does not know whether his / her item can be recycled, I want to easily get the answer and know where I can recycle the item.
+* As a person who does not know how to recycle his / her item, I want to easily get the procedure for recycling the item.
+* As a person who cannot be bothered to recycle due to lack of knowledge, I want to easily overcome this barrier.
+* As a practical person, I want to be in a win-win situation where I am rewarded for doing something good (recycling and learning about environmental problems).
+
+
+== User Flow
+ifndef::env-github[]
+image::images/UserFlow.png[width="600"]
+endif::[]
+
+
+== How we are different from similar apps
+=== myEnv (by NEA):
+* Lack of focus on recycling
+** Too many other features such as weather and air quality which dilutes the attention on the 3Rs and recycling in particular
+** Information provided is not targeted to recycling
+** Does not actively promote recycling programmes
+* Not user-friendly in terms of finding information and app design
+* Lack of details regarding whether a specific item can be recycled
+
+=== Recycle!
+Provides a collection calendar, collections points and a sorting guide
+
+* Only applies to Belgium, not relevant to Singapore
+* Other countries have similar initiatives but not seen in Singapore
+
+=== Others
+Some other apps generally focus on how items can be recycled or reused to make into other things, rather than
+informing users on what specifically can or cannot be recycled and how to do so.
+
+== Tools Used
+* Prototype-making - Figma
+* IDE - Android Studio
+* Realtime Database - Firebase
+* Authentication - Firebase
+* Search solution - Algolia
+
+
+== Bugs Squashed
+* Fixed image scaling in item details page
+* Fixed app-crash caused by too high resolution pictures in Quiz page
+* Fixed empty string query in Algolia search feature which caused app to crash
+* Fixed Algolia results list display clashing with home page icons
+* Fixed soft keyboard appearance causing home page icons to jump around
+* Fixed quiz review syncing of fragment display with pulling of data from Firebase
+* Developed workaround for Google login
+
+== User Testing
+* Functional Testing
+** Authentication (Create Account, Forgot Account, Login via Email/Google Sign In, Verification Email)
+** Search Items (Via Categories, Via Search Bar)
+** Points (User’s Points, Leaderboard)
+** Account Settings (Edit Username, Change Password, Delete Account, Log Out)
+* Self Evaluation
+* Cognitive Walkthrough/ User Stories: Acting and thinking from the perspectives of different users to cater to their specific needs
+* Usability Testing with Potential Users on Low-Fidelity artefacts: Our fellow Orbital mates as users
+** Adobe XD during mission control (Initial short mock-up)
+** Figma (Mock-up that we follow according to for actual app UI)
+* Shadowing: Allowing our friends and family to use while quietly observing how they use our app within their natural environment
+
+== Possible Extensions
+- Push Notification for Weekly Quizzes
+- User Display Picture
+- Help Tutorial
+- User’s Suggestion/ Feedbacks Channel
+- GPS Location for nearest HDB/ separated recycling bins
+
+== Download Prototype
+https://drive.google.com/file/d/1ipOUPKaNSkEOrjBoIHXU4zsW0wZvnsqz/view?usp=sharing[Download here]
+
+To download the app, allow installation from unknown sources: Settings > Applications > Unknown sources.
+
+App works best on phones.
+
+
+== Acknowledgements
+* Icons from flaticon.com
+* Images from unsplash.com
+
+== Licence : link:LICENSE[MIT]
