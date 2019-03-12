@@ -1,7 +1,6 @@
 = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-
 ifndef::env-github[]
 image::docs/images/Logo.png[width="600"]
 endif::[]
@@ -15,13 +14,16 @@ earn points from these quizzes, which can be used to redeem prizes.
 Singapore's household recycling rates are reported to be only around 20%, and our only landfill, Pulau Semakau, is slated
 to run out of space by 2035 at our current rate of producing waste. We can definitely do more to foster and practise green habits - and be a greener me!
 
-ifdef::env-github[]
-image::docs/images/Ui_homePage.png[width="600"]
-endif::[]
+[cols="3*a", frame=none, grid=none, stripes=none]
+|===
+| image::docs/images/Ui_homePage.png[height="200"]
+| image::docs/images/Ui_itemDetails.png[height="200"]
+| image::docs/images/Ui_quizMainPage.png[height="200"]
 
-ifdef::env-github[]
-image::docs/images/Ui_quizMainPage.png.png[width="600"]
-endif::[]
+| image::docs/images/Ui_quizQn.png[height="200"]
+| image::docs/images/Ui_points.png[height="200"]
+| image::docs/images/Ui_leaderboard.png[height="200"]
+|===
 
 
 == Features
