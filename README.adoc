@@ -1,7 +1,7 @@
 = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-image::docs/images/Logo.png[width="600"]
+image::docs/images/Logo.png[height=100]
 
 
 == About App
@@ -28,7 +28,7 @@ to run out of space by 2035 at our current rate of producing waste. We can defin
 
 
 == Features
-image::docs/images/Features.png[width="600"]
+image::docs/images/Features.png[]
 
 . Provide information to people about what can or cannot be recycled. If the item can be recycled, provide the procedure on recycling the items
 ** Find item using:
