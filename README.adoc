@@ -1,7 +1,7 @@
-= GreenerMe
+% = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-image::docs/images/Logo.png[height=100, align="center"]
+image::docs/images/Logo.png[height=100, align="center", float="center"]
 
 
 == About App
