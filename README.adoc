@@ -1,12 +1,9 @@
 = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-ifdef::env-github[]
-image::docs/images/Ui.png[width="600"]
-endif::[]
 
 ifndef::env-github[]
-image::images/Logo.png[width="600"]
+image::docs/images/Logo.png[width="600"]
 endif::[]
 
 == About App
@@ -18,13 +15,18 @@ earn points from these quizzes, which can be used to redeem prizes.
 Singapore's household recycling rates are reported to be only around 20%, and our only landfill, Pulau Semakau, is slated
 to run out of space by 2035 at our current rate of producing waste. We can definitely do more to foster and practise green habits - and be a greener me!
 
-ifndef::env-github[]
-image::images/Ui.png[width="600"]
+ifdef::env-github[]
+image::docs/images/Ui_homePage.png[width="600"]
 endif::[]
+
+ifdef::env-github[]
+image::docs/images/Ui_quizMainPage.png.png[width="600"]
+endif::[]
+
 
 == Features
 ifndef::env-github[]
-image::images/Features.png[width="600"]
+image::docs/images/Features.png[width="600"]
 endif::[]
 
 . Provide information to people about what can or cannot be recycled. If the item can be recycled, provide the procedure on recycling the items
@@ -49,7 +51,7 @@ endif::[]
 
 == User Flow
 ifndef::env-github[]
-image::images/UserFlow.png[width="600"]
+image::docs/images/UserFlow.png[width="600"]
 endif::[]
 
 
@@ -121,4 +123,4 @@ App works best on phones.
 * Icons from flaticon.com
 * Images from unsplash.com
 
-== Licence : link:LICENSE[MIT]
+== Licence: link:LICENSE[MIT]
