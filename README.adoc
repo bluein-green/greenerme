@@ -1,9 +1,8 @@
 = GreenerMe
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-ifndef::env-github[]
 image::docs/images/Logo.png[width="600"]
-endif::[]
+
 
 == About App
 *GreenerMe* is an educational Android app about recycling and environmental sustainability
@@ -29,9 +28,7 @@ to run out of space by 2035 at our current rate of producing waste. We can defin
 
 
 == Features
-ifndef::env-github[]
 image::docs/images/Features.png[width="600"]
-endif::[]
 
 . Provide information to people about what can or cannot be recycled. If the item can be recycled, provide the procedure on recycling the items
 ** Find item using:
@@ -54,9 +51,7 @@ endif::[]
 
 
 == User Flow
-ifndef::env-github[]
 image::docs/images/UserFlow.png[width="600"]
-endif::[]
 
 
 == How we are different from similar apps
