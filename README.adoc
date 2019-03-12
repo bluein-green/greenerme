@@ -16,15 +16,15 @@ to run out of space by 2035 at our current rate of producing waste. We can defin
 
 [cols="1a,1a,1a", frame=none, grid=none, stripes=none]
 |===
-| image::docs/images/Ui_homePage.png[]
-| image::docs/images/Ui_itemDetails.png[]
-| image::docs/images/Ui_quizMainPage.png[]
+| image::docs/images/Ui_homePage.png[width=300]
+| image::docs/images/Ui_itemDetails.png[width=300]
+| image::docs/images/Ui_quizMainPage.png[width=300]
 |===
 [cols="1a,1a,1a", frame=none, grid=none, stripes=none]
 |===
-| image::docs/images/Ui_quizQn.png[]
-| image::docs/images/Ui_points.png[]
-| image::docs/images/Ui_leaderboard.png[]
+| image::docs/images/Ui_quizQn.png[width=300]
+| image::docs/images/Ui_points.png[width=300]
+| image::docs/images/Ui_leaderboard.png[width=300]
 |===
 
 
